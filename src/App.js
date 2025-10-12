@@ -16,6 +16,7 @@ import BlogSection from './components/BlogSection';
 import CallToActionSection from './components/CallToActionSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ScrollingTextBanner from './components/ScrollingTextBanner';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -36,6 +37,23 @@ function App() {
         <Header />
         <HeroSection />
         
+        {/* Scrolling Text Banner 1 */}
+                <ScrollingTextBanner 
+          text="FLAVORS ENCHANTED" 
+          backgroundColor="#081C4F" 
+          textColor="#FCB100"
+          icon="✦"
+          scrollDirection = "left"
+        />
+        <ScrollingTextBanner 
+          text="MAGIC SERVED" 
+          backgroundColor="#FCB100" 
+          textColor="#081C4F"
+          icon="✱"
+          scrollDirection = "right"
+        />
+
+        
         {/* Row 1: About + Menu (Side by Side) */}
         <div style={{ 
           backgroundColor: 'var(--color-primary)',
@@ -49,8 +67,18 @@ function App() {
           </div>
         </div>
 
+        {/* Scrolling Text Banner 2 */}
+        <ScrollingTextBanner 
+          text="FLAVORS ENCHANTED" 
+          backgroundColor="#081C4F" 
+          textColor="#FCB100"
+          icon="✦"
+        />
+
+
         {/* Row 2: Intro Section (Full Width) */}
         <IntroSection />
+        
 
         {/* Row 3: Testimonials + Chef (Side by Side) */}
         <div style={{ 
@@ -64,6 +92,16 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Scrolling Text Banner 3 */}
+        <ScrollingTextBanner 
+          text="AUTHENTIC TASTE" 
+          backgroundColor="#FCB100" 
+          textColor="#081C4F"
+          icon="✨"
+          scrollDirection = "right"
+
+        />
 
         {/* Row 4: Perfect Ingredients + Blog (Side by Side) */}
         <div style={{ 

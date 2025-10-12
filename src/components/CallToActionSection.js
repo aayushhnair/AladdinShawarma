@@ -54,7 +54,7 @@ const CallToActionSection = () => {
               marginBottom: 'var(--space-8)',
               background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
               WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              WebkitTextFillColor: 'var(--color-secondary)',
               backgroundClip: 'text',
               maxWidth: '800px',
               margin: '0 auto var(--space-8)'

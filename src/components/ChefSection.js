@@ -35,7 +35,6 @@ const ChefSection = () => {
         <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>
           {strings.chef.title}
         </h2>
-        <div className="section-decoration"></div>
       </div>
 
       {/* Two Column Chef Layout */}
@@ -46,7 +45,7 @@ const ChefSection = () => {
             width: '200px',
             height: '200px',
             borderRadius: 'var(--radius-full)',
-            backgroundImage: `url('${getImageByKey('chef.portrait')}')`,
+            backgroundImage: `url('${strings.chef.chef.image}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

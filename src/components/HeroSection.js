@@ -1,17 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { logo, hero } from '../config/assets';
 import strings from '../config/strings.json';
 
 const HeroSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    // Trigger animations after component mounts
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 300);
+  const sectionRef = useRef(null);
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Trigger animations for hero content when in view
+            const heroElements = entry.target.querySelectorAll('.animate-on-scroll');
+            heroElements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('visible');
+              }, index * 200);
+            });
+          }
+        });
+      },
+      { 
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   const handleOrderClick = () => {
@@ -27,7 +50,7 @@ const HeroSection = () => {
 
   const handleReservationClick = () => {
     // Smooth scroll to contact/reservation section
-    const contactSection = document.querySelector('#contact');
+    const contactSection = document.querySelector('#menu');
     if (contactSection) {
       contactSection.scrollIntoView({
         behavior: 'smooth',
@@ -40,6 +63,7 @@ const HeroSection = () => {
     <section 
       className="hero-section" 
       id="home"
+      ref={sectionRef}
       style={{
         position: 'relative',
         overflow: 'hidden'
@@ -86,7 +110,7 @@ const HeroSection = () => {
       {/* Main Hero Content */}
       <div className="hero-content">
         {/* Logo */}
-        <div className="hero-logo">
+        <div className="hero-logo animate-on-scroll fade-in delay-1">
           <img 
             src={logo.main} 
             alt={logo.alt}
@@ -95,17 +119,17 @@ const HeroSection = () => {
         </div>
 
         {/* Tagline */}
-        <div className="hero-tagline">
+        <div className="hero-tagline animate-on-scroll slide-up delay-2">
           {strings.branding.tagline}
         </div>
 
         {/* Hero Description */}
-        <p className="hero-description">
+        <p className="hero-description animate-on-scroll fade-in delay-3">
           {strings.hero.description}
         </p>
 
         {/* Hero Actions */}
-        <div className="hero-actions">
+        <div className="hero-actions animate-on-scroll scale-in delay-4">
           <button className="btn btn-primary" onClick={handleOrderClick}>
             <span>{strings.hero.cta.primary}</span>
           </button>
@@ -116,7 +140,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="scroll-indicator">
+      <div className="scroll-indicator animate-on-scroll fade-in delay-5">
         <div className="scroll-text">Scroll</div>
         <div className="scroll-line"></div>
       </div>

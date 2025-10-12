@@ -378,9 +378,9 @@ a:hover {
 /* Container System */
 .container {
   width: 100%;
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-32);
+  padding: 0 var(--space-3);
   position: relative;
 }
 
@@ -564,10 +564,11 @@ a:hover {
   align-items: center;
   gap: var(--space-3);
   position: relative;
+  padding: 0px 10px;
 }
 
 .logo-image {
-  width: 60px;
+  width: 90px;
   transition: var(--transition-normal);
   filter: drop-shadow(0 0 10px rgba(252, 177, 0, 0.3));
 }
@@ -798,7 +799,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: var(--space-8);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 0.4s;
   opacity: 0;
@@ -1358,7 +1359,7 @@ a:hover {
 }
 
 .section-lg {
-  padding: var(--space-16) 0;
+  padding: var(--space-32) 0;
 }
 
 /* Section Backgrounds */
@@ -1569,43 +1570,66 @@ a:hover {
    ANIMATION UTILITIES
 ======================================== */
 
-/* Intersection Observer Animation Classes */
+/* Intersection Observer Animation Classes - SCROLL BASED ONLY */
 .animate-on-scroll {
   opacity: 0;
   transition: var(--transition-slow);
 }
 
 .animate-on-scroll.fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  transform: translateY(20px);
+}
+
+.animate-on-scroll.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .animate-on-scroll.slide-up {
   transform: translateY(50px);
-  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-on-scroll.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .animate-on-scroll.slide-left {
   transform: translateX(50px);
-  animation: slideLeft 0.8s ease-out forwards;
+}
+
+.animate-on-scroll.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .animate-on-scroll.slide-right {
   transform: translateX(-50px);
-  animation: slideRight 0.8s ease-out forwards;
+}
+
+.animate-on-scroll.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .animate-on-scroll.scale-in {
   transform: scale(0.8);
-  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-on-scroll.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Stagger Animation Delays */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
 
 /* ========================================
    FORM COMPONENTS

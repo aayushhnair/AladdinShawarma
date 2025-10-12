@@ -83,7 +83,7 @@ const MenuSection = () => {
                         width: '50px',
                         height: '50px',
                         borderRadius: 'var(--radius-full)',
-                        backgroundImage: `url(${getImageByKey(item.image)})`,
+                        backgroundImage: `url(${item.image})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         flexShrink: 0,

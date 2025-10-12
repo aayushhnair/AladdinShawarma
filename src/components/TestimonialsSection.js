@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
               width: '80px',
               height: '80px',
               borderRadius: 'var(--radius-full)',
-              backgroundImage: `url('${getImageByKey(strings.testimonials.reviews[currentReview].image)}')`,
+              backgroundImage: `url('${strings.testimonials.reviews[currentReview].image}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               margin: '0 auto var(--space-4)',
@@ -269,10 +269,10 @@ const TestimonialsSection = () => {
       <div className="animate-on-scroll fade-in delay-400" style={{
         marginTop: 'var(--space-8)',
         textAlign: 'center',
-        background: 'rgba(252, 177, 0, 0.1)',
+        // background: 'var(--color-secondary)',
         padding: 'var(--space-4)',
         borderRadius: 'var(--radius-lg)',
-        border: '1px solid rgba(252, 177, 0, 0.3)'
+        border: '3px solid var(--color-secondary)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'var(--space-4)' }}>
           <div style={{ textAlign: 'center' }}>
@@ -284,7 +284,7 @@ const TestimonialsSection = () => {
             </div>
           </div>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 'var(--text-2xl)', color: 'var(--color-secondary)' }}>
+            <div style={{ fontSize: 'var(--text-2xl)', fontWeight: '700', color: 'var(--color-secondary)' }}>
               ★★★★★
             </div>
             <div style={{ fontSize: 'var(--text-sm)', color: 'rgba(255, 255, 255, 0.8)' }}>

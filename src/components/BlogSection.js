@@ -77,7 +77,7 @@ const BlogSection = () => {
               {/* Blog Image */}
               <div style={{
                 height: '300px',
-                backgroundImage: `url('${getImageByKey(featuredPost.image)}')`,
+                backgroundImage: `url('${featuredPost.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative'
@@ -198,7 +198,7 @@ const BlogSection = () => {
               {/* Blog Image */}
               <div style={{
                 height: '200px',
-                backgroundImage: `url('${getImageByKey(post.image)}')`,
+                backgroundImage: `url('${post.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative'

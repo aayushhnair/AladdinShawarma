@@ -2,39 +2,51 @@ import { useEffect, useState } from 'react';
 
 export const useScrollAnimation = () => {
   const [visibleElements, setVisibleElements] = useState(new Set());
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     // Enhanced scroll animation with parallax and smooth effects
     const handleScroll = () => {
+      const currentScrollY = window.pageYOffset;
+      
+      // Track scroll direction
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
+      setLastScrollY(currentScrollY);
+      
       // Parallax effect for hero background
-      const hero = document.querySelector('.hero-wrap');
+      const hero = document.querySelector('.hero-wrap, .hero-section');
       if (hero) {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.3;
+        const parallax = currentScrollY * 0.3;
         hero.style.transform = `translateY(${parallax}px)`;
       }
       
       // Update navigation active state
-      const sections = document.querySelectorAll('section[id]');
+      const sections = document.querySelectorAll('section[id], div[id]');
       const navLinks = document.querySelectorAll('.nav-link');
       
       let current = '';
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop <= 100) {
+        const sectionBottom = section.getBoundingClientRect().bottom;
+        if (sectionTop <= 150 && sectionBottom >= 150) {
           current = section.getAttribute('id');
         }
       });
       
       navLinks.forEach(link => {
         link.parentElement.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        if (current && link.getAttribute('href').includes(current)) {
           link.parentElement.classList.add('active');
         }
       });
     };
 
-    // Enhanced intersection observer with staggered animations
+    // Enhanced intersection observer with staggered animations and scroll direction
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,18 +54,49 @@ export const useScrollAnimation = () => {
             // Add staggered delay for better visual effect
             const delay = entry.target.classList.contains('ftco-animate-delay-1') ? 200 :
                          entry.target.classList.contains('ftco-animate-delay-2') ? 400 :
-                         entry.target.classList.contains('ftco-animate-delay-3') ? 600 : 0;
+                         entry.target.classList.contains('ftco-animate-delay-3') ? 600 :
+                         entry.target.classList.contains('delay-1') ? 100 :
+                         entry.target.classList.contains('delay-2') ? 200 :
+                         entry.target.classList.contains('delay-3') ? 300 :
+                         entry.target.classList.contains('delay-4') ? 400 :
+                         entry.target.classList.contains('delay-5') ? 500 : 0;
             
             setTimeout(() => {
               setVisibleElements(prev => new Set([...prev, entry.target]));
               entry.target.classList.add('ftco-animate-active');
+              
+              // Add scroll direction class for dynamic animations
+              entry.target.classList.add(scrollDirection === 'up' ? 'scroll-up' : 'scroll-down');
+              
+              // Add specific animation classes only when scrolling
+              if (entry.target.classList.contains('fade-in')) {
+                entry.target.classList.add('visible');
+              }
+              if (entry.target.classList.contains('slide-up')) {
+                entry.target.classList.add('visible');
+              }
+              if (entry.target.classList.contains('slide-left')) {
+                entry.target.classList.add('visible');
+              }
+              if (entry.target.classList.contains('slide-right')) {
+                entry.target.classList.add('visible');
+              }
+              if (entry.target.classList.contains('scale-in')) {
+                entry.target.classList.add('visible');
+              }
+              if (entry.target.classList.contains('bounce-in')) {
+                entry.target.classList.add('visible');
+              }
             }, delay);
+          } else {
+            // Remove animation classes when element is out of view for re-animation
+            entry.target.classList.remove('visible', 'ftco-animate-active', 'scroll-up', 'scroll-down');
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -10px 0px'
       }
     );
 
@@ -89,7 +132,7 @@ export const useScrollAnimation = () => {
     );
 
     // Observe elements
-    const animateElements = document.querySelectorAll('.ftco-animate, .scroll-fade');
+    const animateElements = document.querySelectorAll('.ftco-animate, .scroll-fade, .animate-on-scroll');
     const counterElements = document.querySelectorAll('.counter-number');
     
     animateElements.forEach((el) => observer.observe(el));
@@ -114,7 +157,7 @@ export const useScrollAnimation = () => {
       counterElements.forEach((el) => counterObserver.unobserve(el));
       window.removeEventListener('scroll', throttledScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     visibleElements.forEach((element) => {

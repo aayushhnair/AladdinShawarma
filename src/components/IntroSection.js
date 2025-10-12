@@ -63,7 +63,7 @@ const IntroSection = () => {
               marginBottom: 'var(--space-6)',
               background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
               WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              WebkitTextFillColor: 'var(--color-secondary)',
               backgroundClip: 'text'
             }}>
               Private Dinners &amp; Happy Hours

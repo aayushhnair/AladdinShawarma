@@ -7,7 +7,7 @@ export const theme = {
   // Primary Color Palette
   colors: {
     primary: '#08144F',        // Deep Navy Blue - Professional and trustworthy
-    secondary: '#FCB100',      // Golden Yellow - Warm and appetizing
+    secondary: '#FFD700',      // Golden Yellow - Warm and appetizing
     tertiary: '#FFFFFF',       // Pure White - Clean and modern
     
     // Extended Color Palette
