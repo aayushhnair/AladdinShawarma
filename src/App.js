@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles/modern.css';
+import './styles/main.css';
 import useScrollAnimation from './hooks/useScrollAnimation';
 
 // Components
@@ -20,47 +21,50 @@ import ScrollingTextBanner from './components/ScrollingTextBanner';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
   // Initialize scroll animations
   useScrollAnimation();
 
   const handleSplashComplete = () => {
     setShowSplash(false);
+    setIsLoading(false);
   };
 
   return (
     <div className="App" style={{ backgroundColor: 'var(--color-primary)' }}>
-      {/* {showSplash && <SplashScreen onComplete={handleSplashComplete} />} */}
-      {/* <div className={`main-content ${showSplash ? 'hidden' : 'visible'}`}> */}
-      <div className={`main-content`}>
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      <div className={`main-content ${showSplash ? 'hidden' : 'visible'}`} style={{ 
+        transition: 'opacity 0.8s ease',
+        opacity: showSplash ? 0 : 1 
+      }}>
 
         <Header />
         <HeroSection />
-        
-        {/* Scrolling Text Banner 1 */}
-                <ScrollingTextBanner 
-          text="FLAVORS ENCHANTED" 
-          backgroundColor="#081C4F" 
+
+        <ScrollingTextBanner
+          text="FLAVORS ENCHANTED"
+          backgroundColor="#081C4F"
           textColor="#FCB100"
           icon="✦"
-          scrollDirection = "left"
+          scrollDirection="left"
         />
-        <ScrollingTextBanner 
-          text="MAGIC SERVED" 
-          backgroundColor="#FCB100" 
+        <ScrollingTextBanner
+          text="MAGIC SERVED"
+          backgroundColor="#FCB100"
           textColor="#081C4F"
           icon="✱"
-          scrollDirection = "right"
+          scrollDirection="right"
         />
 
-        
+
         {/* Row 1: About + Menu (Side by Side) */}
-        <div style={{ 
+        <div style={{
           backgroundColor: 'var(--color-primary)',
           padding: 'var(--space-16) 0'
         }}>
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-12)', alignItems: 'start' }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-24)', alignItems: 'start' }}>
               <AboutSection />
               <MenuSection />
             </div>
@@ -68,9 +72,9 @@ function App() {
         </div>
 
         {/* Scrolling Text Banner 2 */}
-        <ScrollingTextBanner 
-          text="FLAVORS ENCHANTED" 
-          backgroundColor="#081C4F" 
+        <ScrollingTextBanner
+          text="FLAVORS ENCHANTED"
+          backgroundColor="#081C4F"
           textColor="#FCB100"
           icon="✦"
         />
@@ -78,10 +82,33 @@ function App() {
 
         {/* Row 2: Intro Section (Full Width) */}
         <IntroSection />
+
         
+        {/* Row 4: Perfect Ingredients + Blog (Side by Side) */}
+        <div style={{
+          backgroundColor: 'var(--color-primary)',
+          padding: 'var(--space-16) 0'
+        }}>
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-12)', alignItems: 'start' }}>
+              {/* <PerfectIngredientsSection /> */}
+              <BlogSection />
+            </div>
+          </div>
+        </div>
+                {/* Scrolling Text Banner 3 */}
+        <ScrollingTextBanner
+          text="AUTHENTIC TASTE"
+          backgroundColor="#FCB100"
+          textColor="#081C4F"
+          icon="✨"
+          scrollDirection="right"
+
+        />
+
 
         {/* Row 3: Testimonials + Chef (Side by Side) */}
-        <div style={{ 
+        <div style={{
           backgroundColor: 'var(--color-primary)',
           padding: 'var(--space-16) 0'
         }}>
@@ -93,35 +120,15 @@ function App() {
           </div>
         </div>
 
-        {/* Scrolling Text Banner 3 */}
-        <ScrollingTextBanner 
-          text="AUTHENTIC TASTE" 
-          backgroundColor="#FCB100" 
-          textColor="#081C4F"
-          icon="✨"
-          scrollDirection = "right"
 
-        />
 
-        {/* Row 4: Perfect Ingredients + Blog (Side by Side) */}
-        <div style={{ 
-          backgroundColor: 'var(--color-primary)',
-          padding: 'var(--space-16) 0'
-        }}>
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-12)', alignItems: 'start' }}>
-              {/* <PerfectIngredientsSection /> */}
-              <BlogSection />
-            </div>
-          </div>
-        </div>
 
         {/* Row 5: Call to Action (Full Width) */}
         <CallToActionSection />
 
         {/* Row 6: Contact (Full Width) */}
         <ContactSection />
-        
+
         <Footer />
       </div>
     </div>

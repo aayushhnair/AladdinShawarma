@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import strings from '../config/strings.json';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -9,26 +10,9 @@ const ContactSection = () => {
     message: ''
   });
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
-    animatedElements?.forEach((el) => observer.observe(el));
-
-    return () => {
-      animatedElements?.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  
+  // Apply advanced scroll animations to all elements
+  useScrollAnimation(sectionRef, 'fade-in', 0.1);
 
   const handleChange = (e) => {
     setFormData({
@@ -58,8 +42,8 @@ const ContactSection = () => {
     }} id="contact" ref={sectionRef}>
       <div className="container">
         {/* Section Header */}
-        <div className="section-header animate-on-scroll fade-in" style={{ marginBottom: 'var(--space-12)' }}>
-          <div style={{
+        <div className="section-header animate-on-scroll dissolve" style={{ marginBottom: 'var(--space-12)' }}>
+          <div className="animate-on-scroll flip-in delay-200" style={{
             color: 'var(--color-secondary)',
             fontSize: 'var(--text-sm)',
             fontWeight: '600',
@@ -69,7 +53,7 @@ const ContactSection = () => {
           }}>
             Get in Touch
           </div>
-          <h2 style={{
+          <h2 className="animate-on-scroll zoom-in delay-300" style={{
             fontSize: 'var(--text-4xl)',
             fontWeight: '700',
             color: 'white',
@@ -78,7 +62,7 @@ const ContactSection = () => {
           }}>
             Contact Us
           </h2>
-          <p style={{
+          <p className="animate-on-scroll slide-up delay-400" style={{
             fontSize: 'var(--text-lg)',
             color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '600px',
@@ -97,7 +81,7 @@ const ContactSection = () => {
         }}>
           
           {/* Left Side - Contact Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+          <div className="animate-on-scroll slide-right delay-500" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
             
             {/* Quick Contact Cards */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)' }}>
@@ -303,7 +287,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div style={{
+          <div className="animate-on-scroll slide-left delay-600" style={{
             background: 'rgba(255, 255, 255, 0.1)',
             padding: 'var(--space-8)',
             borderRadius: 'var(--radius-xl)',

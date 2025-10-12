@@ -11,18 +11,30 @@ const TestimonialsSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            // Add staggered animations to child elements
+            const animatedElements = entry.target.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('visible');
+              }, index * 200);
+            });
           }
         });
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
     );
 
-    const animatedElements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
-    animatedElements?.forEach((el) => observer.observe(el));
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => {
-      animatedElements?.forEach((el) => observer.unobserve(el));
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
@@ -56,18 +68,18 @@ const TestimonialsSection = () => {
   return (
     <div className="section-column" id="testimonials" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
       {/* Section Header */}
-      <div className="section-header animate-on-scroll fade-in" style={{ marginBottom: 'var(--space-8)' }}>
-        <div className="section-badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
+      <div className="section-header" style={{ marginBottom: 'var(--space-8)' }}>
+        <div className="section-badge animate-on-scroll slide-down delay-1" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
           {strings.testimonials.subtitle}
         </div>
-        <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>
+        <h2 className="section-title animate-on-scroll fade-in-up delay-2" style={{ color: 'var(--color-secondary)' }}>
           {strings.testimonials.title}
         </h2>
       </div>
 
       {/* Testimonials Carousel */}
-      <div className="animate-on-scroll scale-in delay-200" style={{ position: 'relative' }}>
-        <div style={{
+      <div className="animate-on-scroll scale-in delay-3" style={{ position: 'relative' }}>
+        <div className="testimonial-card" style={{
           background: 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -79,7 +91,8 @@ const TestimonialsSection = () => {
           minHeight: '300px',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
         }}>
           {/* Current Review */}
           <div style={{
@@ -88,7 +101,7 @@ const TestimonialsSection = () => {
             transform: 'translateX(0)'
           }}>
             {/* Customer Image */}
-            <div style={{
+            <div className="animate-on-scroll zoom-in delay-4" style={{
               width: '80px',
               height: '80px',
               borderRadius: 'var(--radius-full)',
@@ -97,18 +110,23 @@ const TestimonialsSection = () => {
               backgroundPosition: 'center',
               margin: '0 auto var(--space-4)',
               border: '3px solid var(--color-secondary)',
-              boxShadow: '0 8px 25px rgba(252, 177, 0, 0.3)'
+              boxShadow: '0 8px 25px rgba(252, 177, 0, 0.3)',
+              transition: 'all 0.6s ease'
             }}></div>
 
             {/* Rating Stars */}
-            <div style={{ marginBottom: 'var(--space-4)' }}>
+            <div className="animate-on-scroll bounce-in delay-5" style={{ 
+              marginBottom: 'var(--space-4)'
+            }}>
               {[...Array(5)].map((_, index) => (
                 <span key={index} style={{
                   color: index < strings.testimonials.reviews[currentReview].rating 
                     ? 'var(--color-secondary)' 
                     : 'rgba(255, 255, 255, 0.3)',
                   fontSize: 'var(--text-xl)',
-                  marginRight: 'var(--space-1)'
+                  marginRight: 'var(--space-1)',
+                  display: 'inline-block',
+                  animation: `starTwinkle 0.6s ease ${index * 0.1}s forwards`
                 }}>
                   ★
                 </span>
@@ -116,7 +134,7 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Review Text */}
-            <blockquote style={{
+            <blockquote className="animate-on-scroll dissolve-in delay-6" style={{
               fontSize: 'var(--text-lg)',
               lineHeight: '1.8',
               color: 'var(--color-tertiary)',
@@ -126,7 +144,7 @@ const TestimonialsSection = () => {
               margin: '0 auto var(--space-6)',
               position: 'relative'
             }}>
-              <span style={{
+              <span className="animate-on-scroll slide-right delay-7" style={{
                 fontSize: '3rem',
                 color: 'var(--color-secondary)',
                 position: 'absolute',
@@ -135,7 +153,7 @@ const TestimonialsSection = () => {
                 lineHeight: '1'
               }}>"</span>
               {strings.testimonials.reviews[currentReview].comment}
-              <span style={{
+              <span className="animate-on-scroll slide-left delay-8" style={{
                 fontSize: '3rem',
                 color: 'var(--color-secondary)',
                 position: 'absolute',
@@ -146,8 +164,8 @@ const TestimonialsSection = () => {
             </blockquote>
 
             {/* Customer Info */}
-            <div>
-              <h4 style={{
+            <div className="animate-on-scroll fade-in-up delay-9">
+              <h4 className="animate-on-scroll slide-up" style={{
                 fontSize: 'var(--text-xl)',
                 fontWeight: '700',
                 color: 'var(--color-secondary)',
@@ -155,14 +173,14 @@ const TestimonialsSection = () => {
               }}>
                 {strings.testimonials.reviews[currentReview].name}
               </h4>
-              <p style={{
+              <p className="animate-on-scroll fade-in" style={{
                 fontSize: 'var(--text-sm)',
                 color: 'rgba(255, 255, 255, 0.8)',
                 marginBottom: 'var(--space-1)'
               }}>
                 {strings.testimonials.reviews[currentReview].role}
               </p>
-              <p style={{
+              <p className="animate-on-scroll slide-up" style={{
                 fontSize: 'var(--text-sm)',
                 color: 'var(--color-secondary)',
                 margin: 0
@@ -175,6 +193,7 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevReview}
+            className="animate-on-scroll slide-right delay-10"
             style={{
               position: 'absolute',
               left: 'var(--space-4)',
@@ -190,16 +209,18 @@ const TestimonialsSection = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'var(--transition-normal)',
+              transition: 'all 0.3s ease',
               fontSize: 'var(--text-xl)'
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'var(--color-secondary)';
               e.target.style.color = 'var(--color-primary)';
+              e.target.style.transform = 'translateY(-50%) scale(1.1)';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(255, 255, 255, 0.1)';
               e.target.style.color = 'white';
+              e.target.style.transform = 'translateY(-50%) scale(1)';
             }}
           >
             ←
@@ -207,6 +228,7 @@ const TestimonialsSection = () => {
 
           <button
             onClick={nextReview}
+            className="animate-on-scroll slide-left delay-10"
             style={{
               position: 'absolute',
               right: 'var(--space-4)',
@@ -222,16 +244,18 @@ const TestimonialsSection = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'var(--transition-normal)',
+              transition: 'all 0.3s ease',
               fontSize: 'var(--text-xl)'
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'var(--color-secondary)';
               e.target.style.color = 'var(--color-primary)';
+              e.target.style.transform = 'translateY(-50%) scale(1.1)';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(255, 255, 255, 0.1)';
               e.target.style.color = 'white';
+              e.target.style.transform = 'translateY(-50%) scale(1)';
             }}
           >
             →
@@ -239,7 +263,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Dots Indicator */}
-        <div style={{
+        <div className="animate-on-scroll fade-in-up delay-11" style={{
           display: 'flex',
           justifyContent: 'center',
           gap: 'var(--space-2)',
@@ -258,7 +282,8 @@ const TestimonialsSection = () => {
                   ? 'var(--color-secondary)' 
                   : 'rgba(255, 255, 255, 0.3)',
                 cursor: 'pointer',
-                transition: 'var(--transition-normal)'
+                transition: 'all 0.3s ease',
+                transform: index === currentReview ? 'scale(1.3)' : 'scale(1)'
               }}
             />
           ))}
@@ -266,16 +291,18 @@ const TestimonialsSection = () => {
       </div>
 
       {/* Overall Rating Summary */}
-      <div className="animate-on-scroll fade-in delay-400" style={{
+      <div className="animate-on-scroll scale-in delay-12" style={{
         marginTop: 'var(--space-8)',
         textAlign: 'center',
-        // background: 'var(--color-secondary)',
         padding: 'var(--space-4)',
         borderRadius: 'var(--radius-lg)',
-        border: '3px solid var(--color-secondary)'
+        border: '3px solid var(--color-secondary)',
+        transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'var(--space-4)' }}>
-          <div style={{ textAlign: 'center' }}>
+          <div className="animate-on-scroll zoom-in delay-13" style={{ 
+            textAlign: 'center'
+          }}>
             <div style={{ fontSize: 'var(--text-3xl)', fontWeight: '700', color: 'var(--color-secondary)' }}>
               4.9
             </div>
@@ -283,7 +310,9 @@ const TestimonialsSection = () => {
               Average Rating
             </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div className="animate-on-scroll bounce-in delay-14" style={{ 
+            textAlign: 'center'
+          }}>
             <div style={{ fontSize: 'var(--text-2xl)', fontWeight: '700', color: 'var(--color-secondary)' }}>
               ★★★★★
             </div>

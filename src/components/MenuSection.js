@@ -32,7 +32,6 @@ const MenuSection = () => {
         <div className="section-badge">{strings.menu.subtitle}</div>
         <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>{strings.menu.title}</h2>
         <p className="section-subtitle" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>{strings.menu.description}</p>
-        <div className="section-decoration"></div>
       </div>
 
       {/* Menu Categories - Two Column Layout */}

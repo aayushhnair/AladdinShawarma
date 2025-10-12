@@ -49,36 +49,53 @@ const IntroSection = () => {
       
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="grid-center">
-          <div className="animate-on-scroll fade-in">
+          <div className="animate-on-scroll fade-in delay-200">
             <div 
-            style={{
-              justifyContent: 'center',
-              textAlign: 'center'}}>
+              className="animate-on-scroll slide-up delay-1"
+              style={{
+                justifyContent: 'center',
+                textAlign: 'center'
+              }}
+            >
               🎉 Now Booking
             </div>
-            <h2 className="hero-title" style={{
-              justifyContent: 'center',
-              textAlign: 'center',
-              fontSize: 'var(--text-4xl)',
-              marginBottom: 'var(--space-6)',
-              background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'var(--color-secondary)',
-              backgroundClip: 'text'
-            }}>
+            <h2 
+              className="hero-title animate-on-scroll slide-up delay-2" 
+              style={{
+                justifyContent: 'center',
+                textAlign: 'center',
+                fontSize: 'var(--text-4xl)',
+                marginBottom: 'var(--space-6)',
+                background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'var(--color-secondary)',
+                backgroundClip: 'text'
+              }}
+            >
               Private Dinners &amp; Happy Hours
             </h2>
-            <p className="hero-subtitle" style={{
-              fontSize: 'var(--text-xl)',
-              color: 'rgba(255, 255, 255, 0.9)',
-              marginBottom: 'var(--space-8)',
-              textAlign: 'center',
-              maxWidth: '600px',
-              margin: '0 auto var(--space-8)'
-            }}>
+            <p 
+              className="hero-subtitle animate-on-scroll fade-in delay-3" 
+              style={{
+                fontSize: 'var(--text-xl)',
+                color: 'rgba(255, 255, 255, 0.9)',
+                marginBottom: 'var(--space-8)',
+                textAlign: 'center',
+                maxWidth: '600px',
+                margin: '0 auto var(--space-8)'
+              }}
+            >
               Experience the authentic flavors of the Middle East in an intimate setting. Perfect for celebrations, business dinners, and special occasions.
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div 
+              className="animate-on-scroll scale-in delay-4"
+              style={{ 
+                display: 'flex', 
+                gap: 'var(--space-4)', 
+                justifyContent: 'center', 
+                flexWrap: 'wrap' 
+              }}
+            >
               <a href="#contact" className="btn btn-secondary">
                 <span>Book Private Event</span>
               </a>

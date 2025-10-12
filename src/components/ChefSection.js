@@ -1,38 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import strings from '../config/strings.json';
 import { getImageByKey } from '../config/assets';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ChefSection = () => {
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
-    animatedElements?.forEach((el) => observer.observe(el));
-
-    return () => {
-      animatedElements?.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  
+  // Apply advanced scroll animations to all elements
+  useScrollAnimation(sectionRef, 'fade-in', 0.1);
 
   return (
     <div className="section-column" id="chef" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
       {/* Section Header */}
-      <div className="section-header animate-on-scroll fade-in" style={{ marginBottom: 'var(--space-8)' }}>
-        <div className="section-badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
+      <div className="section-header animate-on-scroll dissolve" style={{ marginBottom: 'var(--space-8)' }}>
+        <div className="section-badge animate-on-scroll flip-in delay-200" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
           {strings.chef.subtitle}
         </div>
-        <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>
+        <h2 className="section-title animate-on-scroll zoom-in delay-300" style={{ color: 'var(--color-secondary)' }}>
           {strings.chef.title}
         </h2>
       </div>
@@ -40,7 +24,7 @@ const ChefSection = () => {
       {/* Two Column Chef Layout */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', alignItems: 'center' }}>
         {/* Left Column - Chef Image */}
-        <div className="animate-on-scroll scale-in delay-200" style={{ textAlign: 'center' }}>
+        <div className="animate-on-scroll rotate-in delay-400" style={{ textAlign: 'center' }}>
           <div style={{
             width: '200px',
             height: '200px',
@@ -74,7 +58,7 @@ const ChefSection = () => {
         </div>
 
         {/* Right Column - Chef Info */}
-        <div className="animate-on-scroll slide-left delay-300" style={{
+        <div className="animate-on-scroll slide-in-diagonal delay-500" style={{
           background: 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -114,7 +98,7 @@ const ChefSection = () => {
           {/* Skills/Specialties */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
             {['Traditional Recipes', 'Authentic Flavors', 'Premium Quality', 'Middle Eastern Cuisine'].map((skill, index) => (
-              <div key={index} style={{
+              <div key={index} className={`animate-on-scroll bounce-in delay-${index + 6}`} style={{
                 // background: 'rgba(252, 177, 0, 0.2)',
                 color: 'var(--color-secondary)',
                 padding: 'var(--space-2) var(--space-3)',

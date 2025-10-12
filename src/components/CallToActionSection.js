@@ -48,31 +48,45 @@ const CallToActionSection = () => {
       
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="grid-center">
-          <div className="animate-on-scroll fade-in" style={{ textAlign: 'center' }}>
-            <h2 className="hero-title" style={{
-              fontSize: 'var(--text-4xl)',
-              marginBottom: 'var(--space-8)',
-              background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'var(--color-secondary)',
-              backgroundClip: 'text',
-              maxWidth: '800px',
-              margin: '0 auto var(--space-8)'
-            }}>
+          <div className="animate-on-scroll dissolve delay-200" style={{ textAlign: 'center' }}>
+            <h2 
+              className="hero-title animate-on-scroll zoom-in delay-1" 
+              style={{
+                fontSize: 'var(--text-4xl)',
+                marginBottom: 'var(--space-8)',
+                background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'var(--color-secondary)',
+                backgroundClip: 'text',
+                maxWidth: '800px',
+                margin: '0 auto var(--space-8)'
+              }}
+            >
               We Make Delicious &amp; Nutritious Food
             </h2>
             
-            <p className="hero-subtitle" style={{
-              fontSize: 'var(--text-xl)',
-              color: 'rgba(255, 255, 255, 0.9)',
-              marginBottom: 'var(--space-10)',
-              maxWidth: '600px',
-              margin: '0 auto var(--space-10)'
-            }}>
+            <p 
+              className="hero-subtitle animate-on-scroll fade-in delay-2" 
+              style={{
+                fontSize: 'var(--text-xl)',
+                color: 'rgba(255, 255, 255, 0.9)',
+                marginBottom: 'var(--space-10)',
+                maxWidth: '600px',
+                margin: '0 auto var(--space-10)'
+              }}
+            >
               Experience authentic Middle Eastern flavors prepared with the finest ingredients and time-honored recipes.
             </p>
 
-            <div style={{ display: 'flex', gap: 'var(--space-6)', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div 
+              className="animate-on-scroll scale-in delay-3"
+              style={{ 
+                display: 'flex', 
+                gap: 'var(--space-6)', 
+                justifyContent: 'center', 
+                flexWrap: 'wrap' 
+              }}
+            >
               <a href="#contact" className="btn btn-secondary btn-lg">
                 <span>Book A Table Now</span>
               </a>
@@ -90,7 +104,7 @@ const CallToActionSection = () => {
               maxWidth: '800px',
               margin: 'var(--space-16) auto 0'
             }}>
-              <div style={{ textAlign: 'center' }}>
+              <div className="animate-on-scroll slide-up delay-4" style={{ textAlign: 'center' }}>
                 <div style={{
                   fontSize: 'var(--text-3xl)',
                   marginBottom: 'var(--space-3)',
@@ -115,7 +129,7 @@ const CallToActionSection = () => {
                 </p>
               </div>
 
-              <div style={{ textAlign: 'center' }}>
+              <div className="animate-on-scroll slide-up delay-5" style={{ textAlign: 'center' }}>
                 <div style={{
                   fontSize: 'var(--text-3xl)',
                   marginBottom: 'var(--space-3)',
@@ -140,7 +154,7 @@ const CallToActionSection = () => {
                 </p>
               </div>
 
-              <div style={{ textAlign: 'center' }}>
+              <div className="animate-on-scroll slide-up delay-300" style={{ textAlign: 'center' }}>
                 <div style={{
                   fontSize: 'var(--text-3xl)',
                   marginBottom: 'var(--space-3)',

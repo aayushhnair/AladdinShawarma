@@ -1,29 +1,13 @@
-﻿import React, { useEffect, useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import strings from '../config/strings.json';
 import { getImageByKey } from '../config/assets';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const BlogSection = () => {
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
-    animatedElements?.forEach((el) => observer.observe(el));
-
-    return () => {
-      animatedElements?.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  
+  // Apply advanced scroll animations to all elements
+  useScrollAnimation(sectionRef, 'fade-in', 0.1);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -37,17 +21,17 @@ const BlogSection = () => {
   return (
     <div className="section-column" id="blog" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
       {/* Section Header */}
-      <div className="section-header animate-on-scroll fade-in" style={{ marginBottom: 'var(--space-8)' }}>
-        <div className="section-badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
+      <div className="section-header animate-on-scroll dissolve" style={{ marginBottom: 'var(--space-8)' }}>
+        <div className="section-badge animate-on-scroll flip-in delay-200" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
           {strings.blog.subtitle}
         </div>
-        <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>
+        <h2 className="section-title animate-on-scroll zoom-in delay-300" style={{ color: 'var(--color-secondary)' }}>
           {strings.blog.title}
         </h2>
       </div>
 
       {/* Featured Blog Post */}
-      <div className="animate-on-scroll scale-in delay-200" style={{ marginBottom: 'var(--space-8)' }}>
+      <div className="animate-on-scroll slide-in-diagonal delay-400" style={{ marginBottom: 'var(--space-8)' }}>
         {strings.blog.posts.filter(post => post.featured).map((featuredPost, index) => (
           <div key={index} style={{
             background: 'rgba(255, 255, 255, 0.05)',
@@ -176,7 +160,7 @@ const BlogSection = () => {
       {/* Recent Posts Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)' }}>
         {strings.blog.posts.filter(post => !post.featured).map((post, index) => (
-          <div key={index} className={`animate-on-scroll slide-up stagger-${index + 1}`}>
+          <div key={index} className={`animate-on-scroll ${index % 2 === 0 ? 'rotate-in' : 'flip-in'} delay-${index + 1}`}>
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
               borderRadius: 'var(--radius-xl)',
@@ -267,7 +251,7 @@ const BlogSection = () => {
       </div>
 
       {/* View All Posts Button */}
-      <div className="text-center animate-on-scroll scale-in" style={{ marginTop: 'var(--space-8)' }}>
+      <div className="text-center animate-on-scroll bounce-in delay-5" style={{ marginTop: 'var(--space-8)' }}>
         <button style={{
           background: 'rgba(255, 255, 255, 0.1)',
           color: 'white',
