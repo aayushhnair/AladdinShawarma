@@ -5,7 +5,9 @@
 
 // Import all images from assets folder
 import logoImage from '../assets/logo.png';
+import video1 from '../assets/BG_video.mp4';
 import poster1 from '../assets/aladdin01.jpg';
+
 import poster2 from '../assets/Poster (2).jpg';
 import poster3 from '../assets/Poster (3).jpg';
 import poster4 from '../assets/Poster (4).jpg';
@@ -29,6 +31,7 @@ export const assets = {
   // Hero Section Images
   hero: {
     background: poster1,
+    backgroundvideo: video1,
     backgroundAlt: 'Delicious Shawarma Background'
   },
 

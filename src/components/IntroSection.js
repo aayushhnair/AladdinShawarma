@@ -50,10 +50,15 @@ const IntroSection = () => {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="grid-center">
           <div className="animate-on-scroll fade-in">
-            <div className="cta-badge">
+            <div 
+            style={{
+              justifyContent: 'center',
+              textAlign: 'center'}}>
               🎉 Now Booking
             </div>
             <h2 className="hero-title" style={{
+              justifyContent: 'center',
+              textAlign: 'center',
               fontSize: 'var(--text-4xl)',
               marginBottom: 'var(--space-6)',
               background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
@@ -67,6 +72,7 @@ const IntroSection = () => {
               fontSize: 'var(--text-xl)',
               color: 'rgba(255, 255, 255, 0.9)',
               marginBottom: 'var(--space-8)',
+              textAlign: 'center',
               maxWidth: '600px',
               margin: '0 auto var(--space-8)'
             }}>
@@ -76,7 +82,7 @@ const IntroSection = () => {
               <a href="#contact" className="btn btn-secondary">
                 <span>Book Private Event</span>
               </a>
-              <a href="#menu" className="btn btn-outline">
+              <a href="#menu" className="btn btn-secondary btn-outline">
                 <span>View Menu</span>
               </a>
             </div>

@@ -35,15 +35,16 @@ const MenuSection = () => {
         <div className="section-decoration"></div>
       </div>
 
-      {/* Menu Categories - Compact Version */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+      {/* Menu Categories - Two Column Layout */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)' }}>
         {strings.menu.categories.slice(0, 2).map((category, categoryIndex) => (
           <div key={categoryIndex} className={`animate-on-scroll slide-up stagger-${categoryIndex + 1}`}>
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
               borderRadius: 'var(--radius-xl)',
               padding: 'var(--space-6)',
-              border: '1px solid rgba(252, 177, 0, 0.2)'
+              border: '1px solid rgba(252, 177, 0, 0.2)',
+              height: '100%'
             }}>
               {/* Category Header */}
               <div style={{ 

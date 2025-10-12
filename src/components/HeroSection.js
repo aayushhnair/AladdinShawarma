@@ -41,13 +41,34 @@ const HeroSection = () => {
       className="hero-section" 
       id="home"
       style={{
-        backgroundImage: `url(${hero.background})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          minWidth: '100%',
+          minHeight: '100%',
+          width: 'auto',
+          height: 'auto',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 0,
+          objectFit: 'cover'
+        }}
+      >
+        <source src={hero.backgroundvideo} type="video/mp4" />
+        {/* Fallback for browsers that don't support video */}
+        Your browser does not support the video tag.
+      </video>
+
       {/* Primary Color Overlay */}
       <div 
         className="hero-overlay"

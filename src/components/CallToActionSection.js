@@ -76,7 +76,7 @@ const CallToActionSection = () => {
               <a href="#contact" className="btn btn-secondary btn-lg">
                 <span>Book A Table Now</span>
               </a>
-              <a href="#menu" className="btn btn-outline btn-lg">
+              <a href="#menu" className="btn btn-secondary btn-lg">
                 <span>View Our Menu</span>
               </a>
             </div>

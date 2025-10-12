@@ -35,7 +35,6 @@ const PerfectIngredientsSection = () => {
         <h2 className="section-title" style={{ color: 'var(--color-secondary)' }}>
           {strings.perfectIngredients.title}
         </h2>
-        <div className="section-decoration"></div>
       </div>
 
       {/* Compact Ingredients Display */}

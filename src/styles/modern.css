@@ -378,9 +378,9 @@ a:hover {
 /* Container System */
 .container {
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-32);
   position: relative;
 }
 
@@ -1358,7 +1358,7 @@ a:hover {
 }
 
 .section-lg {
-  padding: var(--space-32) 0;
+  padding: var(--space-16) 0;
 }
 
 /* Section Backgrounds */
@@ -1451,7 +1451,7 @@ a:hover {
   height: 4px;
   background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-light));
   border-radius: var(--radius-full);
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
 }
 
 .section-decoration::before,

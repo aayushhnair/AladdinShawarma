@@ -38,84 +38,95 @@ const ChefSection = () => {
         <div className="section-decoration"></div>
       </div>
 
-      {/* Compact Chef Card */}
-      <div className="animate-on-scroll scale-in delay-200">
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.05)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          padding: 'var(--space-6)',
-          borderRadius: 'var(--radius-xl)',
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          {/* Chef Image */}
+      {/* Two Column Chef Layout */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', alignItems: 'center' }}>
+        {/* Left Column - Chef Image */}
+        <div className="animate-on-scroll scale-in delay-200" style={{ textAlign: 'center' }}>
           <div style={{
-            width: '80px',
-            height: '80px',
+            width: '200px',
+            height: '200px',
             borderRadius: 'var(--radius-full)',
             backgroundImage: `url('${getImageByKey('chef.portrait')}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            margin: '0 auto var(--space-4)',
-            border: '3px solid var(--color-secondary)',
-            boxShadow: 'var(--shadow-secondary)'
-          }}></div>
+            margin: '0 auto',
+            border: '4px solid var(--color-secondary)',
+            boxShadow: '0 10px 30px rgba(252, 177, 0, 0.3)',
+            position: 'relative'
+          }}>
+            {/* Experience Badge */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-10px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: 'var(--color-secondary)',
+              color: 'var(--color-primary)',
+              padding: 'var(--space-2) var(--space-4)',
+              borderRadius: 'var(--radius-full)',
+              fontSize: 'var(--text-sm)',
+              fontWeight: '700',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+            }}>
+              15+ Years Experience
+            </div>
+          </div>
+        </div>
 
+        {/* Right Column - Chef Info */}
+        <div className="animate-on-scroll slide-left delay-300" style={{
+          background: 'rgba(255, 255, 255, 0.05)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          padding: 'var(--space-6)',
+          borderRadius: 'var(--radius-xl)',
+          position: 'relative'
+        }}>
           <h3 style={{
-            fontSize: 'var(--text-xl)',
+            fontSize: 'var(--text-2xl)',
             fontWeight: '700',
             color: 'var(--color-secondary)',
-            marginBottom: 'var(--space-2)'
+            marginBottom: 'var(--space-2)',
+            fontFamily: 'var(--font-secondary)'
           }}>
             {strings.chef.chef.name}
           </h3>
           
           <p style={{
-            fontSize: 'var(--text-sm)',
-            color: 'rgba(255, 255, 255, 0.8)',
+            fontSize: 'var(--text-base)',
+            color: 'var(--color-secondary)',
             marginBottom: 'var(--space-4)',
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            fontWeight: '600'
           }}>
             {strings.chef.chef.title}
           </p>
 
-          {/* Brief Description */}
           <p style={{
             fontSize: 'var(--text-sm)',
             lineHeight: '1.6',
-            color: 'var(--color-tertiary)',
-            marginBottom: 'var(--space-4)',
-            maxWidth: '300px',
-            margin: '0 auto var(--space-4)'
+            color: 'rgba(255, 255, 255, 0.9)',
+            marginBottom: 'var(--space-6)'
           }}>
-            {strings.chef.chef.description.substring(0, 120)}...
+            {strings.chef.chef.description}
           </p>
 
-          {/* Experience Badges */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
-            <div style={{
-              background: 'var(--color-secondary)',
-              color: 'var(--color-primary)',
-              padding: 'var(--space-1) var(--space-3)',
-              borderRadius: 'var(--radius-full)',
-              fontSize: 'var(--text-xs)',
-              fontWeight: '600'
-            }}>
-              15+ Years
-            </div>
-            <div style={{
-              background: 'var(--color-secondary)',
-              color: 'var(--color-primary)',
-              padding: 'var(--space-1) var(--space-3)',
-              borderRadius: 'var(--radius-full)',
-              fontSize: 'var(--text-xs)',
-              fontWeight: '600'
-            }}>
-              Expert Chef
-            </div>
+          {/* Skills/Specialties */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+            {['Traditional Recipes', 'Authentic Flavors', 'Premium Quality', 'Middle Eastern Cuisine'].map((skill, index) => (
+              <div key={index} style={{
+                // background: 'rgba(252, 177, 0, 0.2)',
+                color: 'var(--color-secondary)',
+                padding: 'var(--space-2) var(--space-3)',
+                borderRadius: '10px',
+                fontSize: 'var(--text-xs)',
+                fontWeight: '600',
+                border: '1px solid var(--color-secondary)'
+              }}>
+                {skill}
+              </div>
+            ))}
           </div>
         </div>
       </div>

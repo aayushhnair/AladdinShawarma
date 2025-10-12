@@ -87,6 +87,8 @@ const AboutSection = () => {
                   color: 'var(--color-primary)',
                   borderRadius: 'var(--radius-xl)',
                   padding: 'var(--space-4)',
+                  paddingTop: 'var(--space-16)',
+                  paddingBottom: 'var(--space-16)',
                   boxShadow: 'var(--shadow-secondary)',
                   transition: 'var(--transition-normal)'
                 }}>
