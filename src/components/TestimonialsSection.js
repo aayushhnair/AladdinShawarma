@@ -1,0 +1,1 @@
+﻿import React from 'react'; const TestimonialsSection = () => (<div className='section-column' style={{color: 'white'}}><h2 style={{color: '#FCB100'}}>Customer Reviews</h2></div>); export default TestimonialsSection;

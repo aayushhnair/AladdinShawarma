@@ -1,0 +1,375 @@
+{
+  "branding": {
+    "name": "Aladdin Shawarma",
+    "tagline": "Authentic Middle Eastern Flavors",
+    "description": "Experience the magic of traditional Middle Eastern cuisine with our carefully crafted shawarmas, made with the finest ingredients and time-honored recipes."
+  },
+  
+  "contact": {
+    "phone": "+1 (555) 123-4567",
+    "email": "info@aladdinshawarma.com",
+    "address": {
+      "street": "123 Food Street",
+      "city": "Culinary City",
+      "state": "FC",
+      "zipCode": "12345",
+      "country": "USA"
+    },
+    "hours": {
+      "weekdays": "Mon - Fri: 9:00 AM - 9:00 PM",
+      "weekend": "Sat - Sun: 10:00 AM - 10:00 PM"
+    },
+    "social": {
+      "facebook": "#",
+      "instagram": "#",
+      "twitter": "#",
+      "youtube": "#"
+    }
+  },
+
+  "navigation": {
+    "items": [
+      { "label": "Home", "href": "#home", "id": "home" },
+      { "label": "About", "href": "#about", "id": "about" },
+      { "label": "Menu", "href": "#menu", "id": "menu" },
+      { "label": "Chef", "href": "#chef", "id": "chef" },
+      { "label": "Testimonials", "href": "#testimonials", "id": "testimonials" },
+      { "label": "Blog", "href": "#blog", "id": "blog" },
+      { "label": "Contact", "href": "#contact", "id": "contact" }
+    ]
+  },
+
+  "hero": {
+    "badge": "Authentic Middle Eastern Cuisine",
+    "title": {
+      "line1": "Welcome to",
+      "line2": "Aladdin Shawarma",
+      "line3": "Experience the Magic"
+    },
+    "description": "Discover the authentic taste of the Middle East with our traditional shawarmas, crafted with premium ingredients and centuries-old recipes that transport you to the heart of Arabian cuisine.",
+    "cta": {
+      "primary": "Order Now",
+      "secondary": "View Menu"
+    },
+    "features": [
+      "Fresh Daily Ingredients",
+      "Traditional Recipes",
+      "Halal Certified"
+    ]
+  },
+
+  "about": {
+    "badge": "Our Story",
+    "title": "The Magic Behind Aladdin Shawarma",
+    "subtitle": "Bringing Authentic Middle Eastern Flavors to Your Table",
+    "description": "Founded with a passion for authentic Middle Eastern cuisine, Aladdin Shawarma has been serving the community with traditional flavors and warm hospitality. Our journey began with a simple mission: to share the rich culinary heritage of the Middle East through carefully crafted dishes that honor time-tested recipes.",
+    "highlights": [
+      {
+        "title": "Premium Ingredients",
+        "description": "We source only the finest, freshest ingredients to ensure authentic flavors in every bite."
+      },
+      {
+        "title": "Traditional Methods",
+        "description": "Our recipes have been passed down through generations, preserving the authentic taste of the Middle East."
+      },
+      {
+        "title": "Halal Certified",
+        "description": "All our meats are halal certified, ensuring quality and adherence to Islamic dietary laws."
+      }
+    ],
+    "stats": [
+      { "number": "15+", "label": "Years of Experience" },
+      { "number": "10,000+", "label": "Happy Customers" },
+      { "number": "25+", "label": "Menu Items" },
+      { "number": "100%", "label": "Fresh Daily" }
+    ]
+  },
+
+  "menu": {
+    "title": "Our Delicious Menu",
+    "subtitle": "Authentic Middle Eastern Flavors",
+    "description": "Explore our carefully curated selection of traditional Middle Eastern dishes, each prepared with authentic spices and premium ingredients.",
+    "categories": [
+      {
+        "name": "Signature Shawarmas",
+        "items": [
+          {
+            "name": "Classic Chicken Shawarma",
+            "description": "Tender marinated chicken with fresh vegetables, tahini sauce, and our special blend of Middle Eastern spices",
+            "price": "$12.99",
+                        "image": "grilledChicken",
+            "featured": true
+          },
+          {
+            "name": "Lamb Shawarma Supreme",
+            "description": "Premium lamb cuts marinated in traditional spices, served with hummus, pickles, and garlic sauce",
+            "price": "$15.99",
+            "image": "lambShawarma",
+            "featured": true
+          },
+          {
+            "name": "Mixed Meat Shawarma",
+            "description": "Perfect combination of chicken and lamb with fresh herbs, vegetables, and our signature sauces",
+            "price": "$14.99",
+            "image": "mixedShawarma"
+          },
+          {
+            "name": "Vegetarian Falafel Wrap",
+            "description": "Crispy homemade falafel with fresh vegetables, tahini, and Mediterranean spices",
+            "price": "$10.99",
+                        "image": "babaGanoush"
+          }
+        ]
+      },
+      {
+        "name": "Appetizers & Sides",
+        "items": [
+          {
+            "name": "Traditional Hummus",
+            "description": "Creamy chickpea blend with tahini, olive oil, and aromatic spices",
+            "price": "$7.99",
+                        "image": "hummusPlate"
+          },
+          {
+            "name": "Crispy Falafel (6 pcs)",
+            "description": "Golden fried chickpea balls with herbs and Middle Eastern spices",
+            "price": "$8.99",
+            "image": "falafel"
+          },
+          {
+            "name": "Fattoush Salad",
+            "description": "Fresh mixed greens with tomatoes, cucumbers, and crispy pita chips",
+            "price": "$9.99",
+            "image": "fattoush"
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "items": [
+          {
+            "name": "Fresh Mint Lemonade",
+            "description": "Refreshing blend of fresh mint, lemon, and sparkling water",
+            "price": "$4.99",
+            "image": "mintLemonade"
+          },
+          {
+            "name": "Turkish Coffee",
+            "description": "Traditional strong coffee served with a touch of cardamom",
+            "price": "$3.99",
+            "image": "turkishCoffee"
+          }
+        ]
+      }
+    ]
+  },
+
+  "chef": {
+    "title": "Meet Our Master Chef",
+    "subtitle": "The Culinary Artist Behind Every Dish",
+    "chef": {
+      "name": "Ahmad Al-Masri",
+      "title": "Head Chef & Owner",
+      "experience": "20+ Years",
+      "specialization": "Middle Eastern Cuisine",
+      "description": "Chef Ahmad brings over two decades of culinary expertise from the heart of the Middle East. Trained in traditional kitchens of Damascus and Beirut, he combines authentic recipes with modern techniques to create unforgettable dining experiences.",
+      "image": "chefAhmad",
+      "achievements": [
+        "Trained in Damascus, Syria",
+        "20+ Years of Experience",
+        "Award-Winning Recipes",
+        "Master of Traditional Spices"
+      ]
+    },
+    "team": [
+      {
+        "name": "Fatima Hassan",
+        "role": "Sous Chef",
+        "specialization": "Appetizers & Salads",
+        "image": "chefFatima"
+      },
+      {
+        "name": "Omar Khalil",
+        "role": "Grill Master",
+        "specialization": "Shawarma & Grilled Meats",
+        "image": "chefOmar"
+      },
+      {
+        "name": "Layla Nasser",
+        "role": "Pastry Chef",
+        "specialization": "Middle Eastern Desserts",
+        "image": "chefLayla"
+      }
+    ]
+  },
+
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real Reviews from Real People",
+    "reviews": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Food Blogger",
+        "rating": 5,
+        "comment": "Absolutely authentic! The flavors transported me straight to the Middle East. The chicken shawarma is perfectly seasoned and the bread is incredibly fresh.",
+        "image": "customerSarah",
+        "location": "New York, NY"
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Regular Customer",
+        "rating": 5,
+        "comment": "I've been coming here for 3 years and the quality never disappoints. The lamb shawarma is my favorite - tender, flavorful, and always consistent.",
+        "image": "customerMichael",
+        "location": "Los Angeles, CA"
+      },
+      {
+        "name": "Amira Al-Rashid",
+        "role": "Food Enthusiast",
+        "rating": 5,
+        "comment": "As someone from the Middle East, I can confirm this is as authentic as it gets. The spices, the preparation, everything is perfect. Highly recommended!",
+        "image": "customerAmira",
+        "location": "Chicago, IL"
+      },
+      {
+        "name": "David Martinez",
+        "role": "Local Resident",
+        "rating": 5,
+        "comment": "The best shawarma in the city! Fresh ingredients, generous portions, and the staff is incredibly friendly. This place has become our go-to for Middle Eastern food.",
+        "image": "customerDavid",
+        "location": "Miami, FL"
+      }
+    ]
+  },
+
+  "blog": {
+    "title": "From Our Kitchen",
+    "subtitle": "Stories, Recipes, and Culinary Adventures",
+    "posts": [
+      {
+        "title": "The Art of Perfect Shawarma Marinade",
+        "excerpt": "Discover the secrets behind our signature marinades that make our shawarma irresistibly delicious.",
+        "author": "Chef Ahmad Al-Masri",
+        "date": "2024-01-15",
+        "readTime": "5 min read",
+        "category": "Recipes",
+        "image": "blogMarinade",
+        "featured": true
+      },
+      {
+        "title": "A Journey Through Middle Eastern Spices",
+        "excerpt": "Explore the rich world of Middle Eastern spices and how they transform simple ingredients into culinary magic.",
+        "author": "Fatima Hassan",
+        "date": "2024-01-10",
+        "readTime": "7 min read",
+        "category": "Culture",
+        "image": "blogSpices"
+      },
+      {
+        "title": "The History of Shawarma: From Street Food to Gourmet",
+        "excerpt": "Learn about the fascinating history of shawarma and how it evolved from humble street food to a global phenomenon.",
+        "author": "Omar Khalil",
+        "date": "2024-01-05",
+        "readTime": "6 min read",
+        "category": "History",
+        "image": "blogHistory"
+      }
+    ]
+  },
+
+  "callToAction": {
+    "title": "Ready to Experience Authentic Middle Eastern Flavors?",
+    "subtitle": "Order now and taste the difference that authentic ingredients and traditional recipes make",
+    "buttons": [
+      {
+        "text": "Order Online",
+        "type": "primary",
+        "action": "order"
+      },
+      {
+        "text": "Make Reservation",
+        "type": "secondary",
+        "action": "reservation"
+      }
+    ],
+    "features": [
+      "Free Delivery on Orders Over $25",
+      "Fresh Made to Order",
+      "Ready in 15 Minutes"
+    ]
+  },
+
+  "perfectIngredients": {
+    "title": "Perfect Ingredients",
+    "subtitle": "The Secret to Our Authentic Taste",
+    "description": "We carefully source the finest ingredients from trusted suppliers who share our commitment to quality and authenticity.",
+    "ingredients": [
+      {
+        "name": "Premium Lamb",
+        "description": "Locally sourced, grass-fed lamb marinated in traditional spices",
+        "image": "ingredientLamb"
+      },
+      {
+        "name": "Fresh Herbs",
+        "description": "Daily fresh parsley, mint, and cilantro for that authentic flavor",
+        "image": "ingredientHerbs"
+      },
+      {
+        "name": "Artisan Bread",
+        "description": "House-made pita bread baked fresh throughout the day",
+        "image": "ingredientBread"
+      },
+      {
+        "name": "Traditional Spices",
+        "description": "Imported spice blends from the Middle East for authentic taste",
+        "image": "ingredientSpices"
+      }
+    ]
+  },
+
+  "reservation": {
+    "title": "Make a Reservation",
+    "subtitle": "Reserve Your Table for an Unforgettable Dining Experience",
+    "description": "Book your table in advance to ensure the best dining experience. We accommodate groups of all sizes.",
+    "form": {
+      "fields": [
+        { "name": "name", "label": "Full Name", "type": "text", "required": true },
+        { "name": "email", "label": "Email Address", "type": "email", "required": true },
+        { "name": "phone", "label": "Phone Number", "type": "tel", "required": true },
+        { "name": "date", "label": "Reservation Date", "type": "date", "required": true },
+        { "name": "time", "label": "Preferred Time", "type": "time", "required": true },
+        { "name": "guests", "label": "Number of Guests", "type": "select", "required": true, "options": ["1", "2", "3", "4", "5", "6", "7", "8", "More than 8"] },
+        { "name": "message", "label": "Special Requests", "type": "textarea", "required": false }
+      ],
+      "submitText": "Make Reservation"
+    }
+  },
+
+  "footer": {
+    "description": "Aladdin Shawarma has been serving authentic Middle Eastern cuisine with passion and dedication. Visit us for an unforgettable culinary journey.",
+    "quickLinks": [
+      { "label": "About Us", "href": "#about" },
+      { "label": "Menu", "href": "#menu" },
+      { "label": "Catering", "href": "#catering" },
+      { "label": "Contact", "href": "#contact" },
+      { "label": "Privacy Policy", "href": "#privacy" },
+      { "label": "Terms of Service", "href": "#terms" }
+    ],
+    "openingHours": [
+      { "day": "Monday", "hours": "9:00 AM - 9:00 PM" },
+      { "day": "Tuesday", "hours": "9:00 AM - 9:00 PM" },
+      { "day": "Wednesday", "hours": "9:00 AM - 9:00 PM" },
+      { "day": "Thursday", "hours": "9:00 AM - 9:00 PM" },
+      { "day": "Friday", "hours": "9:00 AM - 10:00 PM" },
+      { "day": "Saturday", "hours": "10:00 AM - 10:00 PM" },
+      { "day": "Sunday", "hours": "10:00 AM - 9:00 PM" }
+    ],
+    "copyright": "© 2024 Aladdin Shawarma. All rights reserved."
+  },
+
+  "seo": {
+    "defaultTitle": "Aladdin Shawarma - Authentic Middle Eastern Cuisine",
+    "defaultDescription": "Experience authentic Middle Eastern flavors at Aladdin Shawarma. Fresh ingredients, traditional recipes, and warm hospitality await you.",
+    "keywords": ["shawarma", "middle eastern food", "halal", "authentic cuisine", "falafel", "hummus", "mediterranean", "restaurant"]
+  }
+}
