@@ -1,32 +1,51 @@
-﻿import React, { useState, useRef } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import strings from '../config/strings.json';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { hero } from '../config/assets';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
 
   // Apply advanced scroll animations to all elements
   useScrollAnimation(sectionRef, 'fade-in', 0.1);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
+    
+    // Mobile haptic feedback
+    if (isMobile && navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+    
     console.log('Newsletter subscription:', email);
     alert('Thank you for subscribing to our newsletter!');
     setEmail('');
   };
 
   return (
-    <footer ref={sectionRef} style={{
+    <footer className={`${isMobile ? 'mobile-footer' : ''}`} ref={sectionRef} style={{
       position: 'relative',
-      backgroundImage: `url(${hero.background})`,
+      backgroundImage: isMobile ? 'none' : `url(${hero.background})`,
+      backgroundColor: isMobile ? 'var(--color-primary)' : 'transparent',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
+      backgroundAttachment: isMobile ? 'scroll' : 'fixed',
       color: 'white',
-      padding: 'var(--space-16) 0 var(--space-8) 0'
+      padding: isMobile ? 'var(--space-8) 0 var(--space-4) 0' : 'var(--space-16) 0 var(--space-8) 0'
     }}>
       <div
         style={{
@@ -40,12 +59,12 @@ const Footer = () => {
         }}
       ></div>
 
-      <div className="container">
+      <div className="container" style={{ padding: isMobile ? '0 1rem' : '0 15px' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: 'var(--space-8)',
-          marginBottom: 'var(--space-8)'
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: isMobile ? 'var(--space-6)' : 'var(--space-8)',
+          marginBottom: isMobile ? 'var(--space-6)' : 'var(--space-8)'
         }}>
 
 

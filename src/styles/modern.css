@@ -1167,6 +1167,10 @@ a:hover {
     padding: var(--space-2) 0;
   }
   
+  .header-top.mobile-header {
+    padding: var(--space-1) 0;
+  }
+  
   .header-top-content {
     flex-direction: column;
     gap: var(--space-3);
@@ -1176,6 +1180,39 @@ a:hover {
     flex-direction: column;
     gap: var(--space-3);
     text-align: center;
+  }
+  
+  .mobile-contact-compact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-phone-link {
+    color: white;
+    text-decoration: none;
+    font-size: var(--text-sm);
+    display: flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(252, 177, 0, 0.1);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(252, 177, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-phone-link:hover {
+    background: rgba(252, 177, 0, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  .social-links {
+    gap: var(--space-3);
+  }
+  
+  .social-link {
+    width: 32px;
+    height: 32px;
   }
   
   .main-navbar {
@@ -1198,10 +1235,58 @@ a:hover {
     padding: var(--space-6);
     gap: var(--space-4);
     border-top: 1px solid rgba(252, 177, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .nav-menu.active {
     display: flex;
+  }
+  
+  .nav-item {
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease-out forwards;
+  }
+  
+  .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+  .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.2s; }
+  .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.3s; }
+  .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.4s; }
+  .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.5s; }
+  .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.6s; }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+  
+  .nav-link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    font-size: var(--text-base);
+  }
+  
+  .nav-link:hover {
+    background: rgba(252, 177, 0, 0.1);
   }
   
   .menu-toggle {

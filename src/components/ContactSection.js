@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import strings from '../config/strings.json';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -9,10 +9,22 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   
   // Apply advanced scroll animations to all elements
   useScrollAnimation(sectionRef, 'fade-in', 0.1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,6 +35,12 @@ const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Mobile haptic feedback
+    if (isMobile && navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+    
     console.log('Form submitted:', formData);
     setFormData({
       name: '',
@@ -34,15 +52,18 @@ const ContactSection = () => {
   };
 
   return (
-    <section style={{
+    <section className={`${isMobile ? 'mobile-contact' : ''}`} style={{
       background: 'var(--color-primary)',
       color: 'white',
-      padding: 'var(--space-16) 0',
+      padding: isMobile ? 'var(--space-8) 0' : 'var(--space-16) 0',
       position: 'relative'
     }} id="contact" ref={sectionRef}>
-      <div className="container">
+      <div className="container" style={{ padding: isMobile ? '0 1rem' : '0 15px' }}>
         {/* Section Header */}
-        <div className="section-header animate-on-scroll dissolve" style={{ marginBottom: 'var(--space-12)' }}>
+        <div className={`section-header animate-on-scroll dissolve ${isMobile ? 'mobile-contact-header' : ''}`} style={{ 
+          marginBottom: isMobile ? 'var(--space-8)' : 'var(--space-12)',
+          textAlign: isMobile ? 'center' : 'left'
+        }}>
           <div className="animate-on-scroll flip-in delay-200" style={{
             color: 'var(--color-secondary)',
             fontSize: 'var(--text-sm)',
@@ -53,8 +74,8 @@ const ContactSection = () => {
           }}>
             Get in Touch
           </div>
-          <h2 className="animate-on-scroll zoom-in delay-300" style={{
-            fontSize: 'var(--text-4xl)',
+          <h2 className={`animate-on-scroll zoom-in delay-300 ${isMobile ? 'mobile-contact-title' : ''}`} style={{
+            fontSize: isMobile ? 'var(--text-2xl)' : 'var(--text-4xl)',
             fontWeight: '700',
             color: 'white',
             marginBottom: 'var(--space-4)',
@@ -63,20 +84,23 @@ const ContactSection = () => {
             Contact Us
           </h2>
           <p className="animate-on-scroll slide-up delay-400" style={{
-            fontSize: 'var(--text-lg)',
+            fontSize: isMobile ? 'var(--text-base)' : 'var(--text-lg)',
             color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '600px',
             margin: '0 auto'
           }}>
-            Get in touch for reservations, catering, or any questions about our delicious Middle Eastern cuisine.
+            {isMobile 
+              ? "Get in touch for reservations or questions about our cuisine."
+              : "Get in touch for reservations, catering, or any questions about our delicious Middle Eastern cuisine."
+            }
           </p>
         </div>
 
         {/* Main Content Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--space-12)',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? 'var(--space-6)' : 'var(--space-12)',
           alignItems: 'start'
         }}>
           
