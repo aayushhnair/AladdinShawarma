@@ -42,21 +42,21 @@ function App() {
         <Header />
         <HeroSection />
 
+                {/* Strategic Scrolling Banner - Single Impact Placement */}
         <ScrollingTextBanner
-          text="FLAVORS ENCHANTED"
-          backgroundColor="#081C4F"
-          textColor="#FCB100"
-          icon="✦"
-          scrollDirection="left"
-        />
-        <ScrollingTextBanner
-          text="MAGIC SERVED"
+          text="AUTHENTIC MIDDLE EASTERN • CRAFTED WITH PASSION • SERVED WITH PRIDE"
           backgroundColor="#FCB100"
           textColor="#081C4F"
-          icon="✱"
+          icon="⬢"
+          scrollDirection="left"
+        />
+                <ScrollingTextBanner
+          text="AUTHENTIC MIDDLE EASTERN • CRAFTED WITH PASSION • SERVED WITH PRIDE"
+          backgroundColor="#081C4F"
+          textColor="#FCB100"
+          icon="⬢"
           scrollDirection="right"
         />
-
 
         {/* Row 1: About + Menu (Side by Side) */}
         <div style={{
@@ -71,57 +71,38 @@ function App() {
           </div>
         </div>
 
-        {/* Scrolling Text Banner 2 */}
-        <ScrollingTextBanner
-          text="FLAVORS ENCHANTED"
-          backgroundColor="#081C4F"
-          textColor="#FCB100"
-          icon="✦"
-        />
-
-
         {/* Row 2: Intro Section (Full Width) */}
         <IntroSection />
 
-        
-        {/* Row 4: Perfect Ingredients + Blog (Side by Side) */}
+        {/* Row 4: From Our Kitchen (Blog) - Full Width on Mobile */}
         <div style={{
           backgroundColor: 'var(--color-primary)',
           padding: 'var(--space-16) 0'
         }}>
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-12)', alignItems: 'start' }}>
-              {/* <PerfectIngredientsSection /> */}
-              <BlogSection />
-            </div>
+            <BlogSection />
           </div>
         </div>
-                {/* Scrolling Text Banner 3 */}
-        <ScrollingTextBanner
-          text="AUTHENTIC TASTE"
-          backgroundColor="#FCB100"
-          textColor="#081C4F"
-          icon="✨"
-          scrollDirection="right"
 
-        />
+        {/* Row 5: Chef Section - Full Width on Mobile */}
+        <div style={{
+          backgroundColor: 'var(--color-primary)',
+          padding: 'var(--space-8) 0'
+        }}>
+          <div className="container">
+            <ChefSection />
+          </div>
+        </div>
 
-
-        {/* Row 3: Testimonials + Chef (Side by Side) */}
+        {/* Row 3: Testimonials Section */}
         <div style={{
           backgroundColor: 'var(--color-primary)',
           padding: 'var(--space-16) 0'
         }}>
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-12)', alignItems: 'start' }}>
-              <TestimonialsSection />
-              <ChefSection />
-            </div>
+            <TestimonialsSection />
           </div>
         </div>
-
-
-
 
         {/* Row 5: Call to Action (Full Width) */}
         <CallToActionSection />

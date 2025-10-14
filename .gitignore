@@ -33,3 +33,4 @@ pnpm-debug.log*
 
 # system files
 Thumbs.db
+.vercel

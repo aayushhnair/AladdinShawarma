@@ -1,13 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import strings from '../config/strings.json';
 import { getImageByKey } from '../config/assets';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ChefSection = () => {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Apply advanced scroll animations to all elements
   useScrollAnimation(sectionRef, 'fade-in', 0.1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="section-column" id="chef" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
@@ -21,13 +33,21 @@ const ChefSection = () => {
         </h2>
       </div>
 
-      {/* Two Column Chef Layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', alignItems: 'center' }}>
-        {/* Left Column - Chef Image */}
-        <div className="animate-on-scroll rotate-in delay-400" style={{ textAlign: 'center' }}>
+      {/* Responsive Chef Layout */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', 
+        gap: isMobile ? 'var(--space-8)' : 'var(--space-6)', 
+        alignItems: 'center' 
+      }}>
+        {/* Chef Image */}
+        <div className="animate-on-scroll rotate-in delay-400" style={{ 
+          textAlign: 'center',
+          order: isMobile ? 1 : 0 
+        }}>
           <div style={{
-            width: '200px',
-            height: '200px',
+            width: isMobile ? '180px' : '200px',
+            height: isMobile ? '180px' : '200px',
             borderRadius: 'var(--radius-full)',
             backgroundImage: `url('${strings.chef.chef.image}')`,
             backgroundSize: 'cover',
@@ -46,28 +66,31 @@ const ChefSection = () => {
               transform: 'translateX(-50%)',
               background: 'var(--color-secondary)',
               color: 'var(--color-primary)',
-              padding: 'var(--space-2) var(--space-4)',
+              padding: isMobile ? 'var(--space-1) var(--space-3)' : 'var(--space-2) var(--space-4)',
               borderRadius: 'var(--radius-full)',
-              fontSize: 'var(--text-sm)',
+              fontSize: isMobile ? 'var(--text-xs)' : 'var(--text-sm)',
               fontWeight: '700',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+              whiteSpace: 'nowrap'
             }}>
               15+ Years Experience
             </div>
           </div>
         </div>
 
-        {/* Right Column - Chef Info */}
+        {/* Chef Info */}
         <div className="animate-on-scroll slide-in-diagonal delay-500" style={{
           background: 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
-          padding: 'var(--space-6)',
+          padding: isMobile ? 'var(--space-4)' : 'var(--space-6)',
           borderRadius: 'var(--radius-xl)',
-          position: 'relative'
+          position: 'relative',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 2 : 0
         }}>
           <h3 style={{
-            fontSize: 'var(--text-2xl)',
+            fontSize: isMobile ? 'var(--text-xl)' : 'var(--text-2xl)',
             fontWeight: '700',
             color: 'var(--color-secondary)',
             marginBottom: 'var(--space-2)',
@@ -77,7 +100,7 @@ const ChefSection = () => {
           </h3>
           
           <p style={{
-            fontSize: 'var(--text-base)',
+            fontSize: isMobile ? 'var(--text-sm)' : 'var(--text-base)',
             color: 'var(--color-secondary)',
             marginBottom: 'var(--space-4)',
             fontStyle: 'italic',
@@ -87,7 +110,7 @@ const ChefSection = () => {
           </p>
 
           <p style={{
-            fontSize: 'var(--text-sm)',
+            fontSize: isMobile ? 'var(--text-xs)' : 'var(--text-sm)',
             lineHeight: '1.6',
             color: 'rgba(255, 255, 255, 0.9)',
             marginBottom: 'var(--space-6)'
@@ -96,16 +119,21 @@ const ChefSection = () => {
           </p>
 
           {/* Skills/Specialties */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: 'var(--space-2)',
+            justifyContent: isMobile ? 'center' : 'flex-start'
+          }}>
             {['Traditional Recipes', 'Authentic Flavors', 'Premium Quality', 'Middle Eastern Cuisine'].map((skill, index) => (
               <div key={index} className={`animate-on-scroll bounce-in delay-${index + 6}`} style={{
-                // background: 'rgba(252, 177, 0, 0.2)',
                 color: 'var(--color-secondary)',
-                padding: 'var(--space-2) var(--space-3)',
+                padding: isMobile ? 'var(--space-1) var(--space-2)' : 'var(--space-2) var(--space-3)',
                 borderRadius: '10px',
-                fontSize: 'var(--text-xs)',
+                fontSize: isMobile ? '10px' : 'var(--text-xs)',
                 fontWeight: '600',
-                border: '1px solid var(--color-secondary)'
+                border: '1px solid var(--color-secondary)',
+                textAlign: 'center'
               }}>
                 {skill}
               </div>
