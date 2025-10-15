@@ -1,0 +1,616 @@
+/* ========================================
+   MAGICAL HERO ANIMATIONS - NEXT LEVEL
+======================================== */
+
+/* Smoke Particles Animation */
+@keyframes smokeFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-30px) translateX(15px) rotate(90deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-60px) translateX(-10px) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-40px) translateX(20px) rotate(270deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes smokeFade {
+  0%, 100% { 
+    opacity: 0.2; 
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.2);
+  }
+}
+
+/* Character Animations */
+@keyframes aladdinFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes genieFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(5px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(-3px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-10px) translateX(8px) rotate(0.5deg);
+  }
+}
+
+/* Lamp Animations */
+@keyframes lampPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(252, 177, 0, 0.6));
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(252, 177, 0, 1));
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
+@keyframes auraExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+/* Logo Magic Animations */
+@keyframes logoMagic {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-0.5deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(-5px) rotate(0.5deg) scale(1.01);
+  }
+}
+
+@keyframes logoAuraPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Text Magic Effects */
+@keyframes textShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes subtitleGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    opacity: 0.9;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(252, 177, 0, 0.6);
+    opacity: 1;
+  }
+}
+
+/* Button Magic Effects */
+@keyframes sparkleMove {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Feature Badge Animation */
+@keyframes featurePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* Advanced Entrance Animations */
+@keyframes magical-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px) rotate(-5deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05) translateY(-10px) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes text-magic {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) rotateX(90deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-5px) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotateX(0deg);
+  }
+}
+
+@keyframes magical-buttons {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes stagger-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Hover Effects for Interactive Elements */
+.magical-lamp:hover {
+  animation: lampPulse 1s ease-in-out infinite !important;
+}
+
+.aladdin-character.magic-active {
+  animation: aladdinFloat 4s ease-in-out infinite;
+}
+
+.genie-character.visible {
+  animation: genieFloat 5s ease-in-out infinite;
+}
+
+/* Responsive Magical Effects */
+@media (max-width: 768px) {
+  @keyframes smokeFloat {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+  
+  @keyframes aladdinFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  @keyframes genieFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* =============================================
+   ENTERPRISE ANIMATION KEYFRAMES - WEBFLOW QUALITY
+   ============================================= */
+
+/* PARTICLE SYSTEM ANIMATIONS */
+@keyframes particleMove {
+  0% { 
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translate(10px, -15px) rotate(90deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translate(-5px, -25px) rotate(180deg) scale(0.9);
+    opacity: 1;
+  }
+  75% { 
+    transform: translate(-20px, -10px) rotate(270deg) scale(1.05);
+    opacity: 0.7;
+  }
+  100% { 
+    transform: translate(0px, 0px) rotate(360deg) scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes particlePulse {
+  0%, 100% { 
+    filter: brightness(1) saturate(1);
+    box-shadow: 0 0 10px rgba(252, 177, 0, 0.3);
+  }
+  50% { 
+    filter: brightness(1.3) saturate(1.2);
+    box-shadow: 0 0 20px rgba(252, 177, 0, 0.6);
+  }
+}
+
+/* ENTERPRISE LOGO ANIMATIONS */
+@keyframes enterpriseFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    filter: saturate(1);
+  }
+  25% { 
+    transform: translateY(-8px) rotate(0.5deg);
+    filter: saturate(1.1);
+  }
+  50% { 
+    transform: translateY(-12px) rotate(0deg);
+    filter: saturate(1.2);
+  }
+  75% { 
+    transform: translateY(-8px) rotate(-0.5deg);
+    filter: saturate(1.1);
+  }
+}
+
+@keyframes enterprisePulse {
+  0%, 100% { 
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% { 
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* ADVANCED TYPOGRAPHY ANIMATIONS */
+@keyframes enterpriseTextShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes enterpriseLetterFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-5px) rotate(1deg);
+    opacity: 1;
+  }
+}
+
+/* BUTTON INTERACTION ANIMATIONS */
+@keyframes enterpriseButtonShine {
+  0% { 
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: translateX(0%);
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes enterpriseGlassShimmer {
+  0% { 
+    transform: rotate(45deg) translateX(-200%);
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: rotate(45deg) translateX(200%);
+    opacity: 0;
+  }
+}
+
+/* SCROLL INDICATOR ANIMATIONS */
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@keyframes breath {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: scaleY(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scaleY(1.1);
+  }
+}
+
+/* MESH GRADIENT ANIMATION */
+@keyframes meshGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ENTERPRISE PARTICLE SYSTEM */
+@keyframes enterpriseParticleOrbit {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes enterpriseParticleSpiral {
+  0% {
+    transform: rotate(0deg) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(180deg) translateX(150px) scale(1);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* BACKGROUND MORPHING EFFECTS */
+@keyframes backgroundMorph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    border-radius: 50% 40% 60% 30% / 40% 50% 60% 30%;
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    border-radius: 40% 70% 30% 60% / 60% 40% 50% 70%;
+    transform: rotate(270deg) scale(1.05);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* ADVANCED GLOW EFFECTS */
+@keyframes enterpriseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(252, 177, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(252, 177, 0, 0.6));
+  }
+}
+
+/* =============================================
+   FULL MENU PAGE ANIMATIONS
+   ============================================= */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide In Up Animation */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide In from Left */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In from Right */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Menu Item Hover Animation */
+@keyframes menuItemHover {
+  0% {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  100% {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(252, 177, 0, 0.2);
+  }
+}
+
+/* Button Pulse Animation */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(252, 177, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(252, 177, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(252, 177, 0, 0);
+  }
+}
+
+/* Hide Scrollbar for Category Navigation */
+.category-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-nav-scroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Performance Optimizations */
+.smoke-particle,
+.magical-lamp,
+.aladdin-character,
+.genie-character,
+.magical-logo,
+.enterprise-particle,
+.enterprise-hero-content,
+.enterprise-typography-stack,
+.full-menu-overlay,
+.full-menu-container {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}

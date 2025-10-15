@@ -92,72 +92,166 @@
     "categories": [
       {
         "name": "Signature Shawarmas",
+        "description": "Our signature rotating spit-roasted meats, expertly marinated and carved to perfection",
         "items": [
           {
             "name": "Classic Chicken Shawarma",
             "description": "Tender marinated chicken with fresh vegetables, tahini sauce, and our special blend of Middle Eastern spices",
             "price": "$12.99",
             "image": "https://veenaazmanov.com/wp-content/uploads/2016/09/Easy-Shawarma-Chicken-Recipe20.png",
-            "featured": true
+            "featured": true,
+            "tags": ["Popular", "Halal", "Protein Rich"]
           },
           {
             "name": "Lamb Shawarma Supreme",
             "description": "Premium lamb cuts marinated in traditional spices, served with hummus, pickles, and garlic sauce",
             "price": "$15.99",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9y1Kx-cHBQRRpFcJSWHNuhGxkaWeU_dpKw&s",
-            "featured": true
+            "featured": true,
+            "tags": ["Premium", "Halal", "Chef's Special"]
           },
           {
             "name": "Mixed Meat Shawarma",
             "description": "Perfect combination of chicken and lamb with fresh herbs, vegetables, and our signature sauces",
             "price": "$14.99",
-            "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg"
+            "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg",
+            "tags": ["Best Seller", "Halal", "Combo"]
           },
           {
             "name": "Vegetarian Falafel Wrap",
             "description": "Crispy homemade falafel with fresh vegetables, tahini, and Mediterranean spices",
             "price": "$10.99",
-                        "image": "babaGanoush"
+            "image": "https://static.toiimg.com/thumb/53338316.cms?imgsize=665831&width=800&height=800",
+            "tags": ["Vegetarian", "Vegan", "Healthy"]
+          },
+          {
+            "name": "Beef Shawarma Deluxe",
+            "description": "Succulent beef strips with roasted vegetables, garlic sauce, and fresh herbs in warm pita",
+            "price": "$16.99",
+            "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg",
+            "tags": ["Premium", "Halal", "Hearty"]
+          }
+        ]
+      },
+      {
+        "name": "Platters & Bowls",
+        "description": "Generous portions served with rice, salad, and our signature sauces",
+        "items": [
+          {
+            "name": "Chicken Shawarma Platter",
+            "description": "Generous portion of chicken shawarma served over basmati rice with salad and sauce",
+            "price": "$16.99",
+            "image": "https://veenaazmanov.com/wp-content/uploads/2016/09/Easy-Shawarma-Chicken-Recipe20.png",
+            "tags": ["Family Size", "Complete Meal", "Halal"]
+          },
+          {
+            "name": "Mixed Grill Platter",
+            "description": "Combination of chicken, lamb, and kofta served with rice, grilled vegetables, and bread",
+            "price": "$22.99",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9y1Kx-cHBQRRpFcJSWHNuhGxkaWeU_dpKw&s",
+            "tags": ["Chef's Special", "Premium", "For Sharing"]
+          },
+          {
+            "name": "Mediterranean Bowl",
+            "description": "Fresh quinoa bowl with grilled chicken, vegetables, hummus, and tahini dressing",
+            "price": "$14.99",
+            "image": "https://static.toiimg.com/thumb/53338316.cms?imgsize=665831&width=800&height=800",
+            "tags": ["Healthy", "Protein Rich", "Gluten Free"]
           }
         ]
       },
       {
         "name": "Appetizers & Sides",
+        "description": "Traditional Middle Eastern mezze and sides to complement your meal",
         "items": [
           {
             "name": "Traditional Hummus",
-            "description": "Creamy chickpea blend with tahini, olive oil, and aromatic spices",
+            "description": "Creamy chickpea blend with tahini, olive oil, and aromatic spices, served with warm pita",
             "price": "$7.99",
-                        "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg"
+            "image": "https://cdn.loveandlemons.com/wp-content/uploads/2021/05/hummus-recipe.jpg",
+            "tags": ["Vegetarian", "Vegan", "Classic"]
           },
           {
             "name": "Crispy Falafel (6 pcs)",
-            "description": "Golden fried chickpea balls with herbs and Middle Eastern spices",
+            "description": "Golden fried chickpea balls with herbs and Middle Eastern spices, served with tahini",
             "price": "$8.99",
-            "image": "https://veenaazmanov.com/wp-content/uploads/2016/09/Easy-Shawarma-Chicken-Recipe20.png"
+            "image": "https://www.themediterraneandish.com/wp-content/uploads/2020/02/falafel-recipe-1.jpg",
+            "tags": ["Vegetarian", "Vegan", "Crispy"]
           },
           {
             "name": "Fattoush Salad",
-            "description": "Fresh mixed greens with tomatoes, cucumbers, and crispy pita chips",
+            "description": "Fresh mixed greens with tomatoes, cucumbers, and crispy pita chips in sumac dressing",
             "price": "$9.99",
-            "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg"
+            "image": "https://www.allrecipes.com/thmb/UhT8Lz2r5P8v4SQ-v4Q8q2K_hcE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8499088-fattoush-salad-3-B-Olin-4x3-1-8a84a2c6ef6e4d4488bbf6b2e3c3e4a7.jpg",
+            "tags": ["Fresh", "Vegetarian", "Light"]
+          },
+          {
+            "name": "Baba Ganoush",
+            "description": "Smoky roasted eggplant dip with tahini, garlic, and lemon, served with pita bread",
+            "price": "$8.99",
+            "image": "https://www.loveandlemons.com/wp-content/uploads/2021/07/baba-ganoush.jpg",
+            "tags": ["Vegetarian", "Vegan", "Smoky"]
           }
         ]
       },
       {
-        "name": "Beverages",
+        "name": "Fresh Juices & Beverages",
+        "description": "Refreshing drinks and traditional Middle Eastern beverages",
         "items": [
           {
             "name": "Fresh Mint Lemonade",
-            "description": "Refreshing blend of fresh mint, lemon, and sparkling water",
+            "description": "Refreshing blend of fresh mint, lemon, and sparkling water with a hint of sweetness",
             "price": "$4.99",
-            "image": "mintLemonade"
+            "image": "https://www.gimmesomeoven.com/wp-content/uploads/2019/05/Mint-Lemonade-Recipe-1.jpg",
+            "tags": ["Fresh", "Refreshing", "Natural"]
           },
           {
             "name": "Turkish Coffee",
-            "description": "Traditional strong coffee served with a touch of cardamom",
+            "description": "Traditional strong coffee served with a touch of cardamom and Turkish delight",
             "price": "$3.99",
-            "image": "turkishCoffee"
+            "image": "https://www.turkishstylegroundcoffee.com/wp-content/uploads/2020/05/turkish-coffee-traditional.jpg",
+            "tags": ["Traditional", "Strong", "Authentic"]
+          },
+          {
+            "name": "Fresh Orange Juice",
+            "description": "Freshly squeezed orange juice, served ice cold",
+            "price": "$4.99",
+            "image": "https://hips.hearstapps.com/hmg-prod/images/orange-juice-1578504490.jpg",
+            "tags": ["Fresh", "Vitamin C", "Natural"]
+          },
+          {
+            "name": "Mint Tea",
+            "description": "Traditional Middle Eastern mint tea, perfect for digestion",
+            "price": "$3.99",
+            "image": "https://www.thespruceeats.com/thmb/XQzg_Xm8b3oO4iJPQQ4XfE7XdTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-mint-tea-2394730-hero-01-dcf5f1f1e3f942acb09aa5e6b6e5a0e7.jpg",
+            "tags": ["Traditional", "Herbal", "Digestive"]
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "description": "Traditional Middle Eastern sweets to complete your dining experience",
+        "items": [
+          {
+            "name": "Baklava (3 pieces)",
+            "description": "Flaky phyllo pastry filled with nuts and honey, a traditional Middle Eastern delight",
+            "price": "$6.99",
+            "image": "https://www.recipetineats.com/wp-content/uploads/2016/03/Baklava_8.jpg",
+            "tags": ["Traditional", "Sweet", "Honey"]
+          },
+          {
+            "name": "Kunafa",
+            "description": "Sweet cheese pastry topped with crispy shredded phyllo and sugar syrup",
+            "price": "$7.99",
+            "image": "https://www.willcookforsmiles.com/wp-content/uploads/2021/04/Kunafa-recipe-1.jpg",
+            "tags": ["Premium", "Cheese", "Sweet"]
+          },
+          {
+            "name": "Rice Pudding",
+            "description": "Creamy rice pudding with rose water, cinnamon, and pistachios",
+            "price": "$5.99",
+            "image": "https://www.recipetineats.com/wp-content/uploads/2019/02/Rice-Pudding_8.jpg",
+            "tags": ["Creamy", "Traditional", "Comfort"]
           }
         ]
       }

@@ -251,7 +251,7 @@ const BlogSection = () => {
       </div>
 
       {/* View All Posts Button */}
-      <div className="text-center animate-on-scroll bounce-in delay-5" style={{ marginTop: 'var(--space-8)' }}>
+      {/* <div className="text-center animate-on-scroll bounce-in delay-5" style={{ marginTop: 'var(--space-8)' }}>
         <button style={{
           background: 'rgba(255, 255, 255, 0.1)',
           color: 'white',
@@ -278,7 +278,7 @@ const BlogSection = () => {
         >
           View All Blog Posts
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

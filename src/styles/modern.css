@@ -516,15 +516,15 @@ a:hover {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(10px); */
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .social-link::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-light));
+  /* background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-light)); */
   opacity: 0;
   transition: var(--transition-normal);
 }

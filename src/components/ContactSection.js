@@ -52,19 +52,12 @@ const ContactSection = () => {
   };
 
   return (
-    <section className={`${isMobile ? 'mobile-contact' : ''}`} style={{
-      background: 'var(--color-primary)',
+    <div className={`section-column ${isMobile ? 'mobile-contact' : ''}`} id="contact" ref={sectionRef} style={{ 
       color: 'white',
-      padding: isMobile ? 'var(--space-8) 0' : 'var(--space-16) 0',
+      background: 'var(--color-primary)',
+      padding: isMobile ? '2rem 1rem' : '3rem 2rem',
       position: 'relative'
-    }} id="contact" ref={sectionRef}>
-      <div className="container" style={{ 
-        padding: isMobile ? '0 1rem' : '0 15px',
-        maxWidth: '100%',
-        width: '100%',
-        boxSizing: 'border-box',
-        overflow: 'hidden'
-      }}>
+    }}>
         {/* Section Header */}
         <div className={`section-header animate-on-scroll dissolve ${isMobile ? 'mobile-contact-header' : ''}`} style={{ 
           marginBottom: isMobile ? 'var(--space-8)' : 'var(--space-12)',
@@ -526,8 +519,7 @@ const ContactSection = () => {
             </form>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

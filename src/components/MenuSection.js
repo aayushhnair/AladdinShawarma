@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getImageByKey } from '../config/assets';
 import strings from '../config/strings.json';
+import FullMenuPage from './FullMenuPage';
 
 const MenuSection = () => {
   const sectionRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -175,24 +177,62 @@ const MenuSection = () => {
         marginTop: isMobile ? 'var(--space-6)' : 'var(--space-8)',
         padding: isMobile ? '0 1rem' : '0'
       }}>
-        <button className={`btn btn-secondary ${isMobile ? 'mobile-full-menu-btn' : ''}`} style={{
-          padding: isMobile ? 'var(--space-3) var(--space-8)' : 'var(--space-3) var(--space-6)',
-          fontSize: 'var(--text-base)',
-          fontWeight: '600',
-          width: isMobile ? '100%' : 'auto',
-          maxWidth: isMobile ? '280px' : 'none',
-          touchAction: 'manipulation',
-          WebkitTapHighlightColor: 'transparent'
-        }}
-        onTouchStart={() => {
-          if (isMobile && navigator.vibrate) {
-            navigator.vibrate(30);
-          }
-        }}
+        <button 
+          className={`btn btn-secondary ${isMobile ? 'mobile-full-menu-btn' : ''}`} 
+          style={{
+            padding: isMobile ? 'var(--space-3) var(--space-8)' : 'var(--space-3) var(--space-6)',
+            fontSize: 'var(--text-base)',
+            fontWeight: '600',
+            width: isMobile ? '100%' : 'auto',
+            maxWidth: isMobile ? '280px' : 'none',
+            touchAction: 'manipulation',
+            WebkitTapHighlightColor: 'transparent',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onTouchStart={() => {
+            if (isMobile && navigator.vibrate) {
+              navigator.vibrate(30);
+            }
+          }}
+          onClick={() => {
+            setIsFullMenuOpen(true);
+            // Add haptic feedback
+            if (navigator.vibrate) {
+              navigator.vibrate(50);
+            }
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'translateY(-2px)';
+            // e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = 'none';
+          }}
         >
-          <span>View Full Menu</span>
+          {/* Button Sparkle Effect */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: '-100%',
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+            animation: 'sparkleMove 3s ease-in-out infinite'
+          }} />
+          
+          <span style={{ position: 'relative', zIndex: 2 }}>
+            🍽️ View Full Menu
+          </span>
         </button>
       </div>
+
+      {/* Full Menu Page Modal */}
+      <FullMenuPage 
+        isOpen={isFullMenuOpen} 
+        onClose={() => setIsFullMenuOpen(false)} 
+      />
     </div>
   );
 };
