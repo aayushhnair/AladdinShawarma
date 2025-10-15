@@ -53,9 +53,7 @@ const ContactSection = () => {
 
   return (
     <div className={`section-column ${isMobile ? 'mobile-contact' : ''}`} id="contact" ref={sectionRef} style={{ 
-      color: 'white',
-      background: 'var(--color-primary)',
-      padding: isMobile ? '2rem 1rem' : '3rem 2rem',
+      color: '#08144F',
       position: 'relative'
     }}>
         {/* Section Header */}
@@ -64,7 +62,12 @@ const ContactSection = () => {
           textAlign: isMobile ? 'center' : 'left'
         }}>
           <div className="animate-on-scroll flip-in delay-200" style={{
-            color: 'var(--color-secondary)',
+            background: 'rgba(252, 177, 0, 0.15)',
+            color: '#FCB100',
+            border: '1px solid rgba(252, 177, 0, 0.3)',
+            display: 'inline-block',
+            padding: '0.4rem 1rem',
+            borderRadius: '20px',
             fontSize: 'var(--text-sm)',
             fontWeight: '600',
             textTransform: 'uppercase',
@@ -76,7 +79,7 @@ const ContactSection = () => {
           <h2 className={`animate-on-scroll zoom-in delay-300 ${isMobile ? 'mobile-contact-title' : ''}`} style={{
             fontSize: isMobile ? 'var(--text-2xl)' : 'var(--text-4xl)',
             fontWeight: '700',
-            color: 'white',
+            color: '#08144F',
             marginBottom: 'var(--space-4)',
             fontFamily: 'var(--font-secondary)'
           }}>
@@ -84,7 +87,7 @@ const ContactSection = () => {
           </h2>
           <p className="animate-on-scroll slide-up delay-400" style={{
             fontSize: isMobile ? 'var(--text-base)' : 'var(--text-lg)',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(8, 20, 79, 0.7)',
             maxWidth: '600px',
             margin: '0 auto'
           }}>
@@ -122,13 +125,14 @@ const ContactSection = () => {
             }}>
               {/* Address */}
               <div style={{
-                background: 'rgba(255, 255, 255, 0.1)',
+                background: 'rgba(252, 177, 0, 0.05)',
                 padding: isMobile ? 'var(--space-4)' : 'var(--space-6)',
                 borderRadius: 'var(--radius-lg)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '2px solid rgba(252, 177, 0, 0.3)',
                 backdropFilter: 'blur(10px)',
                 width: '100%',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
               }}>
                 <div style={{ 
                   display: 'flex', 
@@ -154,7 +158,7 @@ const ContactSection = () => {
                   </div>
                   <div style={{ width: '100%' }}>
                     <h4 style={{ 
-                      color: 'var(--color-secondary)', 
+                      color: '#08144F', 
                       fontSize: isMobile ? 'var(--text-base)' : 'var(--text-lg)', 
                       fontWeight: '600', 
                       margin: 0 
@@ -162,7 +166,7 @@ const ContactSection = () => {
                       Address
                     </h4>
                     <p style={{ 
-                      color: 'rgba(255, 255, 255, 0.9)', 
+                      color: 'rgba(8, 20, 79, 0.7)', 
                       fontSize: 'var(--text-sm)', 
                       margin: 'var(--space-1) 0 0 0',
                       wordBreak: 'break-word'
@@ -180,13 +184,14 @@ const ContactSection = () => {
                 gap: 'var(--space-4)' 
               }}>
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: 'rgba(252, 177, 0, 0.05)',
                   padding: 'var(--space-4)',
                   borderRadius: 'var(--radius-lg)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '2px solid rgba(252, 177, 0, 0.3)',
                   textAlign: 'center',
                   width: '100%',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
                 }}>
                   <div style={{
                     width: '40px',
@@ -202,9 +207,9 @@ const ContactSection = () => {
                       <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
                   </div>
-                  <h5 style={{ color: 'var(--color-secondary)', fontSize: 'var(--text-sm)', fontWeight: '600', margin: 0 }}>Phone</h5>
+                  <h5 style={{ color: '#08144F', fontSize: 'var(--text-sm)', fontWeight: '600', margin: 0 }}>Phone</h5>
                   <a href={`tel:${strings.contact.phone}`} style={{ 
-                    color: 'white', 
+                    color: 'rgba(8, 20, 79, 0.7)', 
                     textDecoration: 'none', 
                     fontSize: 'var(--text-xs)',
                     wordBreak: 'break-all'
@@ -214,13 +219,14 @@ const ContactSection = () => {
                 </div>
 
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: 'rgba(252, 177, 0, 0.05)',
                   padding: 'var(--space-4)',
                   borderRadius: 'var(--radius-lg)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '2px solid rgba(252, 177, 0, 0.3)',
                   textAlign: 'center',
                   width: '100%',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
                 }}>
                   <div style={{
                     width: '40px',
@@ -236,9 +242,9 @@ const ContactSection = () => {
                       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                   </div>
-                  <h5 style={{ color: 'var(--color-secondary)', fontSize: 'var(--text-sm)', fontWeight: '600', margin: 0 }}>Email</h5>
+                  <h5 style={{ color: '#08144F', fontSize: 'var(--text-sm)', fontWeight: '600', margin: 0 }}>Email</h5>
                   <a href={`mailto:${strings.contact.email}`} style={{ 
-                    color: 'white', 
+                    color: 'rgba(8, 20, 79, 0.7)', 
                     textDecoration: 'none', 
                     fontSize: 'var(--text-xs)',
                     wordBreak: 'break-all'
@@ -251,15 +257,16 @@ const ContactSection = () => {
 
             {/* Opening Hours */}
             <div style={{
-              background: 'rgba(255, 255, 255, 0.1)',
+              background: 'rgba(252, 177, 0, 0.05)',
               padding: isMobile ? 'var(--space-4)' : 'var(--space-6)',
               borderRadius: 'var(--radius-lg)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '2px solid rgba(252, 177, 0, 0.3)',
               width: '100%',
-              boxSizing: 'border-box'
+              boxSizing: 'border-box',
+              boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
             }}>
               <h4 style={{
-                color: 'var(--color-secondary)',
+                color: '#08144F',
                 fontSize: isMobile ? 'var(--text-base)' : 'var(--text-lg)',
                 fontWeight: '600',
                 marginBottom: 'var(--space-4)',
@@ -289,16 +296,16 @@ const ContactSection = () => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     padding: 'var(--space-2) 0',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderBottom: '1px solid rgba(8, 20, 79, 0.1)',
                     width: '100%',
                     boxSizing: 'border-box'
                   }}>
                     <span style={{ 
-                      color: 'rgba(255, 255, 255, 0.9)', 
+                      color: 'rgba(8, 20, 79, 0.8)', 
                       fontSize: isMobile ? 'var(--text-xs)' : 'var(--text-sm)' 
                     }}>{schedule.day}</span>
                     <span style={{ 
-                      color: schedule.hours === 'Closed' ? 'var(--color-secondary)' : 'rgba(255, 255, 255, 0.8)', 
+                      color: schedule.hours === 'Closed' ? '#FCB100' : 'rgba(8, 20, 79, 0.7)', 
                       fontSize: isMobile ? 'var(--text-xs)' : 'var(--text-sm)',
                       fontWeight: schedule.hours === 'Closed' ? '600' : '400'
                     }}>
@@ -373,20 +380,21 @@ const ContactSection = () => {
 
           {/* Right Side - Contact Form */}
           <div className="animate-on-scroll slide-left delay-600" style={{
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(252, 177, 0, 0.05)',
             padding: isMobile ? 'var(--space-4)' : 'var(--space-8)',
             borderRadius: 'var(--radius-xl)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            border: '2px solid rgba(252, 177, 0, 0.3)',
             backdropFilter: 'blur(10px)',
             width: '100%',
             maxWidth: '100%',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
           }}>
             <h3 style={{
               fontSize: isMobile ? 'var(--text-xl)' : 'var(--text-2xl)',
               fontWeight: '700',
               marginBottom: isMobile ? 'var(--space-4)' : 'var(--space-6)',
-              color: 'var(--color-secondary)',
+              color: '#08144F',
               fontFamily: 'var(--font-secondary)',
               textAlign: isMobile ? 'center' : 'left'
             }}>
@@ -409,9 +417,9 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   style={{
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: 'white',
+                    background: '#FFFFFF',
+                    border: '2px solid rgba(252, 177, 0, 0.3)',
+                    color: '#08144F',
                     padding: 'var(--space-3) var(--space-4)',
                     fontSize: 'var(--text-sm)',
                     borderRadius: 'var(--radius-md)',
@@ -419,6 +427,14 @@ const ContactSection = () => {
                     transition: 'var(--transition-normal)',
                     width: '100%',
                     boxSizing: 'border-box'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#FCB100';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(252, 177, 0, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+                    e.target.style.boxShadow = 'none';
                   }}
                 />
                 <input 
@@ -429,9 +445,9 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   style={{
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: 'white',
+                    background: '#FFFFFF',
+                    border: '2px solid rgba(252, 177, 0, 0.3)',
+                    color: '#08144F',
                     padding: 'var(--space-3) var(--space-4)',
                     fontSize: 'var(--text-sm)',
                     borderRadius: 'var(--radius-md)',
@@ -439,6 +455,14 @@ const ContactSection = () => {
                     transition: 'var(--transition-normal)',
                     width: '100%',
                     boxSizing: 'border-box'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#FCB100';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(252, 177, 0, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+                    e.target.style.boxShadow = 'none';
                   }}
                 />
               </div>
@@ -452,9 +476,9 @@ const ContactSection = () => {
                 required
                 style={{
                   width: '100%',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: 'white',
+                  background: '#FFFFFF',
+                  border: '2px solid rgba(252, 177, 0, 0.3)',
+                  color: '#08144F',
                   padding: 'var(--space-3) var(--space-4)',
                   fontSize: 'var(--text-sm)',
                   borderRadius: 'var(--radius-md)',
@@ -462,6 +486,14 @@ const ContactSection = () => {
                   marginBottom: 'var(--space-4)',
                   transition: 'var(--transition-normal)',
                   boxSizing: 'border-box'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FCB100';
+                  e.target.style.boxShadow = '0 0 0 3px rgba(252, 177, 0, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+                  e.target.style.boxShadow = 'none';
                 }}
               />
               
@@ -474,9 +506,9 @@ const ContactSection = () => {
                 style={{
                   width: '100%',
                   minHeight: isMobile ? '100px' : '120px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: 'white',
+                  background: '#FFFFFF',
+                  border: '2px solid rgba(252, 177, 0, 0.3)',
+                  color: '#08144F',
                   padding: 'var(--space-3) var(--space-4)',
                   boxSizing: 'border-box',
                   fontSize: 'var(--text-sm)',
@@ -485,6 +517,14 @@ const ContactSection = () => {
                   marginBottom: 'var(--space-6)',
                   resize: 'vertical',
                   transition: 'var(--transition-normal)'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FCB100';
+                  e.target.style.boxShadow = '0 0 0 3px rgba(252, 177, 0, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+                  e.target.style.boxShadow = 'none';
                 }}
               ></textarea>
               

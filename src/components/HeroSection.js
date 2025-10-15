@@ -142,7 +142,7 @@ const HeroSection = () => {
         />
       )}
       
-      {/* Professional Gradient Overlay */}
+      {/* Professional Gradient Overlay - LIGHTER FOR CLASSY LOOK */}
       <div
         style={{
           position: 'absolute',
@@ -150,7 +150,20 @@ const HeroSection = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, rgba(8, 20, 79, 0.85) 0%, rgba(8, 20, 79, 0.75) 50%, rgba(8, 20, 79, 0.85) 100%)',
+          background: 'linear-gradient(135deg, rgba(8, 20, 79, 0.75) 0%, rgba(8, 20, 79, 0.60) 50%, rgba(8, 20, 79, 0.75) 100%)',
+          zIndex: 1
+        }}
+      ></div>
+      
+      {/* White Gradient Accent - Adds Sophistication */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '30%',
+          background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent)',
           zIndex: 1
         }}
       ></div>

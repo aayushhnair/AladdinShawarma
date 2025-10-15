@@ -32,7 +32,6 @@
       { "label": "Home", "href": "#home", "id": "home" },
       { "label": "About", "href": "#about", "id": "about" },
       { "label": "Menu", "href": "#menu", "id": "menu" },
-      { "label": "Chef", "href": "#chef", "id": "chef" },
       { "label": "Testimonials", "href": "#testimonials", "id": "testimonials" },
       { "label": "Blog", "href": "#blog", "id": "blog" },
       { "label": "Contact", "href": "#contact", "id": "contact" }

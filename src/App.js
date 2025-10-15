@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import './styles/modern.css';
 import './styles/main.css';
 import useScrollAnimation from './hooks/useScrollAnimation';
+import { getImageByKey } from './config/assets';
 
 // Components
 import SplashScreen from './components/SplashScreen';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import IntroSection from './components/IntroSection';
 import MenuSection from './components/MenuSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import ChefSection from './components/ChefSection';
 import PerfectIngredientsSection from './components/PerfectIngredientsSection';
 import BlogSection from './components/BlogSection';
 import CallToActionSection from './components/CallToActionSection';
@@ -58,57 +57,113 @@ function App() {
           scrollDirection="right"
         />
 
-        {/* Row 1: About + Menu (Side by Side) */}
+        {/* Row 1: About Section - WHITE BACKGROUND */}
         <div style={{
-          backgroundColor: 'var(--color-primary)',
-          padding: 'var(--space-16) 0'
+          backgroundColor: '#FAF9F6',
+          padding: 'var(--space-16) 0',
+          position: 'relative'
         }}>
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 'var(--space-24)', alignItems: 'start' }}>
-              <AboutSection />
-              <MenuSection />
-            </div>
+          {/* Subtle decorative gradient */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '200px',
+            background: 'linear-gradient(to bottom, rgba(252, 177, 0, 0.03), transparent)',
+            pointerEvents: 'none'
+          }}></div>
+          
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+            <AboutSection />
           </div>
         </div>
 
-        {/* Row 2: Intro Section (Full Width) */}
-        <IntroSection />
-
-        {/* Row 4: From Our Kitchen (Blog) - Full Width on Mobile */}
+        {/* Row 2: Menu Section - TRANSPARENT WITH BACKGROUND */}
         <div style={{
-          backgroundColor: 'var(--color-primary)',
-          padding: 'var(--space-16) 0'
+          position: 'relative',
+          padding: 'var(--space-16) 0',
+          backgroundImage: `url(${getImageByKey('hero')})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
         }}>
+          {/* Dark overlay for readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(8, 20, 79, 0.85)',
+            zIndex: 0
+          }}></div>
+          
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+            <MenuSection />
+          </div>
+        </div>
+
+        {/* Row 4: From Our Kitchen (Blog) - WARM WHITE BACKGROUND */}
+        <div style={{
+          backgroundColor: '#FFF8F0',
+          padding: 'var(--space-16) 0',
+          position: 'relative'
+        }}>
+          {/* Decorative top border */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '120px',
+            height: '4px',
+            background: 'linear-gradient(90deg, transparent, #FCB100, transparent)',
+            borderRadius: '2px'
+          }}></div>
+          
           <div className="container">
             <BlogSection />
           </div>
         </div>
 
-        {/* Row 5: Chef Section - Full Width on Mobile */}
+        {/* Row 3: Testimonials Section - TRANSPARENT WITH BACKGROUND */}
         <div style={{
-          backgroundColor: 'var(--color-primary)',
-          padding: 'var(--space-8) 0'
+          position: 'relative',
+          padding: 'var(--space-16) 0',
+          backgroundImage: `url(${getImageByKey('hero')})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
         }}>
-          <div className="container">
-            <ChefSection />
-          </div>
-        </div>
-
-        {/* Row 3: Testimonials Section */}
-        <div style={{
-          backgroundColor: 'var(--color-primary)',
-          padding: 'var(--space-16) 0'
-        }}>
-          <div className="container">
+          {/* Dark overlay for readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(8, 20, 79, 0.85)',
+            zIndex: 0
+          }}></div>
+          
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <TestimonialsSection />
           </div>
         </div>
 
         {/* Row 5: Call to Action (Full Width) */}
-        <CallToActionSection />
+        {/* <CallToActionSection /> */}
 
-        {/* Row 6: Contact (Full Width) */}
-        <ContactSection />
+        {/* Row 6: Contact - WHITE BACKGROUND WITH PROPER CONTAINER */}
+        <div style={{
+          backgroundColor: '#FFFFFF',
+          padding: 'var(--space-16) 0'
+        }}>
+          <div className="container">
+            <ContactSection />
+          </div>
+        </div>
 
         <Footer />
       </div>

@@ -38,27 +38,10 @@ const Footer = () => {
   return (
     <footer className={`${isMobile ? 'mobile-footer' : ''}`} ref={sectionRef} style={{
       position: 'relative',
-      backgroundImage: isMobile ? 'none' : `url(${hero.background})`,
-      backgroundColor: isMobile ? 'var(--color-primary)' : 'transparent',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: isMobile ? 'scroll' : 'fixed',
+      backgroundColor: 'var(--color-primary)',
       color: 'white',
       padding: isMobile ? 'var(--space-8) 0 var(--space-4) 0' : 'var(--space-16) 0 var(--space-8) 0'
     }}>
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(8, 20, 79, 0.7)',
-          zIndex: 0
-        }}
-      ></div>
-
       <div className="container" style={{ padding: isMobile ? '0 1rem' : '0 15px' }}>
         <div style={{
           display: 'grid',

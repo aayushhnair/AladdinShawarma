@@ -47,7 +47,7 @@ const AboutSection = () => {
 
   return (
     <div className={`minimal-about-section ${isMobile ? 'mobile-about' : ''}`} id="about" ref={sectionRef} style={{ 
-      color: 'var(--color-tertiary)',
+      color: '#08144F',
       padding: isMobile ? '2rem 1rem' : '3rem 2rem'
     }}>
       {/* Minimal Section Header */}
@@ -60,7 +60,7 @@ const AboutSection = () => {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.5rem',
-          background: 'rgba(252, 177, 0, 0.1)',
+          background: 'rgba(252, 177, 0, 0.15)',
           color: '#FCB100',
           padding: '0.4rem 1rem',
           borderRadius: '20px',
@@ -69,7 +69,7 @@ const AboutSection = () => {
           textTransform: 'uppercase',
           letterSpacing: '1px',
           marginBottom: '1.5rem',
-          border: '1px solid rgba(252, 177, 0, 0.2)'
+          border: '1px solid rgba(252, 177, 0, 0.3)'
         }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -79,7 +79,7 @@ const AboutSection = () => {
 
         {/* Minimal Title */}
         <h2 className="minimal-title animate-on-scroll slide-up delay-2" style={{ 
-          color: '#FFFFFF',
+          color: '#08144F',
           fontSize: isMobile ? '2rem' : '2.8rem',
           fontWeight: '700',
           fontFamily: "'Playfair Display', serif",
@@ -98,7 +98,7 @@ const AboutSection = () => {
 
         {/* Essential Description */}
         <p className="minimal-description animate-on-scroll fade-in delay-3" style={{ 
-          color: 'rgba(255, 255, 255, 0.8)',
+          color: 'rgba(8, 20, 79, 0.75)',
           fontSize: isMobile ? '1rem' : '1.1rem',
           lineHeight: '1.6',
           fontWeight: '400',
@@ -148,23 +148,26 @@ const AboutSection = () => {
           }
         ].map((point, index) => (
           <div key={index} className={`minimal-point animate-on-scroll slide-up delay-${4 + index}`} style={{
-            background: 'rgba(255, 255, 255, 0.05)',
+            background: '#FFFFFF',
             backdropFilter: 'blur(10px)',
             borderRadius: '15px',
             padding: isMobile ? '1.5rem' : '2rem',
-            border: '1px solid rgba(252, 177, 0, 0.1)',
+            border: '2px solid rgba(252, 177, 0, 0.2)',
             transition: 'all 0.3s ease',
-            textAlign: isMobile ? 'center' : 'left'
+            textAlign: isMobile ? 'center' : 'left',
+            boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(252, 177, 0, 0.1)';
-            e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+            e.currentTarget.style.background = 'rgba(252, 177, 0, 0.05)';
+            e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.4)';
             e.currentTarget.style.transform = 'translateY(-5px)';
+            e.currentTarget.style.boxShadow = '0 8px 30px rgba(252, 177, 0, 0.15)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-            e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.1)';
+            e.currentTarget.style.background = '#FFFFFF';
+            e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.2)';
             e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(8, 20, 79, 0.08)';
           }}
           >
             <div style={{ 
@@ -176,7 +179,7 @@ const AboutSection = () => {
               {point.icon}
             </div>
             <h4 style={{ 
-              color: '#FFFFFF',
+              color: '#08144F',
               fontSize: isMobile ? '1.1rem' : '1.2rem',
               fontWeight: '600',
               marginBottom: '0.5rem',
@@ -185,7 +188,7 @@ const AboutSection = () => {
               {point.title}
             </h4>
             <p style={{ 
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'rgba(8, 20, 79, 0.7)',
               fontSize: '0.9rem',
               lineHeight: '1.5',
               margin: 0
@@ -214,16 +217,16 @@ const AboutSection = () => {
             color: '#08144F',
             borderRadius: '12px',
             padding: isMobile ? '1rem 0.5rem' : '1.5rem 1rem',
-            boxShadow: '0 8px 25px rgba(252, 177, 0, 0.3)',
+            boxShadow: '0 8px 25px rgba(252, 177, 0, 0.25)',
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 12px 35px rgba(252, 177, 0, 0.4)';
+            e.currentTarget.style.boxShadow = '0 12px 35px rgba(252, 177, 0, 0.35)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.boxShadow = '0 8px 25px rgba(252, 177, 0, 0.3)';
+            e.currentTarget.style.boxShadow = '0 8px 25px rgba(252, 177, 0, 0.25)';
           }}
           >
             <div style={{ 

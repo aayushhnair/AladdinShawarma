@@ -23,6 +23,15 @@ export const theme = {
     mediumGray: '#666666',
     lightGray: '#f8f9fa',
     
+    // Premium White & Light Tones
+    pureWhite: '#FFFFFF',
+    offWhite: '#FAFAFA',
+    cream: '#F5F5F0',
+    lightCream: '#FAF9F6',
+    warmWhite: '#FFF8F0',
+    softGray: '#E8E8E8',
+    paleGold: '#FFF9E6',
+    
     // Accent Colors
     accent1: '#2c3e50',        // Dark blue-gray
     accent2: '#e74c3c',        // Subtle red for CTAs
@@ -36,6 +45,15 @@ export const theme = {
     bgOverlay: 'rgba(8, 20, 79, 0.9)',
     bgOverlayLight: 'rgba(252, 177, 0, 0.1)',
     
+    // White & Light Section Backgrounds
+    bgWhite: '#FFFFFF',
+    bgOffWhite: '#FAFAFA',
+    bgCream: '#F5F5F0',
+    bgLightCream: '#FAF9F6',
+    bgWarmWhite: '#FFF8F0',
+    bgPaleGold: '#FFF9E6',
+    bgSoftGray: '#F9F9F9',
+    
     // Text Colors
     textPrimary: '#08144F',
     textSecondary: '#FCB100',
@@ -43,6 +61,12 @@ export const theme = {
     textDark: '#000000',
     textMuted: 'rgba(0, 0, 0, 0.7)',
     textMutedLight: 'rgba(255, 255, 255, 0.8)',
+    
+    // Text for Light Backgrounds
+    textOnWhite: '#08144F',
+    textOnLight: '#1a1a1a',
+    textMutedOnWhite: 'rgba(8, 20, 79, 0.7)',
+    textAccentOnWhite: '#FCB100',
   },
 
   // Typography System

@@ -37,23 +37,37 @@ const MenuSection = () => {
   }, [isMobile]);
 
   return (
-    <div className={`section-column ${isMobile ? 'mobile-menu' : ''}`} id="menu" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
+    <div className={`section-column ${isMobile ? 'mobile-menu' : ''}`} id="menu" ref={sectionRef} style={{ color: '#08144F' }}>
       {/* Section Header */}
       <div className={`section-header animate-on-scroll fade-in ${isMobile ? 'mobile-menu-header' : ''}`} style={{ 
         marginBottom: isMobile ? 'var(--space-6)' : 'var(--space-8)',
         textAlign: isMobile ? 'center' : 'left',
         padding: isMobile ? '0 1rem' : '0'
       }}>
-        <div className="section-badge">{strings.menu.subtitle}</div>
-        <h2 className={`section-title ${isMobile ? 'mobile-menu-title' : ''}`} style={{ color: 'var(--color-secondary)' }}>
+        <div className="section-badge" style={{
+          display: 'inline-block',
+          background: 'rgba(252, 177, 0, 0.15)',
+          color: '#FCB100',
+          padding: '0.4rem 1rem',
+          borderRadius: '20px',
+          fontSize: '0.8rem',
+          fontWeight: '600',
+          textTransform: 'uppercase',
+          letterSpacing: '1px',
+          marginBottom: '1rem',
+          border: '1px solid rgba(252, 177, 0, 0.3)'
+        }}>
+          {strings.menu.subtitle}
+        </div>
+        <h2 className={`section-title ${isMobile ? 'mobile-menu-title' : ''}`} style={{ color: '#FCB100' }}>
           {strings.menu.title}
         </h2>
-        <p className={`section-subtitle ${isMobile ? 'mobile-menu-subtitle' : ''}`} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+        <p className={`section-subtitle ${isMobile ? 'mobile-menu-subtitle' : ''}`} style={{ color: 'rgba(8, 20, 79, 0.75)' }}>
           {isMobile ? strings.menu.description.substring(0, 100) + '...' : strings.menu.description}
         </p>
       </div>
 
-      {/* Menu Categories - Responsive Layout */}
+      {/* Menu Categories - Responsive Layout with WHITE CARDS */}
       <div style={{ 
         display: 'grid', 
         gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', 
@@ -63,24 +77,37 @@ const MenuSection = () => {
         {strings.menu.categories.slice(0, 2).map((category, categoryIndex) => (
           <div key={categoryIndex} className={`animate-on-scroll slide-up stagger-${categoryIndex + 1}`}>
             <div className={`menu-category-card ${isMobile ? 'mobile-category' : ''}`} style={{
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: '#FFFFFF',
               borderRadius: 'var(--radius-xl)',
               padding: isMobile ? 'var(--space-4)' : 'var(--space-6)',
-              border: '1px solid rgba(252, 177, 0, 0.2)',
-              height: '100%'
-            }}>
+              border: '2px solid rgba(252, 177, 0, 0.2)',
+              height: '100%',
+              boxShadow: '0 4px 20px rgba(8, 20, 79, 0.1)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.5)';
+              e.currentTarget.style.boxShadow = '0 8px 30px rgba(252, 177, 0, 0.15)';
+              e.currentTarget.style.transform = 'translateY(-5px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.2)';
+              e.currentTarget.style.boxShadow = '0 4px 20px rgba(8, 20, 79, 0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            >
               {/* Category Header */}
               <div style={{ 
                 textAlign: 'center', 
                 marginBottom: isMobile ? 'var(--space-4)' : 'var(--space-6)',
                 paddingBottom: 'var(--space-3)',
-                borderBottom: '2px solid var(--color-secondary)',
+                borderBottom: '2px solid #FCB100',
                 position: 'relative'
               }}>
                 <h3 className={`category-title ${isMobile ? 'mobile-category-title' : ''}`} style={{ 
                   fontSize: isMobile ? 'var(--text-lg)' : 'var(--text-xl)', 
                   fontWeight: '700',
-                  color: 'var(--color-secondary)',
+                  color: '#08144F',
                   textTransform: 'uppercase',
                   letterSpacing: isMobile ? '1px' : '2px',
                   fontFamily: 'var(--font-secondary)'
@@ -96,10 +123,10 @@ const MenuSection = () => {
                     display: 'flex',
                     gap: isMobile ? 'var(--space-2)' : 'var(--space-3)',
                     padding: isMobile ? 'var(--space-2)' : 'var(--space-3)',
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: 'rgba(252, 177, 0, 0.05)',
                     borderRadius: 'var(--radius-lg)',
                     transition: 'var(--transition-normal)',
-                    border: '1px solid rgba(252, 177, 0, 0.1)',
+                    border: '1px solid rgba(252, 177, 0, 0.15)',
                     cursor: 'pointer'
                   }}
                   onTouchStart={() => {
@@ -107,6 +134,16 @@ const MenuSection = () => {
                     if (isMobile && navigator.vibrate) {
                       navigator.vibrate(20);
                     }
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(252, 177, 0, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(252, 177, 0, 0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.15)';
+                    e.currentTarget.style.transform = 'translateX(0)';
                   }}
                   >
                     <div 
@@ -134,7 +171,7 @@ const MenuSection = () => {
                         <h4 className={`menu-item-name ${isMobile ? 'mobile-item-name' : ''}`} style={{
                           fontSize: isMobile ? 'var(--text-sm)' : 'var(--text-base)',
                           fontWeight: '600',
-                          color: 'var(--color-secondary)',
+                          color: '#08144F',
                           margin: 0,
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -145,7 +182,7 @@ const MenuSection = () => {
                         <span className={`menu-item-price ${isMobile ? 'mobile-item-price' : ''}`} style={{
                           fontSize: isMobile ? 'var(--text-base)' : 'var(--text-lg)',
                           fontWeight: '700',
-                          color: 'var(--color-secondary)',
+                          color: '#FCB100',
                           flexShrink: 0
                         }}>
                           {item.price}
@@ -153,7 +190,7 @@ const MenuSection = () => {
                       </div>
                       <p className={`menu-item-description ${isMobile ? 'mobile-item-description' : ''}`} style={{
                         fontSize: isMobile ? '11px' : 'var(--text-sm)',
-                        color: 'rgba(255, 255, 255, 0.7)',
+                        color: 'rgba(8, 20, 79, 0.6)',
                         margin: 0,
                         lineHeight: '1.4',
                         overflow: 'hidden',

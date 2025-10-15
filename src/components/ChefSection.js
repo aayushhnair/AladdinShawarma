@@ -22,13 +22,24 @@ const ChefSection = () => {
   }, []);
 
   return (
-    <div className="section-column" id="chef" ref={sectionRef} style={{ color: 'var(--color-tertiary)' }}>
+    <div className="section-column" id="chef" ref={sectionRef} style={{ color: '#08144F' }}>
       {/* Section Header */}
       <div className="section-header animate-on-scroll dissolve" style={{ marginBottom: 'var(--space-8)' }}>
-        <div className="section-badge animate-on-scroll flip-in delay-200" style={{ background: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-secondary)' }}>
+        <div className="section-badge animate-on-scroll flip-in delay-200" style={{ 
+          background: 'rgba(252, 177, 0, 0.15)', 
+          color: '#FCB100',
+          border: '1px solid rgba(252, 177, 0, 0.3)',
+          display: 'inline-block',
+          padding: '0.4rem 1rem',
+          borderRadius: '20px',
+          fontSize: '0.8rem',
+          fontWeight: '600',
+          textTransform: 'uppercase',
+          letterSpacing: '1px'
+        }}>
           {strings.chef.subtitle}
         </div>
-        <h2 className="section-title animate-on-scroll zoom-in delay-300" style={{ color: 'var(--color-secondary)' }}>
+        <h2 className="section-title animate-on-scroll zoom-in delay-300" style={{ color: '#08144F' }}>
           {strings.chef.title}
         </h2>
       </div>
@@ -80,19 +91,20 @@ const ChefSection = () => {
 
         {/* Chef Info */}
         <div className="animate-on-scroll slide-in-diagonal delay-500" style={{
-          background: 'rgba(255, 255, 255, 0.05)',
+          background: '#FFFFFF',
           backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          border: '2px solid rgba(252, 177, 0, 0.2)',
           padding: isMobile ? 'var(--space-4)' : 'var(--space-6)',
           borderRadius: 'var(--radius-xl)',
           position: 'relative',
           textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 2 : 0
+          order: isMobile ? 2 : 0,
+          boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
         }}>
           <h3 style={{
             fontSize: isMobile ? 'var(--text-xl)' : 'var(--text-2xl)',
             fontWeight: '700',
-            color: 'var(--color-secondary)',
+            color: '#08144F',
             marginBottom: 'var(--space-2)',
             fontFamily: 'var(--font-secondary)'
           }}>
