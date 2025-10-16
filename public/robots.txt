@@ -1,0 +1,12 @@
+# User-Agent: *
+# Allows all search engine bots to index the website
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://www.aladdinshawarma.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/

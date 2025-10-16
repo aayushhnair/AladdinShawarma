@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { logo } from '../config/assets';
+import { logo, header } from '../config/assets';
 import strings from '../config/strings.json';
 
 const SplashScreen = ({ onComplete }) => {
@@ -47,6 +47,28 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <div className={`professional-splash ${animationPhase}`}>
+      {/* Theatrical Curtains - Opening Effect */}
+      <div className="splash-curtain-left">
+        <img src={header.curtain} alt="Curtain" style={{ 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover',
+          transform: 'scaleX(-1)' // Mirror the left curtain
+        }} />
+      </div>
+      <div className="splash-curtain-right">
+        <img src={header.curtain} alt="Curtain" style={{ 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover'
+        }} />
+      </div>
+
+      {/* Hanging Lamps with Glow */}
+      <div className="splash-lamps">
+        <img src={header.lamps} alt="Hanging Lamps" />
+      </div>
+
       {/* Minimal Background with Subtle Animation */}
       <div className="splash-background">
         <div className="gradient-overlay"></div>
@@ -90,7 +112,7 @@ const SplashScreen = ({ onComplete }) => {
             </div>
           </div>
           <div className="loading-text">
-            <span className="loading-label">Preparing Experience</span>
+            <span className="loading-label">Preparing Your Magical Experience</span>
           </div>
         </div>
       </div>

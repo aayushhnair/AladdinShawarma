@@ -7,12 +7,6 @@ const HeroSection = () => {
   const orderButtonRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [rubCount, setRubCount] = useState(0);
-  const [isRubbing, setIsRubbing] = useState(false);
-  const [sparkles, setSparkles] = useState([]);
-  const [showGenieMessage, setShowGenieMessage] = useState(false);
-  const rubTimerRef = useRef(null);
-  const messageTimerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,113 +49,18 @@ const HeroSection = () => {
   }, [isMobile]);
 
   const handleOrderClick = () => {
-    const currentCount = rubCount;
-    
-    // Increment rub count
-    setRubCount(prev => prev + 1);
-    setIsRubbing(true);
-    
-    // Show genie message on first click
-    if (currentCount === 0) {
-      setShowGenieMessage(true);
-      
-      // Clear existing message timer
-      if (messageTimerRef.current) {
-        clearTimeout(messageTimerRef.current);
-      }
-      
-      // Hide message after 3 seconds
-      messageTimerRef.current = setTimeout(() => {
-        setShowGenieMessage(false);
-      }, 3000);
-    }
-    
-    // Create sparkles
-    createSparkles();
-    
     // Add haptic feedback for mobile
     if (isMobile && navigator.vibrate) {
       navigator.vibrate(50);
     }
     
-    // Reset rub timer
-    if (rubTimerRef.current) {
-      clearTimeout(rubTimerRef.current);
-    }
-    
-    // Reset rub state after 2 seconds of no rubbing
-    rubTimerRef.current = setTimeout(() => {
-      setIsRubbing(false);
-      if (rubCount < 3) {
-        setRubCount(0);
-        setShowGenieMessage(false);
-      }
-    }, 2000);
-    
-    // After 3 rubs, trigger genie effect and scroll
-    if (currentCount >= 2) {
-      setShowGenieMessage(false);
-      setTimeout(() => {
-        triggerGenieEffect();
-      }, 300);
-    }
-  };
-  
-  const createSparkles = () => {
-    if (!orderButtonRef.current) return;
-    
-    const rect = orderButtonRef.current.getBoundingClientRect();
-    const newSparkles = [];
-    
-    // Create 8 sparkles in circular pattern
-    for (let i = 0; i < 8; i++) {
-      const angle = (i * 45) * (Math.PI / 180);
-      const distance = 150; // Final distance sparkle travels
-      
-      newSparkles.push({
-        id: Date.now() + i,
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2,
-        angle: angle,
-        targetX: Math.cos(angle) * distance,
-        targetY: Math.sin(angle) * distance,
-        size: Math.random() * 8 + 4
-      });
-    }
-    
-    setSparkles(prev => [...prev, ...newSparkles]);
-    
-    // Remove sparkles after animation
-    setTimeout(() => {
-      setSparkles(prev => prev.filter(s => !newSparkles.find(ns => ns.id === s.id)));
-    }, 1000);
-  };
-  
-  const triggerGenieEffect = () => {
-    // Add haptic feedback for mobile
-    if (isMobile && navigator.vibrate) {
-      navigator.vibrate([100, 50, 100, 50, 200]);
-    }
-    
-    // Scroll to menu section with genie effect
+    // Scroll to menu section
     const menuSection = document.querySelector('#menu');
     if (menuSection) {
-      // Add genie animation class to button
-      if (orderButtonRef.current) {
-        orderButtonRef.current.classList.add('summoning');
-        setTimeout(() => {
-          orderButtonRef.current.classList.remove('summoning');
-        }, 1000);
-      }
-      
-      // Scroll after a short delay
-      setTimeout(() => {
-        menuSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        setRubCount(0);
-      }, 800);
+      menuSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -206,6 +105,7 @@ const HeroSection = () => {
         muted
         loop
         playsInline
+        preload="metadata"
         poster={hero.image}
         onLoadedData={handleVideoLoad}
         style={{
@@ -219,7 +119,9 @@ const HeroSection = () => {
           transform: 'translate(-50%, -50%)',
           zIndex: 0,
           objectFit: 'cover',
-          transition: 'ease-in-out',
+          transition: 'opacity 0.5s ease-in-out',
+          opacity: isVideoLoaded ? 1 : 0,
+          willChange: 'opacity'
         }}
       >
         <source src={hero.backgroundvideo} type="video/mp4" />
@@ -227,22 +129,23 @@ const HeroSection = () => {
       </video>
       
       {/* Fallback Background Image for very slow connections */}
-      {!isVideoLoaded && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage: `url(${hero.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            zIndex: 0
-          }}
-        />
-      )}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url(${hero.image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0,
+          opacity: isVideoLoaded ? 0 : 1,
+          transition: 'opacity 0.5s ease-in-out',
+          pointerEvents: 'none'
+        }}
+      />
       
       {/* Professional Gradient Overlay - LIGHTER FOR CLASSY LOOK */}
       {/* <div
@@ -258,18 +161,18 @@ const HeroSection = () => {
         }}
       ></div> */}
 
-            {/* <div
+            <div
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
+          // background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
           zIndex: 1,
-          // backdropFilter: 'blur(12px)'
+          backdropFilter: 'blur(7px)'
         }}
-      ></div> */}
+      ></div>
       
 
       {/* Geometric Elements */}
@@ -371,7 +274,7 @@ const HeroSection = () => {
             }}>
           <button 
             ref={orderButtonRef}
-            className="professional-btn primary-btn genie-button" 
+            className="professional-btn primary-btn" 
             onClick={handleOrderClick}
             style={{
               display: 'inline-flex',
@@ -388,7 +291,7 @@ const HeroSection = () => {
               letterSpacing: '1px',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: rubCount > 0 ? '0 0 30px rgba(252, 177, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.6)' : '0 10px 30px rgba(252, 177, 0, 0.3)',
+              boxShadow: '0 10px 30px rgba(252, 177, 0, 0.3)',
               minWidth: isMobile ? '200px' : '180px',
               justifyContent: 'center',
               touchAction: 'manipulation',
@@ -411,87 +314,6 @@ const HeroSection = () => {
             </svg>
             Order Now
           </button>
-          
-          {/* Genie Instruction Message - First Click - Fixed positioning */}
-          {showGenieMessage && orderButtonRef.current && (
-            <div style={{
-              position: 'fixed',
-              top: `${orderButtonRef.current.getBoundingClientRect().bottom + 8}px`,
-              left: `${orderButtonRef.current.getBoundingClientRect().right - 40}px`,
-              transform: 'translateX(-100%)',
-              background: '#FFFFFF',
-              color: '#666666',
-              padding: '0.5rem 0.75rem',
-              borderRadius: '10px',
-              fontSize: isMobile ? '0.8rem' : '0.85rem',
-              fontWeight: '600',
-              whiteSpace: 'nowrap',
-              animation: 'genieMessageSlide 0.5s ease-out',
-              border: '0.5px solid #999999',
-              zIndex: 10000,
-              textAlign: 'left',
-              lineHeight: '1.3',
-              pointerEvents: 'none'
-            }}>
-              Rub <strong>2 more times</strong> to fulfill your wish!
-            </div>
-          )}
-            
-          {/* Rub Counter Indicator - Fixed positioning */}
-          {rubCount > 0 && rubCount < 3 && !showGenieMessage && orderButtonRef.current && (
-            <div style={{
-              position: 'fixed',
-              top: `${orderButtonRef.current.getBoundingClientRect().top - 35}px`,
-              left: `${orderButtonRef.current.getBoundingClientRect().left + orderButtonRef.current.getBoundingClientRect().width / 2}px`,
-              transform: 'translateX(-50%)',
-              background: 'rgba(252, 177, 0, 0.95)',
-              color: '#08144F',
-              padding: '0.3rem 0.8rem',
-              borderRadius: '20px',
-              fontSize: '0.75rem',
-              fontWeight: '700',
-              whiteSpace: 'nowrap',
-              animation: 'rubPulse 0.5s ease',
-              boxShadow: '0 0 20px rgba(252, 177, 0, 0.8)',
-              zIndex: 10000,
-              pointerEvents: 'none'
-            }}>
-              ✨ Rub {rubCount}/3
-            </div>
-          )}
-          
-          {/* Sparkles Overlay */}
-          {sparkles.length > 0 && (
-            <div style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              pointerEvents: 'none',
-              zIndex: 9999
-            }}>
-              {sparkles.map(sparkle => (
-                <div
-                  key={sparkle.id}
-                  className="magic-sparkle"
-                  style={{
-                    position: 'absolute',
-                    left: `${sparkle.x}px`,
-                    top: `${sparkle.y}px`,
-                    width: `${sparkle.size}px`,
-                    height: `${sparkle.size}px`,
-                    background: 'radial-gradient(circle, #FFD700, #FCB100, transparent)',
-                    borderRadius: '50%',
-                    boxShadow: '0 0 10px #FFD700, 0 0 20px #FCB100',
-                    animation: `sparkleFloat 1s ease-out forwards, sparkleRotate 1s linear infinite`,
-                    '--target-x': `${sparkle.targetX}px`,
-                    '--target-y': `${sparkle.targetY}px`
-                  }}
-                />
-              ))}
-            </div>
-          )}
           
           <button 
             className="professional-btn secondary-btn" 

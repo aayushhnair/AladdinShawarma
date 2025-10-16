@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getImageByKey } from '../config/assets';
 import strings from '../config/strings.json';
-import FullMenuPage from './FullMenuPage';
 
 const MenuSection = () => {
   const sectionRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -233,7 +231,8 @@ const MenuSection = () => {
             }
           }}
           onClick={() => {
-            setIsFullMenuOpen(true);
+            // Navigate to full menu page
+            window.location.hash = 'full-menu';
             // Add haptic feedback
             if (navigator.vibrate) {
               navigator.vibrate(50);
@@ -264,12 +263,6 @@ const MenuSection = () => {
           </span>
         </button>
       </div>
-
-      {/* Full Menu Page Modal */}
-      <FullMenuPage 
-        isOpen={isFullMenuOpen} 
-        onClose={() => setIsFullMenuOpen(false)} 
-      />
     </div>
   );
 };

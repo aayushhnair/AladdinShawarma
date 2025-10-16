@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getImageByKey } from '../config/assets';
+import { getImageByKey, backgrounds } from '../config/assets';
 import strings from '../config/strings.json';
 
-const FullMenuPage = ({ isOpen, onClose }) => {
+const FullMenuPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const menuRef = useRef(null);
@@ -15,59 +15,47 @@ const FullMenuPage = ({ isOpen, onClose }) => {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Prevent body scroll when menu is open
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    // Handle escape key
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-
     return () => {
       window.removeEventListener('resize', handleResize);
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
     };
-  }, [isOpen, onClose]);
+  }, []);
 
-  if (!isOpen) return null;
+  const handleBackClick = () => {
+    window.location.hash = 'home';
+  };
 
   return (
     <div 
-      className="full-menu-overlay"
+      className="full-menu-page"
       style={{
-        position: 'fixed',
+        position: 'relative',
+        minHeight: '100vh',
+        backgroundImage: `url(${getImageByKey('hero')})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Dark overlay for readability - same as MenuSection */}
+      <div style={{
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'rgba(8, 20, 79, 0.95)',
-        backdropFilter: 'blur(10px)',
-        zIndex: 9999,
-        overflowY: 'auto',
-        animation: 'fadeIn 0.3s ease-out'
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
-    >
+        backgroundColor: 'rgba(8, 20, 79, 0.85)',
+        zIndex: 0
+      }}></div>
+
       <div 
         ref={menuRef}
-        className="full-menu-container"
+        className="full-menu-container container"
         style={{
+          position: 'relative',
+          zIndex: 1,
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: isMobile ? '2rem 1rem' : '4rem 2rem',
+          padding: isMobile ? '8rem 1rem 2rem' : '10rem 2rem 4rem',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column'
@@ -83,6 +71,35 @@ const FullMenuPage = ({ isOpen, onClose }) => {
           borderBottom: '2px solid rgba(252, 177, 0, 0.3)'
         }}>
           <div>
+            {/* Back Button */}
+            <button
+              onClick={handleBackClick}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(252, 177, 0, 0.3)',
+                borderRadius: '50px',
+                padding: '0.5rem 1.5rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                color: '#FCB100',
+                fontSize: '0.9rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                marginBottom: '1rem'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(252, 177, 0, 0.15)';
+                e.target.style.borderColor = '#FCB100';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
+              }}
+            >
+              ← Back to Home
+            </button>
+            
             <h1 style={{
               fontSize: isMobile ? '2rem' : '3rem',
               fontWeight: '700',
@@ -100,38 +117,6 @@ const FullMenuPage = ({ isOpen, onClose }) => {
               Authentic Middle Eastern cuisine crafted with passion
             </p>
           </div>
-          
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              border: '2px solid rgba(252, 177, 0, 0.5)',
-              borderRadius: '50%',
-              width: '50px',
-              height: '50px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#FCB100',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(252, 177, 0, 0.2)';
-              e.target.style.borderColor = '#FCB100';
-              e.target.style.transform = 'scale(1.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-              e.target.style.borderColor = 'rgba(252, 177, 0, 0.5)';
-              e.target.style.transform = 'scale(1)';
-            }}
-          >
-            ×
-          </button>
         </div>
 
         {/* Category Navigation */}
@@ -384,14 +369,11 @@ const FullMenuPage = ({ isOpen, onClose }) => {
               e.target.style.boxShadow = 'none';
             }}
             onClick={() => {
-              onClose();
-              // Scroll to hero section order button
+              // Navigate to home and scroll to hero
+              window.location.hash = 'home';
               setTimeout(() => {
-                const orderBtn = document.querySelector('.hero-btn.primary-btn');
-                if (orderBtn) {
-                  orderBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-              }, 300);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }, 100);
             }}
           >
             Order Now
@@ -421,8 +403,8 @@ const FullMenuPage = ({ isOpen, onClose }) => {
               e.target.style.transform = 'translateY(0)';
             }}
             onClick={() => {
-              onClose();
-              // Scroll to contact section
+              // Navigate to home and scroll to contact
+              window.location.hash = 'home';
               setTimeout(() => {
                 const contactSection = document.querySelector('#contact');
                 if (contactSection) {
