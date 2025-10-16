@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/modern.css';
 import './styles/main.css';
 import useScrollAnimation from './hooks/useScrollAnimation';
-import { getImageByKey } from './config/assets';
+import { getImageByKey, backgrounds } from './config/assets';
 
 // Components
 import SplashScreen from './components/SplashScreen';
@@ -60,9 +60,25 @@ function App() {
         {/* Row 1: About Section - WHITE BACKGROUND */}
         <div style={{
           backgroundColor: '#FAF9F6',
+          backgroundImage: `url(${backgrounds.whitePattern})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
           padding: 'var(--space-16) 0',
           position: 'relative'
         }}>
+          {/* White overlay to reduce pattern intensity and improve readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(250, 249, 246, 0.85)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}></div>
+          
           {/* Subtle decorative gradient */}
           <div style={{
             position: 'absolute',
@@ -71,7 +87,8 @@ function App() {
             right: 0,
             height: '200px',
             background: 'linear-gradient(to bottom, rgba(252, 177, 0, 0.03), transparent)',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            zIndex: 0
           }}></div>
           
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -107,9 +124,25 @@ function App() {
         {/* Row 4: From Our Kitchen (Blog) - WARM WHITE BACKGROUND */}
         <div style={{
           backgroundColor: '#FFF8F0',
+          backgroundImage: `url(${backgrounds.whitePattern})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
           padding: 'var(--space-16) 0',
           position: 'relative'
         }}>
+          {/* Warm white overlay to reduce pattern intensity and improve readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 248, 240, 0.85)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}></div>
+          
           {/* Decorative top border */}
           <div style={{
             position: 'absolute',
@@ -119,10 +152,11 @@ function App() {
             width: '120px',
             height: '4px',
             background: 'linear-gradient(90deg, transparent, #FCB100, transparent)',
-            borderRadius: '2px'
+            borderRadius: '2px',
+            zIndex: 1
           }}></div>
           
-          <div className="container">
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <BlogSection />
           </div>
         </div>
@@ -158,9 +192,26 @@ function App() {
         {/* Row 6: Contact - WHITE BACKGROUND WITH PROPER CONTAINER */}
         <div style={{
           backgroundColor: '#FFFFFF',
-          padding: 'var(--space-16) 0'
+          backgroundImage: `url(${backgrounds.whitePattern})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
+          padding: 'var(--space-16) 0',
+          position: 'relative'
         }}>
-          <div className="container">
+          {/* White overlay to reduce pattern intensity and improve readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}></div>
+          
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <ContactSection />
           </div>
         </div>

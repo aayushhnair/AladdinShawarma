@@ -118,7 +118,7 @@ const BlogSection = () => {
                 <p style={{
                   fontSize: 'var(--text-base)',
                   lineHeight: '1.6',
-                  color: 'rgba(255, 255, 255, 0.9)',
+                  color: 'rgba(8, 20, 79, 0.75)',
                   marginBottom: 'var(--space-6)'
                 }}>
                   {featuredPost.excerpt}
@@ -131,7 +131,7 @@ const BlogSection = () => {
                   gap: 'var(--space-4)',
                   marginBottom: 'var(--space-6)',
                   fontSize: 'var(--text-sm)',
-                  color: 'rgba(255, 255, 255, 0.7)'
+                  color: 'rgba(8, 20, 79, 0.6)'
                 }}>
                   <span>📅 {formatDate(featuredPost.date)}</span>
                   <span>👤 {featuredPost.author}</span>
@@ -174,13 +174,14 @@ const BlogSection = () => {
         {strings.blog.posts.filter(post => !post.featured).map((post, index) => (
           <div key={index} className={`animate-on-scroll ${index % 2 === 0 ? 'rotate-in' : 'flip-in'} delay-${index + 1}`}>
             <div style={{
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: '#FFFFFF',
               borderRadius: 'var(--radius-xl)',
               overflow: 'hidden',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '2px solid rgba(252, 177, 0, 0.2)',
               transition: 'var(--transition-normal)',
               cursor: 'pointer',
-              height: '100%'
+              height: '100%',
+              boxShadow: '0 4px 20px rgba(8, 20, 79, 0.08)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
@@ -239,7 +240,7 @@ const BlogSection = () => {
                 <p style={{
                   fontSize: 'var(--text-sm)',
                   lineHeight: '1.6',
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'rgba(8, 20, 79, 0.75)',
                   marginBottom: 'var(--space-4)'
                 }}>
                   {post.excerpt}
@@ -251,7 +252,7 @@ const BlogSection = () => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   fontSize: 'var(--text-xs)',
-                  color: 'rgba(255, 255, 255, 0.6)'
+                  color: 'rgba(8, 20, 79, 0.6)'
                 }}>
                   <span>{formatDate(post.date)}</span>
                   <span>{post.readTime}</span>
@@ -265,8 +266,8 @@ const BlogSection = () => {
       {/* View All Posts Button */}
       {/* <div className="text-center animate-on-scroll bounce-in delay-5" style={{ marginTop: 'var(--space-8)' }}>
         <button style={{
-          background: 'rgba(255, 255, 255, 0.1)',
-          color: 'white',
+          background: 'rgba(252, 177, 0, 0.1)',
+          color: '#08144F',
           border: '2px solid var(--color-secondary)',
           padding: 'var(--space-4) var(--space-8)',
           borderRadius: 'var(--radius-md)',
@@ -283,8 +284,8 @@ const BlogSection = () => {
           e.target.style.transform = 'translateY(-2px)';
         }}
         onMouseLeave={(e) => {
-          e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-          e.target.style.color = 'white';
+          e.target.style.background = 'rgba(252, 177, 0, 0.1)';
+          e.target.style.color = '#08144F';
           e.target.style.transform = 'translateY(0)';
         }}
         >

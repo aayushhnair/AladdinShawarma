@@ -116,8 +116,8 @@ const HeroSection = () => {
           transform: 'translate(-50%, -50%)',
           zIndex: 0,
           objectFit: 'cover',
-          opacity: isVideoLoaded ? (isMobile ? 0.6 : 0.8) : 0,
-          transition: 'opacity 0.8s ease-in-out'
+          // opacity: isVideoLoaded ? (isMobile ? 0.6 : 0.8) : 0,
+          transition: 'ease-in-out',
         }}
       >
         <source src={hero.backgroundvideo} type="video/mp4" />
@@ -143,30 +143,32 @@ const HeroSection = () => {
       )}
       
       {/* Professional Gradient Overlay - LIGHTER FOR CLASSY LOOK */}
-      <div
+      {/* <div
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, rgba(8, 20, 79, 0.75) 0%, rgba(8, 20, 79, 0.60) 50%, rgba(8, 20, 79, 0.75) 100%)',
-          zIndex: 1
+          background: 'linear-gradient(0deg, rgba(4, 10, 39, 0.7) 0%, rgba(5, 15, 158, 0.5) 50%, rgba(8, 20, 79, 0.7) 100%)',
+          zIndex: 1,
+          backdropFilter: 'blur(2px)'
+        }}
+      ></div> */}
+
+            <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
+          zIndex: 1,
+          backdropFilter: 'blur(12px)'
         }}
       ></div>
       
-      {/* White Gradient Accent - Adds Sophistication */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '30%',
-          background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent)',
-          zIndex: 1
-        }}
-      ></div>
 
       {/* Geometric Elements */}
       <div className="hero-geometric-elements" style={{ position: 'absolute', inset: 0, zIndex: 2, overflow: 'hidden' }}>
@@ -177,178 +179,186 @@ const HeroSection = () => {
       </div>
 
       {/* Main Hero Content - Professional Layout */}
-      <div className="professional-hero-content" style={{
-        position: 'relative',
-        zIndex: 10,
-        textAlign: 'center',
-        maxWidth: isMobile ? '90%' : '900px',
-        padding: isMobile ? '2rem 1rem' : '3rem 2rem'
-      }}>
-        {/* Logo - Professional Presentation */}
-        <div className="hero-logo professional-logo-container animate-on-scroll fade-in delay-2" style={{
-          marginBottom: '1.5rem'
+        <div className="professional-hero-content" style={{
+          position: 'relative',
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: isMobile ? '2rem' : '4rem',
+          maxWidth: isMobile ? '90%' : '1200px',
+          margin: '0 auto',
+          padding: isMobile ? '2rem 1rem' : '3rem 2rem',
+          flexDirection: isMobile ? 'column' : 'row',
+          width: '100%'
         }}>
-          <img 
-            src={logo.main} 
-            alt={logo.alt}
-            style={{
-              width: isMobile ? '200px' : '400px',
-              height: 'auto',
-              filter: 'drop-shadow(0 15px 40px rgba(252, 177, 0, 0.3))',
-              transition: 'all 0.5s ease'
-            }}
-          />
-        </div>
-
-        {/* Professional Typography Hierarchy */}
-        <div className="hero-text-content">
-          {/* Main Headline */}
-          <h1 className="professional-hero-title animate-on-scroll slide-up delay-3" style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: isMobile ? '2.5rem' : '4rem',
-            fontWeight: '700',
-            lineHeight: '1.2',
-            color: '#FFFFFF',
-            marginBottom: '1rem',
-            textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
-          }}>
-            {/* <span style={{ display: 'block', marginBottom: '0.5rem' }}>Authentic</span>
-            <span style={{ 
-              background: 'linear-gradient(45deg, #FCB100, #FFC943)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontSize: '1.2em'
-            }}>Shawarma</span> */}
-            <span style={{ 
-              display: 'block', 
-              fontSize: '0.6em', 
-              fontWeight: '400',
-              fontFamily: "'Inter', sans-serif",
-              color: 'rgba(255, 255, 255, 0.9)',
-              marginTop: '0.5rem',
-              letterSpacing: '1px'
-            }}>Experience</span>
-          </h1>
-
-          {/* Tagline - Refined */}
-          <div className="hero-refined-tagline animate-on-scroll fade-in delay-4" style={{
-            fontSize: isMobile ? '1rem' : '1.25rem',
-            fontWeight: '500',
-            color: 'rgba(255, 255, 255, 0.9)',
-            marginBottom: '2rem',
-            letterSpacing: '1px',
-            lineHeight: '1.6',
-            maxWidth: '600px',
-            margin: '0 auto 2rem auto'
-          }}>
-            {isMobile ? 
-              "Fresh ingredients, traditional recipes, exceptional taste." :
-              "Crafted with passion, served with pride. Where traditional Middle Eastern flavors meet modern culinary excellence."
-            }
-          </div>
-
-          {/* Professional Action Buttons */}
-          <div className="hero-professional-actions animate-on-scroll scale-in delay-5" style={{
+          {/* Logo - Left Column */}
+          <div className="hero-logo professional-logo-container animate-on-scroll fade-in delay-2" style={{
+            flex: isMobile ? 'none' : '0 0 auto',
             display: 'flex',
-            gap: isMobile ? '1rem' : '1.5rem',
-            justifyContent: 'center',
-            flexDirection: isMobile ? 'column' : 'row',
             alignItems: 'center',
-            marginBottom: '3rem'
+            justifyContent: 'center'
           }}>
-            <button 
-              className="professional-btn primary-btn" 
-              onClick={handleOrderClick}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                background: 'linear-gradient(45deg, #FCB100, #FFC943)',
-                color: '#08144F',
-                border: 'none',
-                borderRadius: '50px',
-                padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
-                fontSize: '1rem',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 10px 30px rgba(252, 177, 0, 0.3)',
-                minWidth: isMobile ? '200px' : '180px',
-                justifyContent: 'center',
-                touchAction: 'manipulation',
-                WebkitTapHighlightColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 15px 40px rgba(252, 177, 0, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.3)';
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 5H3M7 13v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8"/>
-                <circle cx="9" cy="19" r="1"/>
-                <circle cx="20" cy="19" r="1"/>
-              </svg>
-              Order Now
-            </button>
-            
-            <button 
-              className="professional-btn secondary-btn" 
-              onClick={handleReservationClick}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                background: 'transparent',
-                color: '#FFFFFF',
-                border: '2px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '50px',
-                padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
-                fontSize: '1rem',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                backdropFilter: 'blur(10px)',
-                minWidth: isMobile ? '200px' : '180px',
-                justifyContent: 'center',
-                touchAction: 'manipulation',
-                WebkitTapHighlightColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.borderColor = '#FCB100';
-                e.target.style.color = '#FCB100';
-                e.target.style.transform = 'translateY(-3px)';
-                e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                e.target.style.color = '#FFFFFF';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              Reserve Table
-            </button>
+            <img 
+          src={logo.main} 
+          alt={logo.alt}
+          style={{
+            width: isMobile ? '200px' : '400px',
+            height: 'auto',
+            filter: 'drop-shadow(0 15px 40px rgba(252, 177, 0, 0.3))',
+            transition: 'all 0.5s ease'
+          }}
+            />
           </div>
 
-        </div>
-      </div>
+          {/* Content - Right Column */}
+          <div className="hero-text-content" style={{
+            flex: isMobile ? 'none' : '1',
+            textAlign: isMobile ? 'center' : 'left',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: isMobile ? 'center' : 'flex-start',
+            justifyContent: 'center'
+          }}>
+            {/* Main Headline */}
+            <h1 className="professional-hero-title animate-on-scroll slide-up delay-3" style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: isMobile ? '2.5rem' : '4rem',
+          fontWeight: '700',
+          lineHeight: '1.2',
+          color: '#FFFFFF',
+          marginBottom: '1rem',
+          textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+            }}>
+          <span style={{ 
+            display: 'block', 
+            fontSize: '0.6em', 
+            fontWeight: '400',
+            fontFamily: "'Inter', sans-serif",
+            color: 'rgba(255, 255, 255, 0.9)',
+            marginTop: '0.5rem',
+            letterSpacing: '1px'
+          }}>Experience</span>
+            </h1>
 
-      {/* Minimal Scroll Indicator - Hidden on mobile */}
+            {/* Tagline - Refined */}
+            <div className="hero-refined-tagline animate-on-scroll fade-in delay-4" style={{
+          fontSize: isMobile ? '1rem' : '1.25rem',
+          fontWeight: '500',
+          color: 'rgba(255, 255, 255, 0.9)',
+          marginBottom: '2rem',
+          letterSpacing: '1px',
+          lineHeight: '1.6',
+          maxWidth: '600px',
+          margin: isMobile ? '0 auto 2rem auto' : '0 0 2rem 0'
+            }}>
+          {isMobile ? 
+            "Fresh ingredients, traditional recipes, exceptional taste." :
+            "Crafted with passion, served with pride. Where traditional Middle Eastern flavors meet modern culinary excellence."
+          }
+            </div>
+
+            {/* Professional Action Buttons */}
+            <div className="hero-professional-actions animate-on-scroll scale-in delay-5" style={{
+          display: 'flex',
+          gap: isMobile ? '1rem' : '1.5rem',
+          justifyContent: isMobile ? 'center' : 'flex-start',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: 'center',
+          marginBottom: '3rem'
+            }}>
+          <button 
+            className="professional-btn primary-btn" 
+            onClick={handleOrderClick}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'linear-gradient(45deg, #FCB100, #FFC943)',
+              color: '#08144F',
+              border: 'none',
+              borderRadius: '50px',
+              padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 10px 30px rgba(252, 177, 0, 0.3)',
+              minWidth: isMobile ? '200px' : '180px',
+              justifyContent: 'center',
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'translateY(-3px) scale(1.05)';
+              e.target.style.boxShadow = '0 15px 40px rgba(252, 177, 0, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'translateY(0) scale(1)';
+              e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.3)';
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 5H3M7 13v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8"/>
+              <circle cx="9" cy="19" r="1"/>
+              <circle cx="20" cy="19" r="1"/>
+            </svg>
+            Order Now
+          </button>
+          
+          <button 
+            className="professional-btn secondary-btn" 
+            onClick={handleReservationClick}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'transparent',
+              color: '#FFFFFF',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '50px',
+              padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              backdropFilter: 'blur(10px)',
+              minWidth: isMobile ? '200px' : '180px',
+              justifyContent: 'center',
+              touchAction: 'manipulation',
+              WebkitTapHighlightColor: 'transparent'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.borderColor = '#FCB100';
+              e.target.style.color = '#FCB100';
+              e.target.style.transform = 'translateY(-3px)';
+              e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+              e.target.style.color = '#FFFFFF';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Reserve Table
+          </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Minimal Scroll Indicator - Hidden on mobile */}
       {!isMobile && (
         <div className="minimal-scroll-indicator animate-on-scroll fade-in delay-7" style={{
           position: 'absolute',

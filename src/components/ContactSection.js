@@ -335,9 +335,9 @@ const ContactSection = () => {
                       width: '45px',
                       height: '45px',
                       borderRadius: 'var(--radius-full)',
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      color: 'white',
+                      background: 'rgba(252, 177, 0, 0.1)',
+                      border: '2px solid rgba(252, 177, 0, 0.3)',
+                      color: '#08144F',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -348,11 +348,13 @@ const ContactSection = () => {
                       e.target.style.background = 'var(--color-secondary)';
                       e.target.style.color = 'var(--color-primary)';
                       e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.borderColor = 'var(--color-secondary)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-                      e.target.style.color = 'white';
+                      e.target.style.background = 'rgba(252, 177, 0, 0.1)';
+                      e.target.style.color = '#08144F';
                       e.target.style.transform = 'translateY(0)';
+                      e.target.style.borderColor = 'rgba(252, 177, 0, 0.3)';
                     }}
                   >
                     {platform === 'facebook' ? (

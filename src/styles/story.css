@@ -1,0 +1,346 @@
+/* Import Google Fonts - Traditional Storytelling Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Story-specific animations */
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+}
+
+@keyframes lampGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(252, 177, 0, 0.5),
+      0 0 40px rgba(252, 177, 0, 0.3),
+      0 0 60px rgba(252, 177, 0, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(252, 177, 0, 0.8),
+      0 0 60px rgba(252, 177, 0, 0.5),
+      0 0 90px rgba(252, 177, 0, 0.3);
+  }
+}
+
+@keyframes smokeRise {
+  0% {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stacked sheet slide-up animation */
+@keyframes slideUpStack {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.story-section {
+  animation: slideUpStack 1s ease-out;
+  position: relative;
+  transform-origin: bottom;
+}
+
+.story-section::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+  z-index: 10;
+}
+
+/* Enhanced stacking context */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body.story-mode section {
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Smooth stacking transition */
+body.story-mode .story-section {
+  position: relative;
+  background-clip: padding-box;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Parchment paper texture effect */
+.parchment-texture {
+  background-image: 
+    linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.02) 2px,
+      rgba(0,0,0,0.02) 4px
+    );
+}
+
+/* Ornamental border styles */
+.ornamental-border {
+  position: relative;
+  padding: 2rem;
+}
+
+.ornamental-border::before,
+.ornamental-border::after {
+  content: '⬥';
+  position: absolute;
+  color: rgba(252, 177, 0, 0.5);
+  font-size: 1.5rem;
+}
+
+.ornamental-border::before {
+  top: 0;
+  left: 0;
+}
+
+.ornamental-border::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* Mystical glow text */
+.mystical-text {
+  text-shadow: 
+    0 0 10px rgba(252, 177, 0, 0.8),
+    0 0 20px rgba(252, 177, 0, 0.5),
+    0 0 30px rgba(252, 177, 0, 0.3);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Scroll-triggered reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ornamental-border {
+    padding: 1rem;
+  }
+  
+  .ornamental-border::before,
+  .ornamental-border::after {
+    font-size: 1rem;
+  }
+}
+
+/* Custom scrollbar for mystical feel */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(8, 20, 79, 0.3);
+  border-left: 1px solid rgba(252, 177, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(252, 177, 0, 0.6), rgba(139, 105, 20, 0.6));
+  border-radius: 6px;
+  border: 2px solid rgba(8, 20, 79, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(252, 177, 0, 0.9), rgba(139, 105, 20, 0.9));
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(252, 177, 0, 0.3);
+  color: #FCF3E0;
+}
+
+::-moz-selection {
+  background-color: rgba(252, 177, 0, 0.3);
+  color: #FCF3E0;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body background for story mode */
+body.story-mode {
+  background-color: #000;
+  background-image: 
+    radial-gradient(ellipse at top, rgba(8, 20, 79, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(12, 8, 5, 0.5) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Story mode header enhancements */
+body.story-mode .header-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9998 !important;
+}
+
+body.story-mode .main-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border-bottom: 2px solid rgba(252, 177, 0, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+body.story-mode .nav-link {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+body.story-mode .nav-link:hover {
+  color: #FCB100 !important;
+  text-shadow: 0 0 10px rgba(252, 177, 0, 0.5);
+}
+
+body.story-mode .nav-item.active .nav-link {
+  color: #FCB100 !important;
+  text-shadow: 0 0 10px rgba(252, 177, 0, 0.6);
+}
+
+body.story-mode .subNavContainer {
+  background: transparent !important;
+}
+
+/* Story mode footer */
+body.story-mode footer {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  border-top: 2px solid rgba(252, 177, 0, 0.3);
+}
+
+body.story-mode footer h3,
+body.story-mode footer p,
+body.story-mode footer a {
+  font-family: 'Cinzel', serif !important;
+  color: rgba(252, 243, 224, 0.9) !important;
+}
+
+body.story-mode footer h3 {
+  color: #FCB100 !important;
+  letter-spacing: 2px;
+}
+

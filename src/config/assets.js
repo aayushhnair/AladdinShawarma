@@ -7,6 +7,9 @@
 import logoImage from '../assets/logo.png';
 import video1 from '../assets/BG_video.mp4';
 import poster1 from '../assets/aladdin01.jpg';
+import headerLampsImage from '../assets/header_lamps.png';
+import curtain from '../assets/curtains.png';
+import whiteBgPattern from '../assets/whitebgpattern.png';
 
 import poster2 from '../assets/Poster (2).jpg';
 import poster3 from '../assets/Poster (3).jpg';
@@ -26,6 +29,13 @@ export const assets = {
   logo: {
     main: logoImage,
     alt: 'Aladdin Shawarma Logo'
+  },
+
+  // Header decorations
+  header: {
+    lamps: headerLampsImage,
+    curtain: curtain,
+    lampsAlt: 'Decorative Hanging Lamps'
   },
 
   // Hero Section Images
@@ -85,7 +95,8 @@ export const assets = {
     heroMain: poster2,
     section1: poster3,
     section2: poster4,
-    cta: poster5
+    cta: poster5,
+    whitePattern: whiteBgPattern
   },
 
   // Ingredient Images
@@ -171,6 +182,7 @@ export const getAssetWithAlt = (keyPath, customAlt = '') => {
 
 // Export specific categories for easier imports
 export const logo = assets.logo;
+export const header = assets.header;
 export const hero = assets.hero;
 export const menu = assets.menu;
 export const team = assets.team;

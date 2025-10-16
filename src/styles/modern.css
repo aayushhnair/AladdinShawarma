@@ -435,6 +435,103 @@ a:hover {
    HEADER & NAVIGATION
 ======================================== */
 
+/* Hanging Lamps - Fixed at top */
+.header-hanging-lamps {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1001;
+  pointer-events: none;
+  overflow:visible;
+  height: 150px;
+}
+
+.header-hanging-lamps .lamps-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  animation: lampSway 4s ease-in-out infinite, lampGlow 3s ease-in-out infinite alternate;
+  /* filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) 
+          drop-shadow(0 0 40px rgba(255, 140, 0, 0.4)); */
+}
+
+.header-hanging-lamps {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1001;
+  pointer-events: none;
+  overflow:visible;
+  height: 150px;
+}
+
+.header-hanging-lamps .lamps-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  animation: lampSway 4s ease-in-out infinite, lampGlow 3s ease-in-out infinite alternate;
+  /* filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) 
+          drop-shadow(0 0 40px rgba(255, 140, 0, 0.4)); */
+}.curtain-hanging-lamps {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1001;
+  pointer-events: none;
+  overflow:visible;
+  height: 150px;
+}
+
+.curtain-hanging-lamps .curtain-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  filter: blur(1px);
+  filter: brightness(70%);
+}
+
+/* Lamp swaying animation */
+@keyframes lampSway {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+}
+
+/* Lamp glow animation */
+@keyframes lampGlow {
+  0% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) 
+            drop-shadow(0 0 30px rgba(255, 140, 0, 0.3))
+            brightness(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8)) 
+            drop-shadow(0 0 50px rgba(255, 140, 0, 0.6))
+            brightness(1.1);
+  }
+}
+
 /* Top Header Bar */
 .header-top {
   padding: var(--space-3) 0;
@@ -1194,6 +1291,16 @@ a:hover {
 
 /* Mobile */
 @media (max-width: 768px) {
+  /* Adjust hanging lamps for mobile */
+  .header-hanging-lamps {
+    height: 100px;
+  }
+  
+  .header-hanging-lamps .lamps-image {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) 
+            drop-shadow(0 0 30px rgba(255, 140, 0, 0.3));
+  }
+  
   .header-top {
     padding: var(--space-2) 0;
   }
@@ -2345,7 +2452,7 @@ a:hover {
 
 /* Professional Hero Content */
 .professional-hero-content {
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(10px); */
 }
 
 /* Hero Professional Buttons */

@@ -1,0 +1,111 @@
+{
+  "title": "The Lamp of Flavors — The Legend of Aladdin Shawarma",
+  
+  "prologue": {
+    "paragraphs": [
+      "In the heart of Culinary City, long before the neon lights and the hum of traffic, there stood an old brass lamp buried beneath the sands of time. It wasn't a lamp of gold or gemstones — just a humble relic, once belonging to a young wanderer named Aladdin, famed not for his riches, but for his hunger for taste and discovery.",
+      "One night, under the pale shimmer of the crescent moon, a traveler brushed the dust off that ancient lamp. And from it, with a swirl of saffron smoke and the scent of roasting lamb, a Genie emerged — not one who granted jewels or palaces, but one who whispered:",
+      "\"I grant you flavors the world has forgotten.\"",
+      "And thus began the tale of Aladdin Shawarma."
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "awakening",
+      "title": "Section I — The Awakening",
+      "subtitle": "Home",
+      "paragraphs": [
+        "When the lamp was lit once more, Culinary City awoke to a fragrance that drifted through its alleys — garlic, tahini, cardamom, and smoke.",
+        "A small stall stood glowing in the night, crowned with the sign \"Aladdin Shawarma\".",
+        "It was said that whoever crossed its doors would taste not food, but stories carved in spice.",
+        "The Genie, bound to Aladdin's wish, vowed to serve dishes crafted with passion, served with pride — the eternal creed glowing upon its walls."
+      ],
+      "cta": {
+        "primary": "Begin Your Journey",
+        "secondary": "Taste the Legend"
+      }
+    },
+    {
+      "id": "about",
+      "title": "Section II — The Tale of the Lamp",
+      "subtitle": "About",
+      "paragraphs": [
+        "Inside hung a mural — a young Aladdin wandering through Damascus, Beirut, and Cairo, gathering recipes from every corner of the Middle East.",
+        "The Genie became his guide, teaching him how to bind the warmth of cumin with the coolness of mint, how to roast meats till they whispered flavor, how to knead bread till it breathed.",
+        "Fifteen years passed like fifteen sunsets, and when Aladdin returned, he carried not gold — but recipes older than kingdoms.",
+        "That is how the legendary kitchen of Aladdin Shawarma was born — where tradition and modern mastery met under one flame.",
+        "Our chefs honor the ancient ways — marinating for 24 hours in secret spice blends, slow-roasting over open flames, hand-rolling fresh pita daily.",
+        "Every ingredient tells a story: saffron from Persian markets, za'atar from mountain slopes, lamb from heritage farms, tahini ground fresh each morning."
+      ],
+      "stats": [
+        { "number": "15+", "label": "Years of Legends" },
+        { "number": "50+", "label": "Ancient Recipes" },
+        { "number": "10K+", "label": "Stories Served" }
+      ]
+    },
+    {
+      "id": "menu",
+      "title": "Section III — The Feast of the Kingdom",
+      "subtitle": "Menu",
+      "intro": "Every scroll of the menu tells a fable:",
+      "paragraphs": [
+        "The Classic Chicken Shawarma, marinated in secrets only the Genie knows — seven spices, yogurt, lemon, and time.",
+        "The Lamb Shawarma Supreme, forged for kings, its scent enough to stir ancient memories — tender cuts seasoned with cardamom and fire.",
+        "The Mixed Grill Platter, a harmony of meats bound by char and smoke — chicken, lamb, kofta, each telling its own tale.",
+        "The Falafel Wrap, for wanderers who seek the earth's bounty — chickpeas, herbs, and secrets ground together in golden perfection.",
+        "Each dish carries a whisper — the spice of Damascus, the grain of Cairo, the fire of Beirut.",
+        "Accompanied by fresh tabbouleh, creamy hummus, smoky baba ganoush, and warm pita bread that arrives like clouds.",
+        "Even the bowls gleam with the light of the Genie's craft — fresh, golden, divine."
+      ],
+      "cta": {
+        "primary": "Explore the Scrolls",
+        "secondary": "View Full Menu"
+      }
+    },
+    {
+      "id": "chef",
+      "title": "Section IV — The Master of Spices",
+      "subtitle": "Chef",
+      "paragraphs": [
+        "Behind the kitchen doors stands Chef Ahmad Al-Masri, heir to Aladdin's scrolls.",
+        "Trained in the markets of the Levant, his hands move like one who has bargained with spirits of flavor.",
+        "They say each dawn, before lighting the grill, he bows before the lamp and murmurs:",
+        "\"For those who seek, flavor shall reveal itself.\"",
+        "And as smoke rises, the Genie's laughter echoes faintly — amused, proud, eternal."
+      ]
+    },
+    {
+      "id": "testimonials",
+      "title": "Section V — The Circle of Praise",
+      "subtitle": "Testimonials",
+      "paragraphs": [
+        "Travelers from every land now visit — merchants, wanderers, dreamers.",
+        "Some claim the shawarma revived forgotten memories of home; others swear they saw the Genie's glow reflected in their plates.",
+        "From the bustling streets of Chicago to quiet diners by the sea, the legend spread like aroma in the wind.",
+        "A thousand voices now sing one truth:",
+        "\"This is not a meal — it's a memory reborn.\""
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Section VI — The Portal Beyond the Smoke",
+      "subtitle": "Contact",
+      "paragraphs": [
+        "When the night deepens and the last ember fades, the lamp still gleams on the counter.",
+        "It listens — to laughter, to stories, to new wishes whispered by those who dine.",
+        "And if you, too, wish to taste the legend, to summon the flavors that sleep within the lamp,",
+        "you need only follow the scent —",
+        "past Food Street, into the glow of Aladdin Shawarma at 123 Food Street, Culinary City.",
+        "We are open every day: Monday to Friday, 9:00 AM to 9:00 PM | Saturday and Sunday, 10:00 AM to 10:00 PM.",
+        "There, the Genie waits — apron bound, ladle in hand,",
+        "ready to serve magic wrapped in flatbread.",
+        "Call us at +1 (555) 123-4567 or email info@aladdinshawarma.com to reserve your table or place an order."
+      ],
+      "cta": {
+        "primary": "Summon the Genie",
+        "secondary": "Find the Lamp"
+      }
+    }
+  ]
+}
