@@ -32,6 +32,9 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: 'var(--color-primary)' }}>
+      {/* Black screen overlay for initial load */}
+      {!showSplash && <div className="initial-black-screen"></div>}
+      
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       <div className={`main-content ${showSplash ? 'hidden' : 'visible'}`} style={{ 
         transition: 'opacity 0.8s ease',

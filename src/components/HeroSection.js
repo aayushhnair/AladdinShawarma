@@ -94,7 +94,8 @@ const HeroSection = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#000000'
       }}
     >
       {/* Video Background - Optimized for all devices */}
@@ -116,7 +117,6 @@ const HeroSection = () => {
           transform: 'translate(-50%, -50%)',
           zIndex: 0,
           objectFit: 'cover',
-          // opacity: isVideoLoaded ? (isMobile ? 0.6 : 0.8) : 0,
           transition: 'ease-in-out',
         }}
       >
@@ -165,7 +165,7 @@ const HeroSection = () => {
           bottom: 0,
           background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
           zIndex: 1,
-          backdropFilter: 'blur(12px)'
+          // backdropFilter: 'blur(12px)'
         }}
       ></div>
       
@@ -179,7 +179,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main Hero Content - Professional Layout */}
-        <div className="professional-hero-content" style={{
+        <div className="professional-hero-content hero-content-entrance" style={{
           position: 'relative',
           zIndex: 10,
           display: 'flex',
@@ -193,7 +193,7 @@ const HeroSection = () => {
           width: '100%'
         }}>
           {/* Logo - Left Column */}
-          <div className="hero-logo professional-logo-container animate-on-scroll fade-in delay-2" style={{
+          <div className="hero-logo professional-logo-container hero-logo-entrance" style={{
             flex: isMobile ? 'none' : '0 0 auto',
             display: 'flex',
             alignItems: 'center',
@@ -212,7 +212,7 @@ const HeroSection = () => {
           </div>
 
           {/* Content - Right Column */}
-          <div className="hero-text-content" style={{
+          <div className="hero-text-content hero-text-entrance" style={{
             flex: isMobile ? 'none' : '1',
             textAlign: isMobile ? 'center' : 'left',
             display: 'flex',
@@ -221,7 +221,7 @@ const HeroSection = () => {
             justifyContent: 'center'
           }}>
             {/* Main Headline */}
-            <h1 className="professional-hero-title animate-on-scroll slide-up delay-3" style={{
+            <h1 className="professional-hero-title" style={{
           fontFamily: "'Playfair Display', serif",
           fontSize: isMobile ? '2.5rem' : '4rem',
           fontWeight: '700',
@@ -242,7 +242,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Tagline - Refined */}
-            <div className="hero-refined-tagline animate-on-scroll fade-in delay-4" style={{
+            <div className="hero-refined-tagline" style={{
           fontSize: isMobile ? '1rem' : '1.25rem',
           fontWeight: '500',
           color: 'rgba(255, 255, 255, 0.9)',
@@ -259,7 +259,7 @@ const HeroSection = () => {
             </div>
 
             {/* Professional Action Buttons */}
-            <div className="hero-professional-actions animate-on-scroll scale-in delay-5" style={{
+            <div className="hero-professional-actions" style={{
           display: 'flex',
           gap: isMobile ? '1rem' : '1.5rem',
           justifyContent: isMobile ? 'center' : 'flex-start',
@@ -360,7 +360,7 @@ const HeroSection = () => {
 
         {/* Minimal Scroll Indicator - Hidden on mobile */}
       {!isMobile && (
-        <div className="minimal-scroll-indicator animate-on-scroll fade-in delay-7" style={{
+        <div className="minimal-scroll-indicator" style={{
           position: 'absolute',
           bottom: '2rem',
           left: '50%',
