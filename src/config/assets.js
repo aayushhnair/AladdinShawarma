@@ -10,6 +10,7 @@ import poster1 from '../assets/aladdin01.jpg';
 import headerLampsImage from '../assets/header_lamps.png';
 import curtain from '../assets/curtains.png';
 import whiteBgPattern from '../assets/whitebgpattern.png';
+import aladdinsLamp from '../assets/aladdins-lamp.png';
 
 import poster2 from '../assets/Poster (2).jpg';
 import poster3 from '../assets/Poster (3).jpg';
@@ -72,7 +73,8 @@ export const assets = {
   about: {
     restaurant: poster5,
     kitchen: poster6,
-    story: poster7
+    story: poster7,
+    lamp: aladdinsLamp
   },
 
   // Blog Images

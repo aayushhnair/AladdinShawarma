@@ -258,7 +258,7 @@ const HeroSection = () => {
         }}
       ></div> */}
 
-            <div
+            {/* <div
         style={{
           position: 'absolute',
           top: 0,
@@ -269,7 +269,7 @@ const HeroSection = () => {
           zIndex: 1,
           // backdropFilter: 'blur(12px)'
         }}
-      ></div>
+      ></div> */}
       
 
       {/* Geometric Elements */}
@@ -304,10 +304,10 @@ const HeroSection = () => {
             <img 
           src={logo.main} 
           alt={logo.alt}
+          className="hero-aladdin-logo"
           style={{
             width: isMobile ? '200px' : '400px',
             height: 'auto',
-            filter: 'drop-shadow(0 15px 40px rgba(252, 177, 0, 0.3))',
             transition: 'all 0.5s ease'
           }}
             />

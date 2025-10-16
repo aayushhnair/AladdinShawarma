@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import strings from '../config/strings.json';
+import { about } from '../config/assets';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -50,66 +51,96 @@ const AboutSection = () => {
       color: '#08144F',
       padding: isMobile ? '2rem 1rem' : '3rem 2rem'
     }}>
-      {/* Minimal Section Header */}
+      {/* Minimal Section Header - Two Column Layout */}
       <div className="minimal-about-header" style={{ 
-        textAlign: isMobile ? 'center' : 'left', 
-        marginBottom: '3rem' 
+        display: isMobile ? 'block' : 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: isMobile ? '0' : '3rem',
+        marginBottom: '3rem',
+        alignItems: 'center'
       }}>
-        {/* Professional Badge */}
-        <div className="professional-badge animate-on-scroll scale-in delay-1" style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          background: 'rgba(252, 177, 0, 0.15)',
-          color: '#FCB100',
-          padding: '0.4rem 1rem',
-          borderRadius: '20px',
-          fontSize: '0.8rem',
-          fontWeight: '600',
-          textTransform: 'uppercase',
-          letterSpacing: '1px',
-          marginBottom: '1.5rem',
-          border: '1px solid rgba(252, 177, 0, 0.3)'
+        {/* Left Column - Text Content */}
+        <div style={{
+          textAlign: isMobile ? 'center' : 'left'
         }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          Our Story
+          {/* Professional Badge */}
+          <div className="professional-badge animate-on-scroll scale-in delay-1" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: 'rgba(252, 177, 0, 0.15)',
+            color: '#FCB100',
+            padding: '0.4rem 1rem',
+            borderRadius: '20px',
+            fontSize: '0.8rem',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            marginBottom: '1.5rem',
+            border: '1px solid rgba(252, 177, 0, 0.3)'
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Our Story
+          </div>
+
+          {/* Minimal Title */}
+          <h2 className="minimal-title animate-on-scroll slide-up delay-2" style={{ 
+            color: '#08144F',
+            fontSize: isMobile ? '2rem' : '2.8rem',
+            fontWeight: '700',
+            fontFamily: "'Playfair Display', serif",
+            lineHeight: '1.2',
+            marginBottom: '1rem'
+          }}>
+            Authentic Middle Eastern
+            <span style={{ 
+              color: '#FCB100',
+              display: 'block',
+              fontSize: '0.8em'
+            }}>
+              Culinary Excellence
+            </span>
+          </h2>
+
+          {/* Essential Description */}
+          <p className="minimal-description animate-on-scroll fade-in delay-3" style={{ 
+            color: 'rgba(8, 20, 79, 0.75)',
+            fontSize: isMobile ? '1rem' : '1.1rem',
+            lineHeight: '1.6',
+            fontWeight: '400',
+            maxWidth: '500px',
+            margin: isMobile ? '0 auto' : '0'
+          }}>
+            {isMobile ? 
+              "Traditional recipes, fresh ingredients, and passionate craftsmanship in every bite." :
+              "Where traditional Middle Eastern recipes meet modern culinary excellence. Fresh ingredients, passionate craftsmanship, and authentic flavors in every bite."
+            }
+          </p>
         </div>
 
-        {/* Minimal Title */}
-        <h2 className="minimal-title animate-on-scroll slide-up delay-2" style={{ 
-          color: '#08144F',
-          fontSize: isMobile ? '2rem' : '2.8rem',
-          fontWeight: '700',
-          fontFamily: "'Playfair Display', serif",
-          lineHeight: '1.2',
-          marginBottom: '1rem'
-        }}>
-          Authentic Middle Eastern
-          <span style={{ 
-            color: '#FCB100',
-            display: 'block',
-            fontSize: '0.8em'
+        {/* Right Column - Aladdin's Lamp Image */}
+        {!isMobile && (
+          <div className="animate-on-scroll fade-in delay-2" style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '2rem'
           }}>
-            Culinary Excellence
-          </span>
-        </h2>
-
-        {/* Essential Description */}
-        <p className="minimal-description animate-on-scroll fade-in delay-3" style={{ 
-          color: 'rgba(8, 20, 79, 0.75)',
-          fontSize: isMobile ? '1rem' : '1.1rem',
-          lineHeight: '1.6',
-          fontWeight: '400',
-          maxWidth: '500px',
-          margin: isMobile ? '0 auto' : '0'
-        }}>
-          {isMobile ? 
-            "Traditional recipes, fresh ingredients, and passionate craftsmanship in every bite." :
-            "Where traditional Middle Eastern recipes meet modern culinary excellence. Fresh ingredients, passionate craftsmanship, and authentic flavors in every bite."
-          }
-        </p>
+            <img 
+              src={about.lamp} 
+              alt="Aladdin's Lamp"
+              style={{
+                width: '100%',
+                maxWidth: '300px',
+                height: 'auto',
+                opacity: '0.8',
+                filter: 'drop-shadow(0 4px 12px rgba(252, 177, 0, 0.3))'
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Minimal Key Points */}
