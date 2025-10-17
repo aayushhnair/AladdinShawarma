@@ -170,7 +170,7 @@ const HeroSection = () => {
           bottom: 0,
           // background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
           zIndex: 1,
-          backdropFilter: 'blur(7px)'
+          backdropFilter: 'blur(4px)'
         }}
       ></div>
       

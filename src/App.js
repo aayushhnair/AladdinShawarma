@@ -12,7 +12,7 @@ import AboutSection from './components/AboutSection';
 import MenuSection from './components/MenuSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import PerfectIngredientsSection from './components/PerfectIngredientsSection';
-import BlogSection from './components/BlogSection';
+import GallerySection from './components/BlogSection'; // Gallery (renamed from Blog)
 import CallToActionSection from './components/CallToActionSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -73,7 +73,7 @@ function App() {
         <HeroSection />
 
         {/* Strategic Scrolling Banner - Single Impact Placement */}
-        <ScrollingTextBanner
+        {/* <ScrollingTextBanner
           text="AUTHENTIC MIDDLE EASTERN • CRAFTED WITH PASSION • SERVED WITH PRIDE"
           backgroundColor="#FCB100"
           textColor="#081C4F"
@@ -86,9 +86,9 @@ function App() {
           textColor="#FCB100"
           icon="⬢"
           scrollDirection="right"
-        />
+        /> */}
 
-        {/* Row 1: About Section - WHITE BACKGROUND */}
+        {/* Row 1: About Section - WHITE BACKGROUND WITH ARABIC ELEMENTS */}
         <div style={{
             backgroundColor: '#FAF9F6',
             backgroundImage: `url(${backgrounds.whitePattern})`,
@@ -121,13 +121,37 @@ function App() {
               pointerEvents: 'none',
               zIndex: 0
             }}></div>
+
+            {/* Arabic Corner Decorations */}
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              left: '2rem',
+              width: '80px',
+              height: '80px',
+              border: '2px solid rgba(252, 177, 0, 0.25)',
+              borderRight: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              right: '2rem',
+              width: '80px',
+              height: '80px',
+              border: '2px solid rgba(252, 177, 0, 0.25)',
+              borderLeft: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
             
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
               <AboutSection />
             </div>
           </div>
 
-        {/* Row 2: Menu Section - TRANSPARENT WITH BACKGROUND */}
+        {/* Row 2: Menu Section - DARK WITH HERO BACKGROUND & ARABIC ELEMENTS */}
         <div style={{
             position: 'relative',
             padding: 'var(--space-16) 0',
@@ -146,53 +170,82 @@ function App() {
               backgroundColor: 'rgba(8, 20, 79, 0.85)',
               zIndex: 0
             }}></div>
+
+            {/* Arabic Corner Decorations - Golden for dark background */}
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              left: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.4)',
+              borderRight: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              right: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.4)',
+              borderLeft: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              bottom: '3rem',
+              left: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.4)',
+              borderRight: 'none',
+              borderTop: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              bottom: '3rem',
+              right: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.4)',
+              borderLeft: 'none',
+              borderTop: 'none',
+              zIndex: 1
+            }} />
             
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
               <MenuSection />
             </div>
           </div>
 
-        {/* Row 4: From Our Kitchen (Blog) - WARM WHITE BACKGROUND */}
+        {/* Row 4: Gallery Section (was Blog) - DARK BACKGROUND WITH HERO IMAGE */}
         <div style={{
-            backgroundColor: '#FFF8F0',
-            backgroundImage: `url(${backgrounds.whitePattern})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'repeat',
-            backgroundPosition: 'center',
+            position: 'relative',
             padding: 'var(--space-16) 0',
-            position: 'relative'
+            backgroundImage: `url(${getImageByKey('hero')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
           }}>
-            {/* Warm white overlay to reduce pattern intensity and improve readability */}
+            {/* Dark overlay for readability */}
             <div style={{
               position: 'absolute',
               top: 0,
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: 'rgba(255, 248, 240, 0.85)',
-              pointerEvents: 'none',
+              backgroundColor: 'rgba(8, 20, 79, 0.9)',
               zIndex: 0
             }}></div>
             
-            {/* Decorative top border */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '120px',
-              height: '4px',
-              background: 'linear-gradient(90deg, transparent, #FCB100, transparent)',
-              borderRadius: '2px',
-              zIndex: 1
-            }}></div>
-            
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-              <BlogSection />
-            </div>
+            <GallerySection />
           </div>
 
-        {/* Row 3: Testimonials Section - TRANSPARENT WITH BACKGROUND */}
+        {/* Row 3: Testimonials Section - DARK WITH HERO BACKGROUND & ARABIC ELEMENTS */}
         <div style={{
             position: 'relative',
             padding: 'var(--space-16) 0',
@@ -211,6 +264,30 @@ function App() {
               backgroundColor: 'rgba(8, 20, 79, 0.85)',
               zIndex: 0
             }}></div>
+
+            {/* Arabic Corner Decorations - Golden for dark background */}
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              left: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.35)',
+              borderRight: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              right: '2rem',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.35)',
+              borderLeft: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
             
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
               <TestimonialsSection />

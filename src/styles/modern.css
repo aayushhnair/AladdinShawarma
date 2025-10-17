@@ -94,6 +94,64 @@
   }
 }
 
+/* ========================================
+   MAGICAL ABOUT SECTION ANIMATIONS
+======================================== */
+
+/* Gentle floating animation for lamp */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Smoke rising effect */
+@keyframes smokeRise {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-60px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Expanding line animation */
+@keyframes expandLine {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+/* Floating particles */
+@keyframes floatParticle {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, -30px);
+  }
+}
+
+/* Pulsing glow effect */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
 /* Initial animation classes */
 .initial-black-screen {
   position: fixed;
