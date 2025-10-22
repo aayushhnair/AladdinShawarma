@@ -73,14 +73,14 @@ function App() {
         <HeroSection />
 
         {/* Strategic Scrolling Banner - Single Impact Placement */}
-        {/* <ScrollingTextBanner
+        <ScrollingTextBanner
           text="AUTHENTIC MIDDLE EASTERN • CRAFTED WITH PASSION • SERVED WITH PRIDE"
           backgroundColor="#FCB100"
           textColor="#081C4F"
           icon="⬢"
           scrollDirection="left"
         />
-        <ScrollingTextBanner
+        {/* <ScrollingTextBanner
           text="AUTHENTIC MIDDLE EASTERN • CRAFTED WITH PASSION • SERVED WITH PRIDE"
           backgroundColor="#081C4F"
           textColor="#FCB100"
@@ -224,23 +224,61 @@ function App() {
 
         {/* Row 4: Gallery Section (was Blog) - DARK BACKGROUND WITH HERO IMAGE */}
         <div style={{
-            position: 'relative',
-            padding: 'var(--space-16) 0',
-            backgroundImage: `url(${getImageByKey('hero')})`,
-            backgroundSize: 'cover',
+            backgroundColor: '#FAF9F6',
+            backgroundImage: `url(${backgrounds.whitePattern})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'repeat',
             backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
+            padding: 'var(--space-16) 0',
+            position: 'relative'
           }}>
-            {/* Dark overlay for readability */}
+            {/* White overlay to reduce pattern intensity and improve readability */}
             <div style={{
               position: 'absolute',
               top: 0,
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: 'rgba(8, 20, 79, 0.9)',
+              backgroundColor: 'rgba(250, 249, 246, 0.85)',
+              pointerEvents: 'none',
               zIndex: 0
             }}></div>
+            
+            {/* Subtle decorative gradient */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '200px',
+              background: 'linear-gradient(to bottom, rgba(252, 177, 0, 0.03), transparent)',
+              pointerEvents: 'none',
+              zIndex: 0
+            }}></div>
+
+            {/* Arabic Corner Decorations */}
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              left: '2rem',
+              width: '80px',
+              height: '80px',
+              border: '2px solid rgba(252, 177, 0, 0.25)',
+              borderRight: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '3rem',
+              right: '2rem',
+              width: '80px',
+              height: '80px',
+              border: '2px solid rgba(252, 177, 0, 0.25)',
+              borderLeft: 'none',
+              borderBottom: 'none',
+              zIndex: 1
+            }} />
             
             <GallerySection />
           </div>

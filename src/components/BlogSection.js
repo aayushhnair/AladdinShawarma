@@ -1,9 +1,5 @@
 ﻿import React, { useRef, useState } from 'react';
-import strings from '../config/strings.json';
-import { getImageByKey } from '../config/assets';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-// Import poster images
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Poster1 from '../assets/Poster (1).jpg';
 import Poster2 from '../assets/Poster (2).jpg';
 import Poster3 from '../assets/Poster (3).jpg';
@@ -15,12 +11,9 @@ import Poster8 from '../assets/Poster (8).jpg';
 import Poster9 from '../assets/Poster (9).jpg';
 
 const GallerySection = () => {
-  const sectionRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedPoster, setSelectedPoster] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  
-  // Apply advanced scroll animations to all elements
-  useScrollAnimation(sectionRef, 'fade-in', 0.1);
 
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -40,73 +33,82 @@ const GallerySection = () => {
     { id: 9, src: Poster9, title: 'Desserts & Sweets', category: 'Sweet Treats' },
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % posters.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + posters.length) % posters.length);
+  };
+
+  const getPrevIndex = () => (currentIndex - 1 + posters.length) % posters.length;
+  const getNextIndex = () => (currentIndex + 1) % posters.length;
+
   return (
-    <div className="gallery-section" id="gallery" ref={sectionRef} style={{ 
+    <div style={{ 
       position: 'relative',
-      color: '#FFFFFF',
-      padding: isMobile ? '3rem 0' : '5rem 0'
+      color: '#08144F',
+      padding: isMobile ? '3rem 0' : '5rem 0',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      overflow: 'hidden'
     }}>
-      {/* Arabic Decorative Corner Ornaments */}
+      {/* Background Decorative Elements */}
       <div style={{
         position: 'absolute',
-        top: '2rem',
-        left: '2rem',
-        width: '100px',
-        height: '100px',
-        border: '3px solid rgba(252, 177, 0, 0.3)',
-        borderRight: 'none',
-        borderBottom: 'none',
-        borderRadius: '0',
-        zIndex: 1,
-        opacity: 0.6
+        inset: 0,
+        background: 'radial-gradient(circle at 20% 50%, rgba(252, 177, 0, 0.1) 0%, transparent 50%)',
+        pointerEvents: 'none'
       }} />
       <div style={{
         position: 'absolute',
-        top: '2rem',
-        right: '2rem',
-        width: '100px',
-        height: '100px',
-        border: '3px solid rgba(252, 177, 0, 0.3)',
-        borderLeft: 'none',
-        borderBottom: 'none',
-        borderRadius: '0',
-        zIndex: 1,
-        opacity: 0.6
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '2rem',
-        left: '2rem',
-        width: '100px',
-        height: '100px',
-        border: '3px solid rgba(252, 177, 0, 0.3)',
-        borderRight: 'none',
-        borderTop: 'none',
-        borderRadius: '0',
-        zIndex: 1,
-        opacity: 0.6
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '2rem',
-        right: '2rem',
-        width: '100px',
-        height: '100px',
-        border: '3px solid rgba(252, 177, 0, 0.3)',
-        borderLeft: 'none',
-        borderTop: 'none',
-        borderRadius: '0',
-        zIndex: 1,
-        opacity: 0.6
+        inset: 0,
+        background: 'radial-gradient(circle at 80% 50%, rgba(252, 177, 0, 0.08) 0%, transparent 50%)',
+        pointerEvents: 'none'
       }} />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Section Header with Arabic Style */}
-        <div className="section-header animate-on-scroll dissolve" style={{ 
+      {/* Corner Ornaments */}
+      {!isMobile && (
+        <>
+          <div style={{
+            position: 'absolute',
+            top: '2rem',
+            left: '2rem',
+            width: '100px',
+            height: '100px',
+            border: '3px solid rgba(252, 177, 0, 0.3)',
+            borderRight: 'none',
+            borderBottom: 'none',
+            zIndex: 1
+          }} />
+          <div style={{
+            position: 'absolute',
+            top: '2rem',
+            right: '2rem',
+            width: '100px',
+            height: '100px',
+            border: '3px solid rgba(252, 177, 0, 0.3)',
+            borderLeft: 'none',
+            borderBottom: 'none',
+            zIndex: 1
+          }} />
+        </>
+      )}
+
+      <div style={{ 
+        width: '100%',
+        position: 'relative',
+        zIndex: 2 ,
+         maxWidth: '1400px',
+          margin: '0 auto'
+      }}>
+        {/* Section Header */}
+        <div style={{ 
           marginBottom: isMobile ? '2rem' : '4rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          padding: '0 1rem'
         }}>
-          {/* Decorative Line with Center Ornament */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -133,7 +135,7 @@ const GallerySection = () => {
             }} />
           </div>
 
-          <div className="section-badge animate-on-scroll flip-in delay-200" style={{ 
+          <div style={{ 
             background: 'rgba(252, 177, 0, 0.2)', 
             color: '#FCB100',
             border: '1px solid rgba(252, 177, 0, 0.4)',
@@ -150,7 +152,7 @@ const GallerySection = () => {
             ✦ VISUAL SHOWCASE ✦
           </div>
 
-          <h2 className="section-title animate-on-scroll zoom-in delay-300" style={{ 
+          <h2 style={{ 
             color: '#FCB100',
             fontSize: isMobile ? '2rem' : '3rem',
             fontWeight: '700',
@@ -163,7 +165,7 @@ const GallerySection = () => {
           </h2>
 
           <p style={{
-            color: 'rgba(255, 255, 255, 0.9)',
+            color: 'rgba(0, 0, 0, 0.89)',
             fontSize: isMobile ? '1rem' : '1.1rem',
             maxWidth: '600px',
             margin: '0 auto',
@@ -172,205 +174,285 @@ const GallerySection = () => {
           }}>
             Discover the artistry behind our authentic Middle Eastern cuisine
           </p>
-
-          {/* Decorative Bottom Line */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            marginTop: '1.5rem'
-          }}>
-            <div style={{
-              width: '8px',
-              height: '8px',
-              background: '#FCB100',
-              borderRadius: '50%'
-            }} />
-            <div style={{
-              width: '4px',
-              height: '4px',
-              background: 'rgba(252, 177, 0, 0.6)',
-              borderRadius: '50%'
-            }} />
-            <div style={{
-              width: '4px',
-              height: '4px',
-              background: 'rgba(252, 177, 0, 0.6)',
-              borderRadius: '50%'
-            }} />
-          </div>
         </div>
 
-        {/* Gallery Grid - Masonry Style */}
-        <div style={{ 
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: isMobile ? '1.5rem' : '2rem',
-          padding: isMobile ? '0 1rem' : '0'
+        {/* Horizontal Gallery */}
+        <div style={{
+          position: 'relative',
+          height: isMobile ? '500px' : '600px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          perspective: '2000px'
         }}>
-          {posters.map((poster, index) => (
-            <div 
-              key={poster.id} 
-              className={`animate-on-scroll ${index % 3 === 0 ? 'slide-up' : index % 3 === 1 ? 'scale-in' : 'fade-in'} delay-${index % 6 + 1}`}
-              style={{
-                position: 'relative',
-                overflow: 'hidden',
-                borderRadius: '15px',
-                cursor: 'pointer',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                background: 'rgba(8, 20, 79, 0.3)',
-                border: '2px solid rgba(252, 177, 0, 0.2)',
-                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
-                backdropFilter: 'blur(10px)'
-              }}
-              onClick={() => setSelectedPoster(poster)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.6)';
-                e.currentTarget.style.boxShadow = '0 20px 60px rgba(252, 177, 0, 0.3), 0 0 40px rgba(252, 177, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.borderColor = 'rgba(252, 177, 0, 0.2)';
-                e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.3)';
-              }}
-            >
+          {/* Previous Image (Left) */}
+          <div style={{
+            position: 'absolute',
+            left: isMobile ? '5%' : '15%',
+            width: isMobile ? '120px' : '280px',
+            height: isMobile ? '180px' : '420px',
+            transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+            transform: 'scale(0.75) translateX(-20px)',
+            opacity: 0.4,
+            filter: 'blur(2px)',
+            zIndex: 1,
+            cursor: 'pointer'
+          }}
+          onClick={prevSlide}>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '2px solid rgba(252, 177, 0, 0.3)',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+            }}>
+              <img 
+                src={posters[getPrevIndex()].src}
+                alt={posters[getPrevIndex()].title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Current Image (Center) */}
+          <div style={{
+            position: 'relative',
+            width: isMobile ? '250px' : '400px',
+            height: isMobile ? '375px' : '600px',
+            transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+            transform: 'scale(1)',
+            opacity: 1,
+            zIndex: 3,
+            cursor: 'pointer'
+          }}
+          onClick={() => setSelectedPoster(posters[currentIndex])}>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              border: '3px solid rgba(252, 177, 0, 0.8)',
+              boxShadow: '0 30px 80px rgba(252, 177, 0, 0.4), 0 0 60px rgba(252, 177, 0, 0.2)',
+              background: 'rgba(8, 20, 79, 0.3)',
+              backdropFilter: 'blur(10px)'
+            }}>
               {/* Corner Decorations */}
               <div style={{
                 position: 'absolute',
-                top: '10px',
-                left: '10px',
-                width: '30px',
-                height: '30px',
-                border: '2px solid rgba(252, 177, 0, 0.4)',
+                top: '15px',
+                left: '15px',
+                width: '40px',
+                height: '40px',
+                border: '3px solid rgba(252, 177, 0, 0.6)',
                 borderRight: 'none',
                 borderBottom: 'none',
-                zIndex: 2,
-                opacity: 0.7
+                zIndex: 2
               }} />
               <div style={{
                 position: 'absolute',
-                top: '10px',
-                right: '10px',
-                width: '30px',
-                height: '30px',
-                border: '2px solid rgba(252, 177, 0, 0.4)',
+                top: '15px',
+                right: '15px',
+                width: '40px',
+                height: '40px',
+                border: '3px solid rgba(252, 177, 0, 0.6)',
                 borderLeft: 'none',
                 borderBottom: 'none',
-                zIndex: 2,
-                opacity: 0.7
+                zIndex: 2
               }} />
 
               {/* Category Badge */}
               <div style={{
                 position: 'absolute',
-                top: '20px',
+                top: '25px',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 background: 'rgba(252, 177, 0, 0.95)',
                 color: '#08144F',
-                padding: '0.4rem 1rem',
+                padding: '0.5rem 1.2rem',
                 borderRadius: '20px',
-                fontSize: '0.75rem',
+                fontSize: '0.8rem',
                 fontWeight: '700',
                 zIndex: 3,
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
-                border: '1px solid rgba(255, 255, 255, 0.3)'
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)'
               }}>
-                {poster.category}
+                {posters[currentIndex].category}
               </div>
 
-              {/* Poster Image */}
-              <div style={{
-                position: 'relative',
-                paddingBottom: '140%',
-                overflow: 'hidden'
-              }}>
-                <img 
-                  src={poster.src}
-                  alt={poster.title}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.5s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'scale(1)';
-                  }}
-                />
-                
-                {/* Gradient Overlay */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '60%',
-                  background: 'linear-gradient(to top, rgba(8, 20, 79, 0.95), transparent)',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  padding: '1.5rem',
-                  zIndex: 1
-                }}>
-                  <h3 style={{
-                    color: '#FFFFFF',
-                    fontSize: '1.2rem',
-                    fontWeight: '600',
-                    margin: 0,
-                    textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
-                    lineHeight: '1.3'
-                  }}>
-                    {poster.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Hover Effect - View Details */}
+              <img 
+                src={posters[currentIndex].src}
+                alt={posters[currentIndex].title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+              
+              {/* Gradient Overlay */}
               <div style={{
                 position: 'absolute',
-                inset: 0,
-                background: 'rgba(252, 177, 0, 0)',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '50%',
+                background: 'linear-gradient(to top, rgba(8, 20, 79, 0.95), transparent)',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                opacity: 0,
-                transition: 'all 0.3s ease',
-                zIndex: 2
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.background = 'rgba(8, 20, 79, 0.85)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = '0';
-                e.currentTarget.style.background = 'rgba(252, 177, 0, 0)';
-              }}
-              >
-                <span style={{
-                  background: '#FCB100',
-                  color: '#08144F',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '25px',
-                  fontWeight: '700',
-                  fontSize: '0.9rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  boxShadow: '0 4px 20px rgba(252, 177, 0, 0.4)'
+                alignItems: 'flex-end',
+                padding: isMobile ? '1.5rem' : '2rem',
+                zIndex: 1
+              }}>
+                <h3 style={{
+                  color: '#FFFFFF',
+                  fontSize: isMobile ? '1.1rem' : '1.5rem',
+                  fontWeight: '600',
+                  margin: 0,
+                  textShadow: '0 2px 10px rgba(0, 0, 0, 0.8)',
+                  lineHeight: '1.3'
                 }}>
-                  View Details
-                </span>
+                  {posters[currentIndex].title}
+                </h3>
               </div>
             </div>
+          </div>
+
+          {/* Next Image (Right) */}
+          <div style={{
+            position: 'absolute',
+            right: isMobile ? '5%' : '15%',
+            width: isMobile ? '120px' : '280px',
+            height: isMobile ? '180px' : '420px',
+            transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+            transform: 'scale(0.75) translateX(20px)',
+            opacity: 0.4,
+            filter: 'blur(2px)',
+            zIndex: 1,
+            cursor: 'pointer'
+          }}
+          onClick={nextSlide}>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              border: '2px solid rgba(252, 177, 0, 0.3)',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+            }}>
+              <img 
+                src={posters[getNextIndex()].src}
+                alt={posters[getNextIndex()].title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            style={{
+              position: 'absolute',
+              left: isMobile ? '1rem' : '5%',
+              width: isMobile ? '45px' : '60px',
+              height: isMobile ? '45px' : '60px',
+              background: 'rgba(252, 177, 0, 0.9)',
+              border: '2px solid rgba(252, 177, 0, 0.5)',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 5,
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 20px rgba(252, 177, 0, 0.4)',
+              backdropFilter: 'blur(10px)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.15)';
+              e.currentTarget.style.background = '#FCB100';
+              e.currentTarget.style.boxShadow = '0 8px 30px rgba(252, 177, 0, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.background = 'rgba(252, 177, 0, 0.9)';
+              e.currentTarget.style.boxShadow = '0 4px 20px rgba(252, 177, 0, 0.4)';
+            }}
+          >
+            <ChevronLeft size={isMobile ? 28 : 36} color="#08144F" strokeWidth={3} />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            style={{
+              position: 'absolute',
+              right: isMobile ? '1rem' : '5%',
+              width: isMobile ? '45px' : '60px',
+              height: isMobile ? '45px' : '60px',
+              background: 'rgba(252, 177, 0, 0.9)',
+              border: '2px solid rgba(252, 177, 0, 0.5)',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 5,
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 20px rgba(252, 177, 0, 0.4)',
+              backdropFilter: 'blur(10px)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.15)';
+              e.currentTarget.style.background = '#FCB100';
+              e.currentTarget.style.boxShadow = '0 8px 30px rgba(252, 177, 0, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.background = 'rgba(252, 177, 0, 0.9)';
+              e.currentTarget.style.boxShadow = '0 4px 20px rgba(252, 177, 0, 0.4)';
+            }}
+          >
+            <ChevronRight size={isMobile ? 28 : 36} color="#08144F" strokeWidth={3} />
+          </button>
+        </div>
+
+        {/* Dots Indicator */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '0.8rem',
+          marginTop: isMobile ? '2rem' : '3rem'
+        }}>
+          {posters.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              style={{
+                width: currentIndex === index ? '40px' : '12px',
+                height: '12px',
+                borderRadius: '6px',
+                background: currentIndex === index 
+                  ? 'linear-gradient(135deg, #FCB100, #FFA500)' 
+                  : 'rgba(252, 177, 0, 0.3)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: currentIndex === index 
+                  ? '0 0 20px rgba(252, 177, 0, 0.6)' 
+                  : 'none'
+              }}
+            />
           ))}
         </div>
       </div>
@@ -403,7 +485,6 @@ const GallerySection = () => {
           }}
           onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setSelectedPoster(null)}
               style={{
@@ -426,18 +507,17 @@ const GallerySection = () => {
                 boxShadow: '0 4px 15px rgba(252, 177, 0, 0.4)'
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = 'scale(1.1) rotate(90deg)';
-                e.target.style.background = '#FCB100';
+                e.currentTarget.style.transform = 'scale(1.1) rotate(90deg)';
+                e.currentTarget.style.background = '#FCB100';
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'scale(1) rotate(0deg)';
-                e.target.style.background = 'rgba(252, 177, 0, 0.9)';
+                e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+                e.currentTarget.style.background = 'rgba(252, 177, 0, 0.9)';
               }}
             >
               ×
             </button>
 
-            {/* Poster Image */}
             <img 
               src={selectedPoster.src}
               alt={selectedPoster.title}
@@ -452,7 +532,6 @@ const GallerySection = () => {
               }}
             />
 
-            {/* Poster Info */}
             <div style={{
               position: 'absolute',
               bottom: '0',

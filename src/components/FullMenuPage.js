@@ -221,7 +221,7 @@ const FullMenuPage = () => {
                   <div
                     key={itemIndex}
                     style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
+                      background: 'rgba(255, 255, 255, 1)',
                       borderRadius: '20px',
                       padding: '1.5rem',
                       border: '1px solid rgba(252, 177, 0, 0.2)',
@@ -293,7 +293,7 @@ const FullMenuPage = () => {
                         {/* Item Description */}
                         <p style={{
                           fontSize: isMobile ? '0.9rem' : '1rem',
-                          color: 'rgba(255, 255, 255, 0.8)',
+                          color: 'rgba(0, 0, 0, 0.8)',
                           lineHeight: '1.5',
                           margin: '0 0 1rem 0'
                         }}>

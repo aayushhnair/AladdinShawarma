@@ -69,7 +69,7 @@ const Footer = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               marginBottom: 'var(--space-4)'
             }}>
-              Experience authentic Middle Eastern flavors crafted with traditional recipes and premium ingredients.
+              Born from Arabian nights and Kochi’s streetlight hustle — each shawarma is a spell of spice and smoke. Crafted with ishtam, served with garvam, seasoned by the genie’s touch.
             </p>
 
             {/* Contact Details */}
@@ -197,7 +197,7 @@ const Footer = () => {
           </div>
 
           {/* Instagram Section */}
-          <div className="animate-on-scroll slide-up delay-400">
+          {/* <div className="animate-on-scroll slide-up delay-400">
             <h4 style={{
               fontSize: 'var(--text-lg)',
               fontWeight: '700',
@@ -209,7 +209,6 @@ const Footer = () => {
               Instagram
             </h4>
 
-            {/* Instagram Grid */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
@@ -283,7 +282,7 @@ const Footer = () => {
                 @aladdinshawarma
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Newsletter Section */}
           <div className="animate-on-scroll slide-up delay-500">
@@ -304,7 +303,7 @@ const Footer = () => {
               marginBottom: 'var(--space-4)',
               lineHeight: '1.6'
             }}>
-              Subscribe for special offers, new menu items, and culinary updates from our kitchen.
+              Get genie’s specials, new shawarmas, and magical updates straight from our kitchen.
             </p>
 
             {/* Newsletter Form */}

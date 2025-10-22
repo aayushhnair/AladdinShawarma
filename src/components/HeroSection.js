@@ -1,38 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { logo, hero } from '../config/assets';
-import strings from '../config/strings.json';
+import { ShoppingBag, Calendar, ArrowDown, Sparkles, Star } from 'lucide-react';
+import { hero, logo } from '../config/assets';
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
-  const orderButtonRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  // Import assets from config (you'll need to import these at the top of your actual file)
+  // import { logo, hero } from '../config/assets';
+  
+  // For demo purposes - replace these with your actual imports
+
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Initial check
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleResize();
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Trigger animations for hero content when in view
             const heroElements = entry.target.querySelectorAll('.animate-on-scroll');
             heroElements.forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add('visible');
-              }, index * (isMobile ? 100 : 150)); // Smoother faster animations
+              }, index * 100);
             });
           }
         });
       },
       { 
-        threshold: isMobile ? 0.2 : 0.3,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: isMobile ? 0.1 : 0.2,
+        rootMargin: '0px'
       }
     );
 
@@ -42,6 +52,7 @@ const HeroSection = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
@@ -49,34 +60,22 @@ const HeroSection = () => {
   }, [isMobile]);
 
   const handleOrderClick = () => {
-    // Add haptic feedback for mobile
     if (isMobile && navigator.vibrate) {
       navigator.vibrate(50);
     }
-    
-    // Scroll to menu section
     const menuSection = document.querySelector('#menu');
     if (menuSection) {
-      menuSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const handleReservationClick = () => {
-    // Add haptic feedback for mobile
     if (isMobile && navigator.vibrate) {
       navigator.vibrate(50);
     }
-    
-    // Smooth scroll to contact/reservation section
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -85,331 +84,598 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
-      className={`hero-section professional-hero ${isMobile ? 'mobile-hero' : ''}`}
-      id="home"
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#000000'
-      }}
-    >
-      {/* Video Background - Optimized for all devices */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={hero.image}
-        onLoadedData={handleVideoLoad}
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes shimmer {
+          0%, 100% {
+            opacity: 0.5;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+
+        @keyframes scrollBounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(10px);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+          }
+        }
+
+        @keyframes gradientShift {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        .animate-on-scroll.visible {
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-logo-entrance {
+          animation: fadeInScale 1s ease 0.2s forwards;
+          opacity: 0;
+        }
+
+        .hero-text-entrance {
+          animation: fadeInUp 1s ease 0.4s forwards;
+          opacity: 0;
+        }
+
+        .floating-element {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .shimmer-text {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .gradient-text {
+          background: linear-gradient(135deg, #FCB100, #FFA500, #FFD700);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradientShift 4s ease infinite;
+        }
+
+        .glass-effect {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hover-lift {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+          transform: translateY(-8px);
+        }
+
+        .btn-primary {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-primary::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+          width: 300px;
+          height: 300px;
+        }
+
+        .ornamental-line {
+          position: relative;
+        }
+
+        .ornamental-line::before,
+        .ornamental-line::after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(252, 177, 0, 0.5), transparent);
+        }
+
+        .ornamental-line::before {
+          left: -100px;
+          right: 50%;
+          top: 50%;
+        }
+
+        .ornamental-line::after {
+          right: -100px;
+          left: 50%;
+          top: 50%;
+        }
+      `}</style>
+
+      <section 
+        ref={sectionRef}
+        id="home"
         style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          minWidth: '100%',
-          minHeight: '100%',
-          width: 'auto',
-          height: 'auto',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 0,
-          objectFit: 'cover',
-          transition: 'opacity 0.5s ease-in-out',
-          opacity: isVideoLoaded ? 1 : 0,
-          willChange: 'opacity'
+          position: 'relative',
+          overflow: 'hidden',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#000000'
         }}
       >
-        <source src={hero.backgroundvideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      
-      {/* Fallback Background Image for very slow connections */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `url(${hero.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          zIndex: 0,
-          opacity: isVideoLoaded ? 0 : 1,
-          transition: 'opacity 0.5s ease-in-out',
-          pointerEvents: 'none'
-        }}
-      />
-      
-      {/* Professional Gradient Overlay - LIGHTER FOR CLASSY LOOK */}
-      {/* <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(0deg, rgba(4, 10, 39, 0.7) 0%, rgba(5, 15, 158, 0.5) 50%, rgba(8, 20, 79, 0.7) 100%)',
-          zIndex: 1,
-          backdropFilter: 'blur(2px)'
-        }}
-      ></div> */}
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={hero.image}
+          onLoadedData={handleVideoLoad}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            minWidth: '100%',
+            minHeight: '100%',
+            width: 'auto',
+            height: 'auto',
+            transform: `translate(-50%, -50%) scale(${1 + scrollY * 0.0002})`,
+            zIndex: 0,
+            objectFit: 'cover',
+            transition: 'transform 0.1s ease',
+            opacity: 1,
+            filter: 'blur(4px)',
+            
+          }}
+        >
+          <source src={hero.backgroundvideo} type="video/mp4" />
+        </video>
+        
+        {/* Fallback Image - Always visible as backup */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${hero.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            zIndex: 0,
+            opacity: 0.3,
+            transition: 'opacity 0.5s ease'
+          }}
+        />
+        
+        {/* Sophisticated Gradient Overlay */}
+        {/* <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(ellipse at center, rgba(8, 20, 79, 0.3) 0%, rgba(8, 20, 79, 0.7) 100%)',
+            zIndex: 1
+          }}
+        /> */}
 
-            <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          // background: 'linear-gradient(135deg, rgba(46, 46, 46, 0.4) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(56, 56, 56, 0.4) 100%)',
-          zIndex: 1,
-          backdropFilter: 'blur(4px)'
-        }}
-      ></div>
-      
+        {/* Premium Vignette Effect */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%)',
+            zIndex: 2
+          }}
+        />
 
-      {/* Geometric Elements */}
-      <div className="hero-geometric-elements" style={{ position: 'absolute', inset: 0, zIndex: 2, overflow: 'hidden' }}>
-        <div className="geometric-line geometric-line-1"></div>
-        <div className="geometric-line geometric-line-2"></div>
-        <div className="geometric-circle geometric-circle-1"></div>
-        <div className="geometric-circle geometric-circle-2"></div>
-      </div>
+        {/* Floating Decorative Elements */}
+        {!isMobile && (
+          <>
+            <div className="floating-element" style={{
+              position: 'absolute',
+              top: '15%',
+              right: '10%',
+              width: '150px',
+              height: '150px',
+              border: '2px solid rgba(252, 177, 0, 0.2)',
+              borderRadius: '50%',
+              zIndex: 3,
+              animationDelay: '0s'
+            }} />
+            <div className="floating-element" style={{
+              position: 'absolute',
+              bottom: '20%',
+              left: '8%',
+              width: '100px',
+              height: '100px',
+              border: '2px solid rgba(252, 177, 0, 0.15)',
+              borderRadius: '50%',
+              zIndex: 3,
+              animationDelay: '2s'
+            }} />
+            <Star
+              size={40}
+              className="floating-element shimmer-text"
+              style={{
+                position: 'absolute',
+                top: '25%',
+                left: '15%',
+                color: 'rgba(252, 177, 0, 0.3)',
+                zIndex: 3,
+                animationDelay: '1s'
+              }}
+            />
+            <Sparkles
+              size={50}
+              className="floating-element shimmer-text"
+              style={{
+                position: 'absolute',
+                bottom: '30%',
+                right: '15%',
+                color: 'rgba(252, 177, 0, 0.25)',
+                zIndex: 3,
+                animationDelay: '3s'
+              }}
+            />
+          </>
+        )}
 
-      {/* Main Hero Content - Professional Layout */}
-        <div className="professional-hero-content hero-content-entrance" style={{
+        {/* Main Content Container */}
+        <div style={{
           position: 'relative',
           zIndex: 10,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: isMobile ? '2rem' : '4rem',
-          maxWidth: isMobile ? '90%' : '1200px',
+          gap: isMobile ? '2rem' : '5rem',
+          maxWidth: '1400px',
           margin: '0 auto',
-          padding: isMobile ? '2rem 1rem' : '3rem 2rem',
+          padding: isMobile ? '2rem 1.5rem' : '4rem 2rem',
           flexDirection: isMobile ? 'column' : 'row',
           width: '100%'
         }}>
-          {/* Logo - Left Column */}
-          <div className="hero-logo professional-logo-container hero-logo-entrance" style={{
+          {/* Logo Section */}
+          <div className="hero-logo-entrance hover-lift" style={{
             flex: isMobile ? 'none' : '0 0 auto',
+            padding: isMobile ? '2rem' : '3rem',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
           }}>
-            <img 
-          src={logo.main} 
-          alt={logo.alt}
-          className="hero-aladdin-logo"
-          style={{
-            width: isMobile ? '200px' : '400px',
-            height: 'auto',
-            transition: 'all 0.5s ease'
-          }}
-            />
+            <div style={{
+              position: 'relative',
+              width: isMobile ? '180px' : '350px',
+              borderRadius: '20px',
+              overflow: 'hidden',
+            }}>
+              <img 
+                src={logo.main} 
+                alt={logo.alt}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  transition: 'transform 0.5s ease'
+                }}
+              />
+            </div>
           </div>
 
-          {/* Content - Right Column */}
-          <div className="hero-text-content hero-text-entrance" style={{
+          {/* Text Content */}
+          <div className="hero-text-entrance" style={{
             flex: isMobile ? 'none' : '1',
             textAlign: isMobile ? 'center' : 'left',
             display: 'flex',
             flexDirection: 'column',
             alignItems: isMobile ? 'center' : 'flex-start',
-            justifyContent: 'center'
+            gap: '1.5rem',
+            maxWidth: isMobile ? '100%' : '700px'
           }}>
-            {/* Main Headline */}
-            <h1 className="professional-hero-title" style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: isMobile ? '2.5rem' : '4rem',
-          fontWeight: '700',
-          lineHeight: '1.2',
-          color: '#FFFFFF',
-          marginBottom: '1rem',
-          textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+            {/* Premium Badge */}
+            {/* <div className="animate-on-scroll glass-effect" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '50px',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              color: '#FCB100',
+              border: '1px solid rgba(252, 177, 0, 0.3)',
+              boxShadow: '0 4px 20px rgba(252, 177, 0, 0.2)'
             }}>
-          <span style={{ 
-            display: 'block', 
-            fontSize: '0.6em', 
-            fontWeight: '400',
-            fontFamily: "'Inter', sans-serif",
-            color: 'rgba(255, 255, 255, 0.9)',
-            marginTop: '0.5rem',
-            letterSpacing: '1px'
-          }}>Experience</span>
+              <Sparkles size={16} />
+              <span>Authentic Arabian Cuisine</span>
+            </div> */}
+
+            {/* Main Title */}
+            <h1 className="animate-on-scroll" style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: isMobile ? '2.5rem' : '5rem',
+              fontWeight: '800',
+              lineHeight: '1.1',
+              color: '#FFFFFF',
+              margin: 0,
+              textShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
+              letterSpacing: '-1px'
+            }}>
+              {/* <span className="gradient-text" style={{
+                display: 'block',
+                fontSize: isMobile ? '3rem' : '5.5rem',
+                marginBottom: '0.5rem'
+              }}>
+                Aladdin
+              </span> */}
+              <span style={{
+                display: 'block',
+                fontSize: '0.4em',
+                fontWeight: '400',
+                fontFamily: "'Inter', sans-serif",
+                color: 'rgba(255, 255, 255, 0.9)',
+                letterSpacing: '3px',
+                textTransform: 'uppercase'
+              }}>
+                The Legend on a Plate
+              </span>
             </h1>
 
-            {/* Tagline - Refined */}
-            <div className="hero-refined-tagline" style={{
-          fontSize: isMobile ? '1rem' : '1.25rem',
-          fontWeight: '500',
-          color: 'rgba(255, 255, 255, 0.9)',
-          marginBottom: '2rem',
-          letterSpacing: '1px',
-          lineHeight: '1.6',
-          maxWidth: '600px',
-          margin: isMobile ? '0 auto 2rem auto' : '0 0 2rem 0'
-            }}>
-          {isMobile ? 
-            "Fresh ingredients, traditional recipes, exceptional taste." :
-            "Crafted with passion, served with pride. Where traditional Middle Eastern flavors meet modern culinary excellence."
-          }
-            </div>
+            {/* Decorative Line */}
+            <div className="ornamental-line animate-on-scroll" style={{
+              width: isMobile ? '80px' : '120px',
+              height: '3px',
+              background: 'linear-gradient(90deg, #FCB100, #FFA500)',
+              borderRadius: '2px',
+              position: 'relative',
+              margin: '0.5rem 0'
+            }} />
 
-            {/* Professional Action Buttons */}
-            <div className="hero-professional-actions" style={{
-          display: 'flex',
-          gap: isMobile ? '1rem' : '1.5rem',
-          justifyContent: isMobile ? 'center' : 'flex-start',
-          flexDirection: isMobile ? 'column' : 'row',
-          alignItems: 'center',
-          marginBottom: '3rem'
+            {/* Tagline */}
+            <p className="animate-on-scroll" style={{
+              fontSize: isMobile ? '1rem' : '1.2rem',
+              fontWeight: '400',
+              color: 'rgba(255, 255, 255, 0.95)',
+              lineHeight: '1.8',
+              maxWidth: '650px',
+              margin: 0,
+              fontFamily: "'Inter', sans-serif",
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
             }}>
-          <button 
-            ref={orderButtonRef}
-            className="professional-btn primary-btn" 
-            onClick={handleOrderClick}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              background: 'linear-gradient(45deg, #FCB100, #FFC943)',
-              color: '#08144F',
-              border: 'none',
-              borderRadius: '50px',
-              padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
-              fontSize: '1rem',
-              fontWeight: '600',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 10px 30px rgba(252, 177, 0, 0.3)',
-              minWidth: isMobile ? '200px' : '180px',
-              justifyContent: 'center',
-              touchAction: 'manipulation',
-              WebkitTapHighlightColor: 'transparent',
-              position: 'relative'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-3px) scale(1.05)';
-              e.target.style.boxShadow = '0 15px 40px rgba(252, 177, 0, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0) scale(1)';
-              e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.3)';
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 5H3M7 13v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8"/>
-              <circle cx="9" cy="19" r="1"/>
-              <circle cx="20" cy="19" r="1"/>
-            </svg>
-            Order Now
-          </button>
-          
-          <button 
-            className="professional-btn secondary-btn" 
-            onClick={handleReservationClick}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              background: 'transparent',
-              color: '#FFFFFF',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
-              borderRadius: '50px',
-              padding: isMobile ? '1rem 2rem' : '1.2rem 2.5rem',
-              fontSize: '1rem',
-              fontWeight: '600',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              backdropFilter: 'blur(10px)',
-              minWidth: isMobile ? '200px' : '180px',
-              justifyContent: 'center',
-              touchAction: 'manipulation',
-              WebkitTapHighlightColor: 'transparent'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.borderColor = '#FCB100';
-              e.target.style.color = '#FCB100';
-              e.target.style.transform = 'translateY(-3px)';
-              e.target.style.boxShadow = '0 10px 30px rgba(252, 177, 0, 0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-              e.target.style.color = '#FFFFFF';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = 'none';
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            Reserve Table
-          </button>
-            </div>
+              {isMobile ? 
+                "Arabian spice. Nadan soul. Pure taste." :
+                "Born from Arabian nights and Kochi's streetlight hustle — each shawarma is a spell of spice and smoke. Crafted with ishtam, served with garvam, seasoned by the genie's touch."
+              }
+            </p>
 
+            {/* Stats Row */}
+            {/* {!isMobile && (
+              <div className="animate-on-scroll glass-effect" style={{
+                display: 'flex',
+                gap: '2rem',
+                padding: '1.5rem 2rem',
+                borderRadius: '20px',
+                marginTop: '1rem'
+              }}>
+                {[
+                  { number: '10+', label: 'Years Experience' },
+                  { number: '50k+', label: 'Happy Customers' },
+                  { number: '4.9', label: 'Rating' }
+                ].map((stat, idx) => (
+                  <div key={idx} style={{ textAlign: 'center' }}>
+                    <div style={{
+                      fontSize: '2rem',
+                      fontWeight: '700',
+                      color: '#FCB100',
+                      fontFamily: "'Playfair Display', serif",
+                      marginBottom: '0.25rem'
+                    }}>
+                      {stat.number}
+                    </div>
+                    <div style={{
+                      fontSize: '0.75rem',
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px'
+                    }}>
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )} */}
+
+            {/* Action Buttons */}
+            <div className="animate-on-scroll" style={{
+              display: 'flex',
+              gap: '1rem',
+              marginTop: '1rem',
+              flexWrap: 'wrap',
+              justifyContent: isMobile ? 'center' : 'flex-start'
+            }}>
+              <button 
+                className="btn-primary hover-lift"
+                onClick={handleOrderClick}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  background: 'linear-gradient(135deg, #FCB100, #FFA500)',
+                  color: '#08144F',
+                  border: 'none',
+                  borderRadius: '50px',
+                  padding: '1.2rem 2.5rem',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  cursor: 'pointer',
+                  boxShadow: '0 10px 40px rgba(252, 177, 0, 0.4)',
+                  minWidth: '200px',
+                  justifyContent: 'center',
+                  fontFamily: "'Inter', sans-serif"
+                }}
+              >
+                <ShoppingBag size={20} />
+                <span style={{ position: 'relative', zIndex: 1 }}>Order Now</span>
+              </button>
+              
+              <button 
+                className="glass-effect hover-lift"
+                onClick={handleReservationClick}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  background: 'transparent',
+                  color: '#FFFFFF',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '50px',
+                  padding: '1.2rem 2.5rem',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  cursor: 'pointer',
+                  minWidth: '200px',
+                  justifyContent: 'center',
+                  fontFamily: "'Inter', sans-serif",
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#FCB100';
+                  e.currentTarget.style.color = '#FCB100';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.currentTarget.style.color = '#FFFFFF';
+                }}
+              >
+                <Calendar size={20} />
+                Reserve Table
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Minimal Scroll Indicator - Hidden on mobile */}
-      {!isMobile && (
-        <div className="minimal-scroll-indicator" style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          color: 'rgba(255, 255, 255, 0.7)',
-          zIndex: 10
-        }}>
+        {/* Elegant Scroll Indicator */}
+        {!isMobile && (
           <div style={{
-            fontSize: '0.75rem',
-            fontWeight: '500',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            marginBottom: '1rem'
-          }}>
-            Scroll
-          </div>
-          <div style={{
-            width: '2px',
-            height: '40px',
-            background: 'linear-gradient(to bottom, #FCB100, transparent)',
-            borderRadius: '1px',
-            position: 'relative',
-            animation: 'breath 2s ease-in-out infinite'
+            position: 'absolute',
+            bottom: '3rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
+            zIndex: 10,
+            animation: 'scrollBounce 2s ease-in-out infinite'
           }}>
             <div style={{
-              position: 'absolute',
-              top: 0,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '6px',
-              height: '6px',
-              background: '#FCB100',
-              borderRadius: '50%',
-              animation: 'particleFloat 2s ease-in-out infinite'
-            }}></div>
+              fontSize: '0.7rem',
+              fontWeight: '600',
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              color: 'rgba(255, 255, 255, 0.6)'
+            }}>
+              Discover More
+            </div>
+            <div className="glass-effect" style={{
+              width: '40px',
+              height: '60px',
+              borderRadius: '20px',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              padding: '8px',
+              border: '2px solid rgba(252, 177, 0, 0.3)'
+            }}>
+              <div style={{
+                width: '4px',
+                height: '12px',
+                background: '#FCB100',
+                borderRadius: '2px',
+                animation: 'pulse 2s ease-in-out infinite'
+              }} />
+            </div>
+            <ArrowDown size={20} color="rgba(252, 177, 0, 0.6)" />
           </div>
-        </div>
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 };
 

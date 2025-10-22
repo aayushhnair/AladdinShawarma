@@ -6,7 +6,7 @@
 // Import all images from assets folder
 import logoImage from '../assets/logo.png';
 import video1 from '../assets/BG_video.mp4';
-import poster1 from '../assets/aladdin01.jpg';
+import poster1 from '../assets/aladdin01.png';
 import headerLampsImage from '../assets/header_lamps.png';
 import curtain from '../assets/curtains.png';
 import whiteBgPattern from '../assets/whitebgpattern.png';

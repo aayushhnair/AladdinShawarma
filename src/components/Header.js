@@ -29,13 +29,36 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (e, targetId, sectionId) => {
-    e.preventDefault();
-    const target = document.querySelector(targetId);
+    if (e && e.preventDefault) e.preventDefault();
+
+    // Guard against empty or invalid selectors
+    let selector = (targetId || '').toString().trim();
+    if (!selector) {
+      // fallback to sectionId as an id selector
+      selector = sectionId ? `#${sectionId}` : '';
+    }
+
+    let target = null;
+    if (selector) {
+      try {
+        target = document.querySelector(selector);
+      } catch (err) {
+        // Invalid selector syntax (safety); try getElementById fallback
+        target = document.getElementById(selector.replace(/^#/, ''));
+      }
+    }
+
+    // If we have a DOM target, scroll to it. Otherwise, update hash to route.
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveSection(sectionId);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Fallback: set location.hash so routing logic can handle it (and avoid empty querySelector calls)
+    if (sectionId) {
+      window.location.hash = sectionId;
       setActiveSection(sectionId);
       setIsMobileMenuOpen(false);
     }
@@ -69,13 +92,13 @@ const Header = () => {
   return (
     <>
 
-      <div className="curtain-hanging-lamps">
+      {/* <div className="curtain-hanging-lamps">
         <img
           src={header.curtain}
           alt={header.lampsAlt}
           className="curtain-image"
         />
-      </div>
+      </div> */}
       {/* Hanging Lamps - Fixed at top, doesn't scroll */}
       <div className="header-hanging-lamps">
         <img
@@ -141,10 +164,11 @@ const Header = () => {
         </div>
       )}
 
-      {/* Main Navigation */}
-      <nav className={`main-navbar ${isScrolled ? 'scrolled' : ''}`} style={{
-        top: isMobile ? 0 : (isScrolled ? 0 : '60px')
-      }}>
+      {/* Main Navigation - hidden on mobile */}
+      {!isMobile && (
+        <nav className={`main-navbar ${isScrolled ? 'scrolled' : ''}`} style={{
+          top: isMobile ? 0 : (isScrolled ? 0 : '60px')
+        }}>
         <div className="subNavContainer" style={{
           width: isMobile ? '100%' : '100%',
           marginTop: isMobile ? 0 : '10px',
@@ -192,7 +216,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </nav>
+        </nav>
+      )}
     </>
   );
 };

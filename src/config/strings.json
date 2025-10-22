@@ -1,27 +1,27 @@
 {
   "branding": {
     "name": "Aladdin Shawarma",
-    "tagline": "Authentic Middle Eastern Flavors",
-    "description": "Experience the magic of traditional Middle Eastern cuisine with our carefully crafted shawarmas, made with the finest ingredients and time-honored recipes."
+    "tagline": "Where Magic Meets Shawarma",
+    "description": "Step into Aladdin’s world — where the streets of Kochi meet the magic of Arabia. Each shawarma here is a story from the lamp — smoky, juicy, and crafted with the charm of a genie’s touch. Taste the magic near Kaloor Stadium."
   },
-  
+
   "contact": {
-    "phone": "+1 (555) 123-4567",
-    "email": "info@aladdinshawarma.com",
+    "phone": "+91 97450 12345",
+    "email": "genie@aladdinshawarma.in",
     "address": {
-      "street": "123 Food Street",
-      "city": "Culinary City",
-      "state": "FC",
-      "zipCode": "12345",
-      "country": "USA"
+      "street": "Opp. Kaloor Stadium",
+      "city": "Kochi",
+      "state": "Kerala",
+      "zipCode": "682017",
+      "country": "India"
     },
     "hours": {
-      "weekdays": "Mon - Fri: 9:00 AM - 9:00 PM",
-      "weekend": "Sat - Sun: 10:00 AM - 10:00 PM"
+      "weekdays": "Mon - Fri: 12:00 PM - 11:30 PM",
+      "weekend": "Sat - Sun: 12:00 PM - 12:30 AM"
     },
     "social": {
-      "facebook": "#",
-      "instagram": "#",
+      "facebook": "https://facebook.com/aladdinshawarmakochi",
+      "instagram": "https://instagram.com/aladdinshawarma",
       "twitter": "#",
       "youtube": "#"
     }
@@ -32,225 +32,130 @@
       { "label": "Home", "href": "#home", "id": "home" },
       { "label": "About", "href": "#about", "id": "about" },
       { "label": "Menu", "href": "#menu", "id": "menu" },
-      { "label": "Testimonials", "href": "#testimonials", "id": "testimonials" },
-      { "label": "Blog", "href": "#blog", "id": "blog" },
-      { "label": "Contact", "href": "#contact", "id": "contact" }
+      { "label": "Stories", "href": "#testimonials", "id": "testimonials" },
+      { "label": "Magic Scroll", "href": "", "id": "blog" },
+      { "label": "Find Us", "href": "#contact", "id": "contact" }
     ]
   },
 
   "hero": {
-    "badge": "Authentic Middle Eastern Cuisine",
+    "badge": "Taste the Magic of Arabia in Kochi",
     "title": {
-      "line1": "Welcome to",
-      "line2": "Aladdin Shawarma",
-      "line3": "Experience the Magic"
+      "line1": "Open the Lamp,",
+      "line2": "Summon the Flavor,",
+      "line3": "Welcome to Aladdin Shawarma"
     },
-    "description": "Discover the authentic taste of the Middle East with our traditional shawarmas, crafted with premium ingredients and centuries-old recipes that transport you to the heart of Arabian cuisine.",
+    "description": "From the alleys of Agrabah to the rush of Kaloor, Aladdin Shawarma brings you the legendary taste of Arabian nights — slow-roasted meats, secret sauces, and a dash of genie magic. Each wrap is a wish granted.",
     "cta": {
-      "primary": "Order Now",
-      "secondary": "View Menu"
+      "primary": "Summon a Shawarma",
+      "secondary": "View the Magic Menu"
     },
     "features": [
-      "Fresh Daily Ingredients",
-      "Traditional Recipes",
-      "Halal Certified"
+      "Genie-Level Juiciness",
+      "Arabian Spices, Kerala Soul",
+      "Halal & Fresh Daily"
     ]
   },
 
   "about": {
-    "badge": "Our Story",
-    "title": "The Magic Behind Aladdin Shawarma",
-    "subtitle": "Bringing Authentic Middle Eastern Flavors to Your Table",
-    "description": "Founded with a passion for authentic Middle Eastern cuisine, Aladdin Shawarma has been serving the community with traditional flavors and warm hospitality. Our journey began with a simple mission: to share the rich culinary heritage of the Middle East through carefully crafted dishes that honor time-tested recipes.",
+    "badge": "The Tale Begins",
+    "title": "The Legend of Aladdin Shawarma",
+    "subtitle": "Born from the Lamp, Served in Kochi",
+    "description": "Once upon a grill, in the heart of Kaloor, a lamp was rubbed — and out came flavors that danced between sand dunes and sea breeze. Aladdin Shawarma isn’t just food; it’s an Arabian dream retold with Kerala fire. We blend Middle Eastern craft with Kochi street spirit, bringing you shawarmas that whisper, ‘ente daivame, ithu super aanu.’",
     "highlights": [
       {
-        "title": "Premium Ingredients",
-        "description": "We source only the finest, freshest ingredients to ensure authentic flavors in every bite."
+        "title": "Magical Ingredients",
+        "description": "Every bite begins with handpicked meats, fresh herbs, and genie-approved sauces made right here in our kitchen."
       },
       {
-        "title": "Traditional Methods",
-        "description": "Our recipes have been passed down through generations, preserving the authentic taste of the Middle East."
+        "title": "Timeless Techniques",
+        "description": "Slow-roasted on flame spits, wrapped with care, and seasoned like a spell from the desert winds of Arabia."
       },
       {
         "title": "Halal Certified",
-        "description": "All our meats are halal certified, ensuring quality and adherence to Islamic dietary laws."
+        "description": "Every serving follows the true tradition — halal, authentic, and blessed with purity."
       }
     ],
     "stats": [
-      { "number": "15+", "label": "Years of Experience" },
-      { "number": "10,000+", "label": "Happy Customers" },
-      { "number": "25+", "label": "Menu Items" },
-      { "number": "100%", "label": "Fresh Daily" }
+      { "number": "1001", "label": "Shawarmas Served from the Lamp" },
+      { "number": "5000+", "label": "Happy Kochi Foodies" },
+      { "number": "20+", "label": "Magic Spices Blended" },
+      { "number": "100%", "label": "Fresh. Juicy. Real." }
     ]
   },
 
   "menu": {
-    "title": "Our Delicious Menu",
-    "subtitle": "Authentic Middle Eastern Flavors",
-    "description": "Explore our carefully curated selection of traditional Middle Eastern dishes, each prepared with authentic spices and premium ingredients.",
+    "title": "The Genie’s Menu",
+    "subtitle": "Each Shawarma, a Wish Granted",
+    "description": "Our menu is carved from Aladdin’s scroll itself — a mix of Arabian classics and Kochi street cravings, seasoned with a little mischief and a lot of magic.",
     "categories": [
       {
         "name": "Signature Shawarmas",
-        "description": "Our signature rotating spit-roasted meats, expertly marinated and carved to perfection",
+        "description": "The lamp’s favorites — grilled, spiced, and rolled with Arabian charm.",
         "items": [
           {
-            "name": "Classic Chicken Shawarma",
-            "description": "Tender marinated chicken with fresh vegetables, tahini sauce, and our special blend of Middle Eastern spices",
-            "price": "$12.99",
+            "name": "Magic Chicken Shawarma",
+            "description": "Juicy marinated chicken kissed by the flame, rolled in soft khuboos with garlic mayo and genie’s secret sauce.",
+            "price": "₹160",
             "image": "https://veenaazmanov.com/wp-content/uploads/2016/09/Easy-Shawarma-Chicken-Recipe20.png",
             "featured": true,
-            "tags": ["Popular", "Halal", "Protein Rich"]
+            "tags": ["Popular", "Halal", "Kochi Favorite"]
           },
           {
-            "name": "Lamb Shawarma Supreme",
-            "description": "Premium lamb cuts marinated in traditional spices, served with hummus, pickles, and garlic sauce",
-            "price": "$15.99",
+            "name": "Sultan’s Lamb Shawarma",
+            "description": "Royal lamb strips spiced in desert herbs, layered with hummus and smoky sauce — rich like an Arabian treasure.",
+            "price": "₹220",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9y1Kx-cHBQRRpFcJSWHNuhGxkaWeU_dpKw&s",
             "featured": true,
-            "tags": ["Premium", "Halal", "Chef's Special"]
+            "tags": ["Premium", "Halal", "Royal"]
           },
           {
-            "name": "Mixed Meat Shawarma",
-            "description": "Perfect combination of chicken and lamb with fresh herbs, vegetables, and our signature sauces",
-            "price": "$14.99",
+            "name": "Aladdin’s Mix Roll",
+            "description": "A perfect duet of chicken and lamb, wrapped with crunchy veggies and genie’s fiery mayo.",
+            "price": "₹190",
             "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg",
-            "tags": ["Best Seller", "Halal", "Combo"]
+            "tags": ["Best Seller", "Halal", "Mixed Magic"]
           },
           {
-            "name": "Vegetarian Falafel Wrap",
-            "description": "Crispy homemade falafel with fresh vegetables, tahini, and Mediterranean spices",
-            "price": "$10.99",
+            "name": "Falafel Genie Wrap",
+            "description": "Crispy golden falafel with pickles, tahini, and that perfect tang — even the genie orders this on his cheat day.",
+            "price": "₹140",
             "image": "https://static.toiimg.com/thumb/53338316.cms?imgsize=665831&width=800&height=800",
             "tags": ["Vegetarian", "Vegan", "Healthy"]
           },
           {
-            "name": "Beef Shawarma Deluxe",
-            "description": "Succulent beef strips with roasted vegetables, garlic sauce, and fresh herbs in warm pita",
-            "price": "$16.99",
+            "name": "Beef Mirage Roll",
+            "description": "Tender beef roasted slow and wrapped in a storm of garlic, greens, and Arabian smoke.",
+            "price": "₹210",
             "image": "https://www.oliveandmango.com/images/uploads/2022_03_18_beef_shawarma_8.jpg",
-            "tags": ["Premium", "Halal", "Hearty"]
+            "tags": ["Premium", "Halal", "Bold Flavor"]
           }
         ]
       },
       {
-        "name": "Platters & Bowls",
-        "description": "Generous portions served with rice, salad, and our signature sauces",
+        "name": "Genie Platters",
+        "description": "Big flavors for big appetites — rice, shawarma, salad, and magic on a plate.",
         "items": [
           {
-            "name": "Chicken Shawarma Platter",
-            "description": "Generous portion of chicken shawarma served over basmati rice with salad and sauce",
-            "price": "$16.99",
+            "name": "Chicken Magic Platter",
+            "description": "Flame-grilled chicken shawarma served over saffron rice with salad and creamy garlic sauce.",
+            "price": "₹220",
             "image": "https://veenaazmanov.com/wp-content/uploads/2016/09/Easy-Shawarma-Chicken-Recipe20.png",
-            "tags": ["Family Size", "Complete Meal", "Halal"]
+            "tags": ["Family", "Halal", "Full Meal"]
           },
           {
-            "name": "Mixed Grill Platter",
-            "description": "Combination of chicken, lamb, and kofta served with rice, grilled vegetables, and bread",
-            "price": "$22.99",
+            "name": "Mixed Genie Feast",
+            "description": "A royal mix of chicken, lamb, and kofta — served with spiced rice and warm khuboos.",
+            "price": "₹280",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9y1Kx-cHBQRRpFcJSWHNuhGxkaWeU_dpKw&s",
-            "tags": ["Chef's Special", "Premium", "For Sharing"]
+            "tags": ["Premium", "For Sharing", "Festive"]
           },
           {
-            "name": "Mediterranean Bowl",
-            "description": "Fresh quinoa bowl with grilled chicken, vegetables, hummus, and tahini dressing",
-            "price": "$14.99",
+            "name": "Desert Bowl",
+            "description": "A clean-eating bowl — quinoa, grilled chicken, roasted veggies, and hummus dressed with Arabian lemon oil.",
+            "price": "₹190",
             "image": "https://static.toiimg.com/thumb/53338316.cms?imgsize=665831&width=800&height=800",
-            "tags": ["Healthy", "Protein Rich", "Gluten Free"]
-          }
-        ]
-      },
-      {
-        "name": "Appetizers & Sides",
-        "description": "Traditional Middle Eastern mezze and sides to complement your meal",
-        "items": [
-          {
-            "name": "Traditional Hummus",
-            "description": "Creamy chickpea blend with tahini, olive oil, and aromatic spices, served with warm pita",
-            "price": "$7.99",
-            "image": "https://cdn.loveandlemons.com/wp-content/uploads/2021/05/hummus-recipe.jpg",
-            "tags": ["Vegetarian", "Vegan", "Classic"]
-          },
-          {
-            "name": "Crispy Falafel (6 pcs)",
-            "description": "Golden fried chickpea balls with herbs and Middle Eastern spices, served with tahini",
-            "price": "$8.99",
-            "image": "https://www.themediterraneandish.com/wp-content/uploads/2020/02/falafel-recipe-1.jpg",
-            "tags": ["Vegetarian", "Vegan", "Crispy"]
-          },
-          {
-            "name": "Fattoush Salad",
-            "description": "Fresh mixed greens with tomatoes, cucumbers, and crispy pita chips in sumac dressing",
-            "price": "$9.99",
-            "image": "https://www.allrecipes.com/thmb/UhT8Lz2r5P8v4SQ-v4Q8q2K_hcE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8499088-fattoush-salad-3-B-Olin-4x3-1-8a84a2c6ef6e4d4488bbf6b2e3c3e4a7.jpg",
-            "tags": ["Fresh", "Vegetarian", "Light"]
-          },
-          {
-            "name": "Baba Ganoush",
-            "description": "Smoky roasted eggplant dip with tahini, garlic, and lemon, served with pita bread",
-            "price": "$8.99",
-            "image": "https://www.loveandlemons.com/wp-content/uploads/2021/07/baba-ganoush.jpg",
-            "tags": ["Vegetarian", "Vegan", "Smoky"]
-          }
-        ]
-      },
-      {
-        "name": "Fresh Juices & Beverages",
-        "description": "Refreshing drinks and traditional Middle Eastern beverages",
-        "items": [
-          {
-            "name": "Fresh Mint Lemonade",
-            "description": "Refreshing blend of fresh mint, lemon, and sparkling water with a hint of sweetness",
-            "price": "$4.99",
-            "image": "https://www.gimmesomeoven.com/wp-content/uploads/2019/05/Mint-Lemonade-Recipe-1.jpg",
-            "tags": ["Fresh", "Refreshing", "Natural"]
-          },
-          {
-            "name": "Turkish Coffee",
-            "description": "Traditional strong coffee served with a touch of cardamom and Turkish delight",
-            "price": "$3.99",
-            "image": "https://www.turkishstylegroundcoffee.com/wp-content/uploads/2020/05/turkish-coffee-traditional.jpg",
-            "tags": ["Traditional", "Strong", "Authentic"]
-          },
-          {
-            "name": "Fresh Orange Juice",
-            "description": "Freshly squeezed orange juice, served ice cold",
-            "price": "$4.99",
-            "image": "https://hips.hearstapps.com/hmg-prod/images/orange-juice-1578504490.jpg",
-            "tags": ["Fresh", "Vitamin C", "Natural"]
-          },
-          {
-            "name": "Mint Tea",
-            "description": "Traditional Middle Eastern mint tea, perfect for digestion",
-            "price": "$3.99",
-            "image": "https://www.thespruceeats.com/thmb/XQzg_Xm8b3oO4iJPQQ4XfE7XdTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-mint-tea-2394730-hero-01-dcf5f1f1e3f942acb09aa5e6b6e5a0e7.jpg",
-            "tags": ["Traditional", "Herbal", "Digestive"]
-          }
-        ]
-      },
-      {
-        "name": "Desserts",
-        "description": "Traditional Middle Eastern sweets to complete your dining experience",
-        "items": [
-          {
-            "name": "Baklava (3 pieces)",
-            "description": "Flaky phyllo pastry filled with nuts and honey, a traditional Middle Eastern delight",
-            "price": "$6.99",
-            "image": "https://www.recipetineats.com/wp-content/uploads/2016/03/Baklava_8.jpg",
-            "tags": ["Traditional", "Sweet", "Honey"]
-          },
-          {
-            "name": "Kunafa",
-            "description": "Sweet cheese pastry topped with crispy shredded phyllo and sugar syrup",
-            "price": "$7.99",
-            "image": "https://www.willcookforsmiles.com/wp-content/uploads/2021/04/Kunafa-recipe-1.jpg",
-            "tags": ["Premium", "Cheese", "Sweet"]
-          },
-          {
-            "name": "Rice Pudding",
-            "description": "Creamy rice pudding with rose water, cinnamon, and pistachios",
-            "price": "$5.99",
-            "image": "https://www.recipetineats.com/wp-content/uploads/2019/02/Rice-Pudding_8.jpg",
-            "tags": ["Creamy", "Traditional", "Comfort"]
+            "tags": ["Healthy", "Protein Rich", "Light"]
           }
         ]
       }
@@ -258,112 +163,104 @@
   },
 
   "chef": {
-    "title": "Meet Our Master Chef",
-    "subtitle": "The Culinary Artist Behind Every Dish",
+    "title": "Meet the Genie Behind the Grill",
+    "subtitle": "Magic Crafted by Flame and Skill",
     "chef": {
-      "name": "Ahmad Al-Masri",
-      "title": "Head Chef & Owner",
-      "experience": "20+ Years",
-      "specialization": "Middle Eastern Cuisine",
-      "description": "Chef Ahmad brings over two decades of culinary expertise from the heart of the Middle East. Trained in traditional kitchens of Damascus and Beirut, he combines authentic recipes with modern techniques to create unforgettable dining experiences.",
+      "name": "Chef Kareem",
+      "title": "The Grill Genie",
+      "experience": "15 Years",
+      "specialization": "Arabian & Fusion Shawarma",
+      "description": "Chef Kareem, our very own genie of flavor, brings the fire of Arabia to the streets of Kochi. Every shawarma that rolls off his grill carries the same spirit — bold, rich, and unforgettable.",
       "image": "https://img.freepik.com/premium-photo/chef-holding-shawarma-roll-spinning-grillers-meat-photos_714950-357.jpg",
       "achievements": [
-        "Trained in Damascus, Syria",
-        "20+ Years of Experience",
-        "Award-Winning Recipes",
-        "Master of Traditional Spices"
+        "Master of Fire-Grill Cooking",
+        "Crafted 10,000+ Shawarmas",
+        "Expert in Arabian Spice Alchemy",
+        "Known as the ‘Genie of Kaloor’"
       ]
     },
     "team": [
       {
         "name": "Fatima Hassan",
         "role": "Sous Chef",
-        "specialization": "Appetizers & Salads",
+        "specialization": "Falafel & Mezze",
         "image": "chefFatima"
       },
       {
         "name": "Omar Khalil",
         "role": "Grill Master",
-        "specialization": "Shawarma & Grilled Meats",
+        "specialization": "Shawarma & Skewers",
         "image": "chefOmar"
       },
       {
         "name": "Layla Nasser",
-        "role": "Pastry Chef",
-        "specialization": "Middle Eastern Desserts",
+        "role": "Dessert Magician",
+        "specialization": "Baklava & Kunafa",
         "image": "chefLayla"
       }
     ]
   },
 
   "testimonials": {
-    "title": "What Our Customers Say",
-    "subtitle": "Real Reviews from Real People",
+    "title": "Voices from the Kingdom of Kaloor",
+    "subtitle": "What the People Wish for (and Eat)",
     "reviews": [
       {
-        "name": "Sarah Johnson",
-        "role": "Food Blogger",
+        "name": "Akhil Dev",
+        "role": "Food Vlogger",
         "rating": 5,
-        "comment": "Absolutely authentic! The flavors transported me straight to the Middle East. The chicken shawarma is perfectly seasoned and the bread is incredibly fresh.",
+        "comment": "Bro, this shawarma is not normal — it’s pure magic. The garlic dip alone deserves its own movie. Easily the best spot near the Stadium!",
         "image": "https://www.shutterstock.com/image-photo/headshot-close-face-portrait-young-600nw-2510015507.jpg",
-        "location": "New York, NY"
+        "location": "Kochi"
       },
       {
-        "name": "Michael Chen",
-        "role": "Regular Customer",
+        "name": "Nimisha Nair",
+        "role": "College Student",
         "rating": 5,
-        "comment": "I've been coming here for 3 years and the quality never disappoints. The lamb shawarma is my favorite - tender, flavorful, and always consistent.",
+        "comment": "The chicken shawarma felt straight out of an Arabian tale. Fresh, juicy, and the wrap melts like butter. Enikku ithu mathram mathi!",
         "image": "https://www.shutterstock.com/image-photo/head-shot-portrait-smart-confident-600nw-1721092123.jpg",
-        "location": "Los Angeles, CA"
+        "location": "Edappally"
       },
       {
-        "name": "Amira Al-Rashid",
-        "role": "Food Enthusiast",
+        "name": "Rahul Raj",
+        "role": "Techie",
         "rating": 5,
-        "comment": "As someone from the Middle East, I can confirm this is as authentic as it gets. The spices, the preparation, everything is perfect. Highly recommended!",
-        "image": "https://www.shutterstock.com/image-photo/headshot-close-face-portrait-young-600nw-2510015507.jpg",
-        "location": "Chicago, IL"
-      },
-      {
-        "name": "David Martinez",
-        "role": "Local Resident",
-        "rating": 5,
-        "comment": "The best shawarma in the city! Fresh ingredients, generous portions, and the staff is incredibly friendly. This place has become our go-to for Middle Eastern food.",
+        "comment": "Lunch break + Aladdin Shawarma = happiness unlocked. Even Genie would queue here if he was in Kochi.",
         "image": "https://www.shutterstock.com/image-photo/head-shot-portrait-smart-confident-600nw-1721092123.jpg",
-        "location": "Miami, FL"
+        "location": "Infopark"
       }
     ]
   },
 
   "blog": {
-    "title": "From Our Kitchen",
-    "subtitle": "Stories, Recipes, and Culinary Adventures",
+    "title": "Tales from the Lamp",
+    "subtitle": "Stories, Spices, and Street Magic",
     "posts": [
       {
-        "title": "The Art of Perfect Shawarma Marinade",
-        "excerpt": "Discover the secrets behind our signature marinades that make our shawarma irresistibly delicious.",
-        "author": "Chef Ahmad Al-Masri",
-        "date": "2024-01-15",
-        "readTime": "5 min read",
-        "category": "Recipes",
+        "title": "How Aladdin Found the Perfect Shawarma Flame",
+        "excerpt": "The story of how our chef tamed the fire to roast the perfect meat — smoky outside, juicy inside.",
+        "author": "Chef Kareem",
+        "date": "2025-02-01",
+        "readTime": "4 min read",
+        "category": "Kitchen Story",
         "image": "https://arteflame.com/cdn/shop/articles/1bf662fcd70991d0da7b1580cf7ea680.jpg?v=1741426707&width=1400",
         "featured": true
       },
       {
-        "title": "A Journey Through Middle Eastern Spices",
-        "excerpt": "Explore the rich world of Middle Eastern spices and how they transform simple ingredients into culinary magic.",
+        "title": "The Spices That Even Genie Guarded",
+        "excerpt": "From Aleppo pepper to Kerala’s own black gold — the spice blend that powers our shawarma magic.",
         "author": "Fatima Hassan",
-        "date": "2024-01-10",
-        "readTime": "7 min read",
+        "date": "2025-01-20",
+        "readTime": "6 min read",
         "category": "Culture",
         "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2023/05/chicken-shawarma.jpg"
       },
       {
-        "title": "The History of Shawarma: From Street Food to Gourmet",
-        "excerpt": "Learn about the fascinating history of shawarma and how it evolved from humble street food to a global phenomenon.",
+        "title": "When Kochi Met Arabia",
+        "excerpt": "A short tale of how the Arabian shawarma fell in love with Kerala’s streets — and never left.",
         "author": "Omar Khalil",
-        "date": "2024-01-05",
-        "readTime": "6 min read",
+        "date": "2025-01-10",
+        "readTime": "5 min read",
         "category": "History",
         "image": "https://www.recipetineats.com/uploads/2017/01/Chicken-Shawarma-Wrap_3.jpg"
       }
@@ -371,59 +268,59 @@
   },
 
   "callToAction": {
-    "title": "Ready to Experience Authentic Middle Eastern Flavors?",
-    "subtitle": "Order now and taste the difference that authentic ingredients and traditional recipes make",
+    "title": "Ready to Rub the Lamp?",
+    "subtitle": "Summon your shawarma — the genie awaits your wish.",
     "buttons": [
       {
-        "text": "Order Online",
+        "text": "Order from the Lamp",
         "type": "primary",
         "action": "order"
       },
       {
-        "text": "Make Reservation",
+        "text": "Visit the Kingdom",
         "type": "secondary",
         "action": "reservation"
       }
     ],
     "features": [
-      "Free Delivery on Orders Over $25",
-      "Fresh Made to Order",
-      "Ready in 15 Minutes"
+      "Free Delivery in 3km Radius",
+      "Made Fresh on Order",
+      "Packed with Magic, Ready in 10 Minutes"
     ]
   },
 
   "perfectIngredients": {
-    "title": "Perfect Ingredients",
-    "subtitle": "The Secret to Our Authentic Taste",
-    "description": "We carefully source the finest ingredients from trusted suppliers who share our commitment to quality and authenticity.",
+    "title": "The Genie’s Secret Pantry",
+    "subtitle": "Where Every Spice Has a Story",
+    "description": "Our magic starts with handpicked ingredients — meats marinated under moonlight, herbs crushed fresh each morning, and spices straight from the dunes of Arabia.",
     "ingredients": [
       {
-        "name": "Premium Lamb",
-        "description": "Locally sourced, grass-fed lamb marinated in traditional spices",
+        "name": "Royal Lamb",
+        "description": "Locally sourced, marinated with Damascus-inspired herbs.",
         "image": "ingredientLamb"
       },
       {
-        "name": "Fresh Herbs",
-        "description": "Daily fresh parsley, mint, and cilantro for that authentic flavor",
+        "name": "Fresh Kerala Herbs",
+        "description": "Mint, parsley, and coriander handpicked from local farms — kissed by Arabian spice.",
         "image": "ingredientHerbs"
       },
       {
-        "name": "Artisan Bread",
-        "description": "House-made pita bread baked fresh throughout the day",
+        "name": "House-Baked Pita",
+        "description": "Soft, warm bread made every hour — straight from our lamp (oven).",
         "image": "ingredientBread"
       },
       {
-        "name": "Traditional Spices",
-        "description": "Imported spice blends from the Middle East for authentic taste",
+        "name": "Spice of the Sands",
+        "description": "A blend of Middle Eastern masalas and Kerala heat — pure magic dust.",
         "image": "ingredientSpices"
       }
     ]
   },
 
   "reservation": {
-    "title": "Make a Reservation",
-    "subtitle": "Reserve Your Table for an Unforgettable Dining Experience",
-    "description": "Book your table in advance to ensure the best dining experience. We accommodate groups of all sizes.",
+    "title": "Reserve a Spot in the Kingdom",
+    "subtitle": "Book your table under the Arabian lights of Kaloor",
+    "description": "Dining in? Let us prepare your throne. Our space near Kaloor Stadium turns every meal into a royal feast.",
     "form": {
       "fields": [
         { "name": "name", "label": "Full Name", "type": "text", "required": true },
@@ -434,35 +331,36 @@
         { "name": "guests", "label": "Number of Guests", "type": "select", "required": true, "options": ["1", "2", "3", "4", "5", "6", "7", "8", "More than 8"] },
         { "name": "message", "label": "Special Requests", "type": "textarea", "required": false }
       ],
-      "submitText": "Make Reservation"
+      "submitText": "Reserve Your Lamp"
     }
   },
 
   "footer": {
-    "description": "Aladdin Shawarma has been serving authentic Middle Eastern cuisine with passion and dedication. Visit us for an unforgettable culinary journey.",
+    "description": "From the sands of Arabia to the heart of Kochi — Aladdin Shawarma brings tales, flavors, and fire to your plate. Taste the magic, share the story.",
     "quickLinks": [
-      { "label": "About Us", "href": "#about" },
-      { "label": "Menu", "href": "#menu" },
-      { "label": "Catering", "href": "#catering" },
-      { "label": "Contact", "href": "#contact" },
+      { "label": "Our Story", "href": "#about" },
+      { "label": "Genie Menu", "href": "#menu" },
+      { "label": "Catering Magic", "href": "#catering" },
+      { "label": "Find Us", "href": "#contact" },
       { "label": "Privacy Policy", "href": "#privacy" },
       { "label": "Terms of Service", "href": "#terms" }
     ],
     "openingHours": [
-      { "day": "Monday", "hours": "9:00 AM - 9:00 PM" },
-      { "day": "Tuesday", "hours": "9:00 AM - 9:00 PM" },
-      { "day": "Wednesday", "hours": "9:00 AM - 9:00 PM" },
-      { "day": "Thursday", "hours": "9:00 AM - 9:00 PM" },
-      { "day": "Friday", "hours": "9:00 AM - 10:00 PM" },
-      { "day": "Saturday", "hours": "10:00 AM - 10:00 PM" },
-      { "day": "Sunday", "hours": "10:00 AM - 9:00 PM" }
+      { "day": "Monday", "hours": "12:00 PM - 11:30 PM" },
+      { "day": "Tuesday", "hours": "12:00 PM - 11:30 PM" },
+      { "day": "Wednesday", "hours": "12:00 PM - 11:30 PM" },
+      { "day": "Thursday", "hours": "12:00 PM - 11:30 PM" },
+      { "day": "Friday", "hours": "12:00 PM - 12:30 AM" },
+      { "day": "Saturday", "hours": "12:00 PM - 12:30 AM" },
+      { "day": "Sunday", "hours": "12:00 PM - 11:30 PM" }
     ],
-    "copyright": "© 2024 Aladdin Shawarma. All rights reserved."
+    "copyright": "© 2025 Aladdin Shawarma Kochi. All Rights Reserved."
   },
 
   "seo": {
-    "defaultTitle": "Aladdin Shawarma - Authentic Middle Eastern Cuisine",
-    "defaultDescription": "Experience authentic Middle Eastern flavors at Aladdin Shawarma. Fresh ingredients, traditional recipes, and warm hospitality await you.",
-    "keywords": ["shawarma", "middle eastern food", "halal", "authentic cuisine", "falafel", "hummus", "mediterranean", "restaurant"]
+    "defaultTitle": "Aladdin Shawarma Kochi | Arabian Magic Near Kaloor Stadium",
+    "defaultDescription": "Aladdin Shawarma serves legendary Arabian flavors in Kochi. Taste shawarmas that mix desert spice and Kerala fire — where magic meets meat.",
+    "keywords": "shawarma kochi, arabian food kochi, aladdin shawarma kaloor, best shawarma in kochi, halal food kaloor, genie food kerala, kochi shawarma restaurant",
+    "author": "Aladdin Shawarma Team"
   }
 }

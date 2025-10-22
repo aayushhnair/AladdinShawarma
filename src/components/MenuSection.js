@@ -60,7 +60,7 @@ const MenuSection = () => {
         <h2 className={`section-title ${isMobile ? 'mobile-menu-title' : ''}`} style={{ color: '#FCB100' }}>
           {strings.menu.title}
         </h2>
-        <p className={`section-subtitle ${isMobile ? 'mobile-menu-subtitle' : ''}`} style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
+        <p className={`section-subtitle ${isMobile ? 'mobile-menu-subtitle' : ''}`} style={{margin: '0 0', color: 'rgba(255, 255, 255, 0.75)' }}>
           {isMobile ? strings.menu.description.substring(0, 100) + '...' : strings.menu.description}
         </p>
       </div>
